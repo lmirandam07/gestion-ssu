@@ -14,12 +14,12 @@
 <body>
     <?php include('./templates/header2.html'); ?>
 
-    <div class="container is-fluid formulario ">
+    <div class="container is-fluid formulario">
         <h1 class="titulo">Iniciar Sesión</h1>
         <br>
         <form action="localhost:8000/" method="POST">
             <div class="field">
-                <label class="label">Correo Electronico</label>
+                <label class="label">Correo Electrónico</label>
                 <div class="control level-item has-text-centered">
                     <input class="input input-is" type="text" placeholder="Text input">
                 </div>
@@ -29,7 +29,7 @@
             <div class="field">
                 <label class="label">Contraseña</label>
                 <div class="control level-item has-text-centered">
-                    <input class="input is-success input-is" type="text" placeholder="Text input">
+                    <input class="input input-is" type="text" placeholder="Text input">
                 </div>
 
                 <br>
@@ -50,5 +50,6 @@
     </div>
 
 </body>
+    </div>
 
 </html>

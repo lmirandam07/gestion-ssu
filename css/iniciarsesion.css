@@ -1,8 +1,8 @@
 .formulario{
-padding:5%;
-top: 10%;
-right: 5%;
-left: 5%;
+    top: 8%;
+
+    width: 700;
+    height: 500;
 background-color: white;
 justify-content: center;
 }
@@ -13,7 +13,8 @@ form{
 
     
     justify-content: center;
-    width: 700;
+    border-color: #7760BB;
+
 }
 .titulo{
     text-align: center;
@@ -26,7 +27,7 @@ form{
     text-align: center;
 }
 .label{
-    margin-left: 23%;
+  
     color: #7760BB;
 }
 .link{

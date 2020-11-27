@@ -1,0 +1,12 @@
+.cont1{
+width: 1000;
+height: 560;
+background-color: white;
+justify-content: center;
+}
+.titulo{
+    text-align: center;
+}
+.boton{
+    text-align: center;
+}

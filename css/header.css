@@ -20,3 +20,13 @@ body {
 .navbar-item #iniciar:hover {
     border-radius: 15px;
 }
+
+.menu {
+    margin-top: .05rem;
+    background-color: #F8F9FA;
+}
+
+.menu .column a {
+    color: #7760BB;
+    font-weight: bold;
+}

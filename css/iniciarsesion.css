@@ -1,12 +1,50 @@
-.cont1{
-width: 1000;
-height: 560;
+.formulario{
+padding:5%;
+top: 10%;
+right: 5%;
+left: 5%;
 background-color: white;
 justify-content: center;
 }
+form{
+    text-emphasis: center;
+}
+.input-is{
+
+    
+    justify-content: center;
+    width: 700;
+}
 .titulo{
     text-align: center;
+    color: #7760BB;
+    font-weight: bold;
+    font-size: x-large;
+    
 }
 .boton{
     text-align: center;
+}
+.label{
+    margin-left: 23%;
+    color: #7760BB;
+}
+.link{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #7760BB;
+    margin-left: 0.5%;
+}
+p{
+    color: #7760BB;
+}
+
+.div-boton{
+padding-top: 1%;
+padding-bottom: 1%;
+}
+.boton{
+    color:#ffffff;
+    background-color: #7760BB;;
+
 }

@@ -14,33 +14,39 @@
 <body>
     <?php include('./templates/header2.html'); ?>
 
-    <div class="container is-fluid" class="cont1">
-        <h3 class="titulo">Iniciar Sesion</h3>
+    <div class="container is-fluid formulario ">
+        <h1 class="titulo">Iniciar Sesión</h1>
         <br>
         <form action="localhost:8000/" method="POST">
             <div class="field">
                 <label class="label">Correo Electronico</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
+                <div class="control level-item has-text-centered">
+                    <input class="input input-is" type="text" placeholder="Text input">
                 </div>
                 <br>
             </div>
 
             <div class="field">
                 <label class="label">Contraseña</label>
-                <div class="control">
-                    <input class="input is-success" type="text" placeholder="Text input">
+                <div class="control level-item has-text-centered">
+                    <input class="input is-success input-is" type="text" placeholder="Text input">
                 </div>
 
                 <br>
 
-                <div>
-                    <input class="button is-normal" type="submit" class="boton" value="Iniciar Sesión">
+                <div class="level-item has-text-centered div-boton">
+                    <input class="button boton" type="submit" value="Iniciar Sesión">
                 </div>
 
             </div>
 
         </form>
+
+        <p class="level-item has-text-centered">¿Haz olvidado la contraseña?  <a class="link" href=""> Haz clic aquí</a></p>
+
+        <br>
+
+        <p class="level-item has-text-centered">¿No tienes una cuenta?  <a class="link" href=""> Registrate</a></p>
     </div>
 
 </body>

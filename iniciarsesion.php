@@ -21,15 +21,15 @@
             <div class="field">
                 <label class="label">Correo Electrónico</label>
                 <div class="control level-item has-text-centered">
-                    <input class="input input-is" type="text" placeholder="Text input">
+                    <input class="input input-is" type="text" placeholder="Text input"name="Correo">
                 </div>
                 <br>
             </div>
 
             <div class="field">
-                <label class="label">Contraseña</label>
+                <label class="label ">Contraseña</label>
                 <div class="control level-item has-text-centered">
-                    <input class="input input-is" type="text" placeholder="Text input">
+                    <input class="input input-is" type="text" placeholder="Text input"name="Contraseña">
                 </div>
 
                 <br>

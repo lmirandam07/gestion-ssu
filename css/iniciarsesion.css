@@ -12,8 +12,12 @@ form{
 .input-is{
 
     
-    justify-content: center;
     border-color: #7760BB;
+    width: 700;
+}
+.input-is:focus{
+    outline: #7760BB;
+    box-shadow: #7760BB;
 
 }
 .titulo{
@@ -23,12 +27,11 @@ form{
     font-size: x-large;
     
 }
-.boton{
-    text-align: center;
-}
 .label{
   
     color: #7760BB;
+    margin-left: 23%;
+ 
 }
 .link{
     text-decoration: underline;

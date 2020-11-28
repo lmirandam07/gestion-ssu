@@ -8,42 +8,49 @@
     <link rel="stylesheet" href="css/registrar.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Registrar Usuario</title>
+    <title>Inicio</title>
 </head>
 
 <body>
     <?php include('./templates/header2.html'); ?>
 
-    <div class="container is-fluid div-maestro">
-        <h1 class="titulo">Formulario de Registro</h1>
-        <form action="localhost:8000/">
-            <div class="columns">
+    <div class="hero is-fullheight">
+        <div class="hero-body ">
+            <div class="container has-text-centered">
+                <div class="column is-10 is-offset-1">
+
+
+<div class="box">
+<h3 class="title titulo">Formualario de Registro</h3>
+
+  <form>
+  <div class="columns">
                 <div class="column columna1">
                     <div class="field">
                         <label class="label">Nombre</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"name="Nombre">
+                            <input class="input input-is" type="text"name="Nombre">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Correo Institucional</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"name="Correo">
+                            <input class="input input-is" type="text" name="Correo">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"name="Contraseña">
+                            <input class="input input-is" type="text" name="Contraseña">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Validar Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"name="ValidarC">
+                            <input class="input input-is" type="text" name="ValidarC">
                         </div>
                     </div>
 
@@ -55,21 +62,21 @@
                     <div class="field">
                         <label class="label">Apellido</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"name="Apellido">
+                            <input class="input input-is" type="text" name="Apellido">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label label-is">Cédula</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input"names="Cedula">
+                            <input class="input input-is" type="text" names="Cedula">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Número de Contacto</label>
                         <div class="control">
-                            <input class="input input-is" type="text" placeholder="Text input" name="Numero_Contacto">
+                            <input class="input input-is" type="text" name="Numero_Contacto">
                         </div>
                     </div>
 
@@ -92,17 +99,21 @@
                 </div>
 
             </div>
+            <input class="button boton" type="submit" value="Registrarse">
+</form>
 
-            <div class="level-item has-text-centered div-boton">
-                <input class="button boton" type="submit" value="Registrarse">
+<p class="level-item has-text-centered">¿Ya tienes una cuenta? <a class="link" href=""> Inicia Sesión</a></p>
+</div>
+
+                </div>
             </div>
 
+        </div>
 
-
-        </form>
-
-        <p class="level-item has-text-centered">¿Ya tienes una cuenta? <a class="link" href=""> Inicia Sesión</a></p>
     </div>
+
+
+
 
 
 

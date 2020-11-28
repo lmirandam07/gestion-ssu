@@ -1,33 +1,31 @@
-.div-master{
-    background-color: white;
-    width: 600px;
-    top: 5%;
-    height: 500px;
-}
 .titulo{
-    text-align: center;
     color: #7760BB;
-    font-weight: bold;
-    font-size: x-large;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    
-}
-.label{
-    color: #7760BB;
-    position: relative;
-    padding-left: 23%;
-}
-.input-is{
-
-    
-    border-color: #7760BB ;
-    color: #7760BB;
-    width: 700;
 }
 .boton{
-    margin-top: 3%;
     color:#ffffff;
     background-color: #7760BB;
+    margin-top: 2%;
+
+}
+.link{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #7760BB;
+    margin-left: 0.5%;
+}
+.sent{
+    color: #7760BB;
+    font-size: 0.8rem;
+}
+.label{
+  
+    color: #7760BB;
+ 
+}
+.label1{
+    margin-top: 5%;
+}
+.input-is{
+    border-color: #7760BB;
 
 }

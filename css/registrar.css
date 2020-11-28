@@ -1,57 +1,31 @@
-.columna1{
-    background-color: white;
-}
-.columna2{
-    background-color: white;
-}
-.columns{
-    margin-top: 2%;
-}
-
 .titulo{
-    text-align: center;
     color: #7760BB;
-    font-weight: bold;
-    font-size: x-large;
-    padding-top: 2%;
-    
-}
-.div-maestro{
-    background-color: white;
-    width: 600px;
-    top: 5%;
-    
 }
 .boton{
     color:#ffffff;
-    background-color: #7760BB;;
+    background-color: #7760BB;
+    margin-top: 2%;
 
 }
-
 .link{
     text-decoration: underline;
     font-weight: bold;
     color: #7760BB;
     margin-left: 0.5%;
 }
-p{
+.sent{
     color: #7760BB;
+    font-size: 0.8rem;
 }
 .label{
+  
     color: #7760BB;
+ 
 }
-
-input{
-    border-color: #7760BB;
+.label1{
+    margin-top: 5%;
 }
 .input-is{
-
-    
-    border-color: #7760BB ;
-    color: #7760BB;
-}
-.input-is:focus{
-    outline: #7760BB;
-    box-shadow: #7760BB;
+    border-color: #7760BB;
 
 }

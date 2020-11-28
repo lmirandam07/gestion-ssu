@@ -1,38 +1,11 @@
-.formulario{
-    top: 5%;
-
-    width: 700;
-    height: 500;
-background-color: white;
-justify-content: center;
-}
-form{
-    text-emphasis: center;
-}
-.input-is{
-
-    
-    border-color: #7760BB;
-    width: 700;
-}
-.input-is:focus{
-    outline: #7760BB;
-    box-shadow: #7760BB;
-
-}
 .titulo{
-    text-align: center;
     color: #7760BB;
-    font-weight: bold;
-    font-size: x-large;
-    padding-top: 2%;
-    
 }
-.label{
-  
-    color: #7760BB;
-    margin-left: 23%;
- 
+.boton{
+    color:#ffffff;
+    background-color: #7760BB;
+    margin-top: 2%;
+
 }
 .link{
     text-decoration: underline;
@@ -40,16 +13,20 @@ form{
     color: #7760BB;
     margin-left: 0.5%;
 }
-p{
+.sent{
     color: #7760BB;
+    font-size: 0.8rem;
 }
+.label{
+  
+    color: #7760BB;
+ 
+}
+.label1{
+    margin-top: 5%;
+}
+.input-is{
 
-.div-boton{
-padding-top: 1%;
-padding-bottom: 1%;
-}
-.boton{
-    color:#ffffff;
-    background-color: #7760BB;;
+    border-color: #7760BB;
 
 }

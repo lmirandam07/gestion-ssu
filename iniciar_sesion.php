@@ -14,42 +14,51 @@
 <body>
     <?php include('./templates/header2.html'); ?>
 
-    <div class="container is-fluid formulario">
-        <h1 class="titulo">Iniciar Sesión</h1>
-        <br>
-        <form action="localhost:8000/" method="POST">
-            <div class="field">
-                <label class="label">Correo Electrónico</label>
-                <div class="control level-item has-text-centered">
-                    <input class="input input-is" type="text" placeholder="Text input"name="Correo">
-                </div>
-                <br>
-            </div>
+    <div class="hero is-fullheight">
+        <div class="hero-body ">
+            <div class="container has-text-centered">
+                <div class="column is-10 is-offset-1">
 
-            <div class="field">
-                <label class="label ">Contraseña</label>
-                <div class="control level-item has-text-centered">
-                    <input class="input input-is" type="text" placeholder="Text input"name="Contraseña">
-                </div>
 
-                <br>
+<div class="box">
+<h3 class="title titulo">Iniciar Sesión</h3>
 
-                <div class="level-item has-text-centered div-boton">
-                    <input class="button boton" type="submit" value="Iniciar Sesión">
-                </div>
-
-            </div>
-
-        </form>
-
-        <p class="level-item has-text-centered">¿Haz olvidado la contraseña?  <a class="link" href=""> Haz clic aquí</a></p>
-
-        <br>
-
-        <p class="level-item has-text-centered">¿No tienes una cuenta?  <a class="link" href=""> Registrate</a></p>
+  <form>
+  <div class="field">
+    <div class="control">
+    <label class="label has-text-left">Correo Electrónico</label>
+      <input class="input is-medium input-is" type="email" name="Email" autofocus="">
+      <br>
     </div>
+  </div>
+  <div class="field">
+    <div class="control">
+    <label class="label has-text-left label1">Contraseña</label>
+      <input class="input is-medium input-is" type="password" name="Contraseña">
+    </div>
+  </div>
+  <input class="button boton" type="submit" value="Iniciar Sesión">
+</form>
+
+<p class="sent">¿Haz olvidado la contraseña?<a class="link" href=""> Haz clic aquí</a></p>
+
+<br>
+
+<p class="sent">¿No tienes una cuenta?<a class="link" href=""> Registrate</a></p>
+</div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
 
 </body>
-    </div>
 
 </html>

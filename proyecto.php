@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/proyecto.css">
-    <title>Inicio</title>
+    <title>Proyecto</title>
 </head>
 <body>
     <?php include('./templates/header.html'); ?>

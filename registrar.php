@@ -23,7 +23,7 @@
 <div class="box">
 <h3 class="title titulo">Formualario de Registro</h3>
 
-  <form>
+  <form action="" method="POST">
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">
@@ -36,7 +36,7 @@
                     <div class="field">
                         <label class="label">Correo Institucional</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="Correo">
+                            <input class="input input-is" type="email" name="Correo">
                         </div>
                     </div>
 

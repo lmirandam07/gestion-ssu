@@ -23,18 +23,18 @@
 <div class="box">
 <h3 class="title titulo">Cambiar Contraseña</h3>
 
-  <form>
+  <form action="" method="POST">
   <div class="field">
     <div class="control">
     <label class="label has-text-left">Nueva Contraseña</label>
-      <input class="input is-medium input-is" type="email" name="Email" autofocus="">
+      <input class="input is-medium input-is" type="text" name="Email" autofocus="">
       <br>
     </div>
   </div>
   <div class="field">
     <div class="control">
     <label class="label has-text-left label1">Reescribir Contraseña</label>
-      <input class="input is-medium input-is" type="password" name="Contraseña">
+      <input class="input is-medium input-is" type="text" name="Contraseña">
     </div>
   </div>
   <input class="button boton" type="submit" value="Cambiar Contraseña">

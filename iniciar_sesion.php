@@ -23,7 +23,7 @@
 <div class="box">
 <h3 class="title titulo">Iniciar Sesión</h3>
 
-  <form>
+  <form action="" method="POST">
   <div class="field">
     <div class="control">
     <label class="label has-text-left">Correo Electrónico</label>

@@ -19,7 +19,7 @@
             <div class="hero-body"></div>
         </section>
         <section class="ssu-cont columns is-vcentered">
-            <div class="column is-4 is-offset-4 has-text-centered">
+            <div class="column is-6 is-offset-3 has-text-centered">
                 <p>
                     <span class="ssu">La Dirección de Servicio Social Universitario (SSU)</span>
                     es la unidad encargada del desarrollo de los proyectos de

@@ -9,6 +9,10 @@
 
 #titulo{ color: #7760BB; }
 
+#descrip{
+    overflow: hidden;
+}
+
 #paginas{ 
     background-color: #292C25;
     color: white;

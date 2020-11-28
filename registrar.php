@@ -102,7 +102,7 @@
             <input class="button boton" type="submit" value="Registrarse">
 </form>
 
-<p class="level-item has-text-centered">¿Ya tienes una cuenta? <a class="link" href=""> Inicia Sesión</a></p>
+<p class="sent">¿Ya tienes una cuenta? <a class="link" href="http://localhost:8000/iniciar_sesion.php"> Inicia Sesión</a></p>
 </div>
 
                 </div>

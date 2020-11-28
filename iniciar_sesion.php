@@ -40,11 +40,11 @@
   <input class="button boton" type="submit" value="Iniciar Sesión">
 </form>
 
-<p class="sent">¿Haz olvidado la contraseña?<a class="link" href=""> Haz clic aquí</a></p>
+<p class="sent">¿Haz olvidado la contraseña?<a class="link" href="http://localhost:8000/cambiar_contra.php">Haz clic aquí</a></p>
 
 <br>
 
-<p class="sent">¿No tienes una cuenta?<a class="link" href=""> Registrate</a></p>
+<p class="sent">¿No tienes una cuenta?<a class="link" href="http://localhost:8000/registrar.php">Registrate</a></p>
 </div>
 
                 </div>

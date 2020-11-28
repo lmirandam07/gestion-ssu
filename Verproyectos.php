@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/VerProyectos.css">
     <title>Ver Proyectos</title>
 </head>
@@ -85,6 +86,7 @@
            </div>
         </div> 
      </section>
-
+     <br>
+     <?php include('./templates/footer.html'); ?>
 </body>
 </html>

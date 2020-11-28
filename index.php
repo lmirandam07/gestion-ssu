@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
     <title>Inicio</title>
 </head>
 

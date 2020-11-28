@@ -1,0 +1,44 @@
+.proyecto{
+    border-style: solid;
+    border-color: #7760BB;
+    padding: 35px;
+    margin: 10px;
+    border-width: 1px;
+}
+.proyecto h1{
+    color: #7760BB;
+}
+.is-principal{
+    background-color: #7760BB;
+    color: white;
+}
+ul{
+    margin-left: 25px;
+    list-style:circle;
+}
+.info1{
+    margin-top: 2rem;
+}
+.objetivo{
+    margin-left: 4rem;
+}
+.informacion{
+    margin-left: 4rem;
+
+}
+.encargado{
+    border-right-style: solid;
+    border-right-color: #7760BB;
+}
+.perfil{
+    border-right-style: solid;
+    border-right-color: #7760BB;
+}
+.inscribirse{
+    margin-top: 2rem;
+}
+.button:hover{
+    border-color: #7760BB;
+    background-color: white;
+    color: #7760BB;
+}

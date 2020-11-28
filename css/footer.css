@@ -4,10 +4,15 @@
 }
 .footer{
     background-color: #292C25;
+    height: 280px;
 }
 
 ul a{
-    padding: 20px;
+    margin: 20px;
+}
+ul a:hover{
+    cursor: pointer;
+    border-bottom: 1px solid #ffffff;
 }
 ul span{
     margin: 25px;

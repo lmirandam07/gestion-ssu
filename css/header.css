@@ -6,6 +6,9 @@ body {
 
 .navbar {
     background-color: #292C25;
+    -webkit-box-shadow: 0px 6px 18px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 18px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 18px -10px rgba(0,0,0,0.75);
 }
 
 .navbar-end .navbar-item {
@@ -17,16 +20,25 @@ body {
     border-radius: 15px;
 }
 
+.navbar-item #registrarse:hover {
+    color: #7760BB;
+}
+
 .navbar-item #iniciar:hover {
     border-radius: 15px;
+    color: #7760BB;
 }
 
 .menu {
-    margin-top: .05rem;
     background-color: #F8F9FA;
+    height: 50px;
 }
 
-.menu .column a {
+.menu div a {
     color: #7760BB;
     font-weight: bold;
+}
+
+.menu div a:hover {
+    border-bottom: 1px solid #7760BB;
 }

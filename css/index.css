@@ -1,0 +1,78 @@
+.has-bg-img{
+    background: url(../img/voluntariado.jpeg) center center;
+    background-size:cover;
+}
+.ssu-cont p {
+    font-size: 1.5rem;
+}
+p .ssu {
+    color: #7760BB;
+    font-weight: bold;
+}
+
+.ssu-cont {
+    margin: 1rem 0;
+}
+
+.mision-vision div {
+    padding: 5rem;
+    font-size: 1.2rem;
+}
+
+.mision-vision div h3 {
+    color: #FFF;
+}
+
+
+.mision {
+    background-color: #7760BB;
+    color: #FFF;
+}
+
+.vision {
+    background-color: #1C1E1A;
+    color: #FFF;
+}
+
+.objetivos {
+    padding: 2rem;
+}
+
+.opciones {
+    background-color: #F8F9FA;
+    -webkit-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
+    padding: 2rem;
+}
+
+.opc {
+    margin-top: 1rem;
+}
+
+.opc .voluntario {
+    text-decoration: none;
+    background-color: #7760BB;
+    padding: .5rem 2rem;
+    color: #FFF;
+    border-radius: 15px;
+    transition: background-color 1s ease;
+
+}
+
+.opc .proponer {
+    text-decoration: none;
+    background-color: #1C1E1A;
+    padding: .5rem 2rem;
+    color: #FFF;
+    border-radius: 15px;
+    transition: background-color 1s ease;
+}
+
+.opc .voluntario:hover {
+    background-color: #7760bbd2;
+}
+
+.opc .proponer:hover {
+    background-color: #1c1e1ac2;
+}

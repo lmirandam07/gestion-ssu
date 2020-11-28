@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/VerProyectos.css">
+    <link rel="stylesheet" href="./css/ver_proyectos.css">
     <title>Ver Proyectos</title>
 </head>
 <body>
@@ -40,7 +40,7 @@
                           <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
                         </figure>
                       </div>
-                      <div class="media-content">
+                      <div class="media-content" id="descrip">
                         <div class="content">
                             <h3 id="titulo">Limpieza de playas</h3>
                             <div class = "columns">

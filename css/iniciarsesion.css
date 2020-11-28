@@ -1,5 +1,5 @@
 .formulario{
-    top: 8%;
+    top: 5%;
 
     width: 700;
     height: 500;
@@ -25,6 +25,7 @@ form{
     color: #7760BB;
     font-weight: bold;
     font-size: x-large;
+    padding-top: 2%;
     
 }
 .label{

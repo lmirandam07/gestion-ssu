@@ -1,15 +1,15 @@
 .proyecto{
     border-style: solid;
-    border-color: #7760BB;
+    border-color: #6048A8;
     padding: 35px;
     margin: 10px;
     border-width: 1px;
 }
 .proyecto h1{
-    color: #7760BB;
+    color: #6048A8;
 }
 .is-principal{
-    background-color: #7760BB;
+    background-color: #6048A8;
     color: white;
 }
 ul{
@@ -28,17 +28,17 @@ ul{
 }
 .encargado{
     border-right-style: solid;
-    border-right-color: #7760BB;
+    border-right-color: #6048A8;
 }
 .perfil{
     border-right-style: solid;
-    border-right-color: #7760BB;
+    border-right-color: #6048A8;
 }
 .inscribirse{
     margin-top: 2rem;
 }
 .button:hover{
-    border-color: #7760BB;
+    border-color: #6048A8;
     background-color: white;
-    color: #7760BB;
+    color: #6048A8;
 }

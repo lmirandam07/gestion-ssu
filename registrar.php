@@ -27,28 +27,28 @@
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">
-                        <label class="label">Nombre</label>
+                        <label class="label has-text-left">Nombre</label>
                         <div class="control">
                             <input class="input input-is" type="text"name="Nombre">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Correo Institucional</label>
+                        <label class="label has-text-left">Correo Institucional</label>
                         <div class="control">
                             <input class="input input-is" type="email" name="Correo">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Contraseña</label>
+                        <label class="label has-text-left">Contraseña</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Contraseña">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Validar Contraseña</label>
+                        <label class="label has-text-left">Validar Contraseña</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="ValidarC">
                         </div>
@@ -60,28 +60,28 @@
                 </div>
                 <div class="column columna2">
                     <div class="field">
-                        <label class="label">Apellido</label>
+                        <label class="label has-text-left">Apellido</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Apellido">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label label-is">Cédula</label>
+                        <label class="label has-text-left ">Cédula</label>
                         <div class="control">
                             <input class="input input-is" type="text" names="Cedula">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Número de Contacto</label>
+                        <label class="label has-text-left">Número de Contacto</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Numero_Contacto">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Facultad</label>
+                        <label class="label has-text-left">Facultad</label>
                         <div class="control">
                             <div class="select is-fullwidth input-is">
                                 <select name="Facultad">

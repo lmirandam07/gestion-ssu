@@ -31,7 +31,7 @@
      <br>
      
      <section class="container is-fluid" id="propuestas">
-        <div class = "columns is-centered"> <!--Propuesta-->
+        <div class = "columns is-centered"> <!--Proyecto-->
             <div class = "column is-11">
                 <div class="box">
                     <article class="media">
@@ -55,7 +55,7 @@
                                 <div class = "column is-gapless"></div>
                                 <div class = "column is-11 is-gapless"></div>
                                 <div class = "column is-narrow is-gapless has-text-centered">
-                                    <button class="button is-dark is-hovered" id="boton"> Ver más </button>
+                                    <a href="./proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                     </article>
                   </div>
            </div>
-        </div> <!--Final Propuesta-->
+        </div> <!--Final Proyecto-->
      </section>
 
      <br>

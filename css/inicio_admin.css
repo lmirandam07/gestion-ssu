@@ -1,0 +1,23 @@
+.has-bg-img{
+    background: url(../img/campus_utp.jpg) center center;
+    background-size:cover;
+}
+
+.has-bg-color{
+    width: 100%;
+    background-color: #1c1e1a77;
+    color: white;
+}
+.is-purple{
+    color: #6048A8;
+}
+
+.container_morado{
+    background-color: #6048A8;
+    color: white;
+}
+
+.container_darkgray{
+    background-color: #1C1E1A;
+    color: white;
+}

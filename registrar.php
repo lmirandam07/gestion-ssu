@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/header2.css">
-    <link rel="stylesheet" href="css/registrar.css">
+    <link rel="stylesheet" href="./css/header2_2.css">
+    <link rel="stylesheet" href="css/registrar2.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Inicio</title>
@@ -21,34 +21,34 @@
 
 
 <div class="box">
-<h3 class="title titulo">Formualario de Registro</h3>
+<h3 class="title titulo">Formulario de Registro</h3>
 
   <form action="" method="POST">
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">
-                        <label class="label">Nombre</label>
+                        <label class="label has-text-left">Nombre</label>
                         <div class="control">
                             <input class="input input-is" type="text"name="Nombre">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Correo Institucional</label>
+                        <label class="label has-text-left">Correo Institucional</label>
                         <div class="control">
                             <input class="input input-is" type="email" name="Correo">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Contraseña</label>
+                        <label class="label has-text-left">Contraseña</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Contraseña">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Validar Contraseña</label>
+                        <label class="label has-text-left">Validar Contraseña</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="ValidarC">
                         </div>
@@ -60,28 +60,28 @@
                 </div>
                 <div class="column columna2">
                     <div class="field">
-                        <label class="label">Apellido</label>
+                        <label class="label has-text-left">Apellido</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Apellido">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label label-is">Cédula</label>
+                        <label class="label has-text-left ">Cédula</label>
                         <div class="control">
                             <input class="input input-is" type="text" names="Cedula">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Número de Contacto</label>
+                        <label class="label has-text-left">Número de Contacto</label>
                         <div class="control">
                             <input class="input input-is" type="text" name="Numero_Contacto">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Facultad</label>
+                        <label class="label has-text-left">Facultad</label>
                         <div class="control">
                             <div class="select is-fullwidth input-is">
                                 <select name="Facultad">

@@ -7,7 +7,7 @@
 
 .hero-foot h1{ padding: 2%; }
 
-#titulo{ color: #7760BB; }
+#titulo{ color: #6048A8; }
 
 #descrip{
     overflow: hidden;
@@ -19,6 +19,6 @@
 }
 
 .is-current{
-    background-color: #7760BB;
+    background-color: #6048A8;
     color: white;
 }

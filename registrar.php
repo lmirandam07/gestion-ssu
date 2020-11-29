@@ -21,7 +21,7 @@
 
 
 <div class="box">
-<h3 class="title titulo">Formualario de Registro</h3>
+<h3 class="title titulo">Formulario de Registro</h3>
 
   <form action="" method="POST">
   <div class="columns">

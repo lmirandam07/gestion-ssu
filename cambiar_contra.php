@@ -27,14 +27,14 @@
   <div class="field">
     <div class="control">
     <label class="label has-text-left">Nueva Contraseña</label>
-      <input class="input is-medium input-is" type="text" name="Email" autofocus="">
+      <input class="input is-medium input-is" type="text" name="Contra" autofocus="">
       <br>
     </div>
   </div>
   <div class="field">
     <div class="control">
     <label class="label has-text-left label1">Reescribir Contraseña</label>
-      <input class="input is-medium input-is" type="text" name="Contraseña">
+      <input class="input is-medium input-is" type="text" name="Nueva_Contraseña">
     </div>
   </div>
   <input class="button boton" type="submit" value="Cambiar Contraseña">

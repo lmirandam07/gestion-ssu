@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/ver_proyectos_propuestas.css">
-    <title>Ver Proyecto</title>
+    <title>Ver Propuestas de Proyecto</title>
 </head>
 <body>
     <?php include('./templates/header.html'); ?>
@@ -14,12 +14,12 @@
         <div class = "columns">
             <div class = "column"></div>
             <div class = "column is-11">
-                <section class = "hero has-bg-img is-medium" id="banner_proyecto">
+                <section class = "hero has-bg-img is-medium">
                     <div class = "hero-body"></div>
                     <div class = "hero-foot">
                         <div class = "container is-fluid">
                            <h1 class = "title has-text-white" id="titulo_pagina">
-                            Proyectos de <br> Servicio Social Universitario
+                            Propuestas de Proyectos <br> de Servicio Social Universitario
                            </h1>
                         </div>
                      </div>

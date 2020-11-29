@@ -1,0 +1,57 @@
+.has-bg-img{
+    background: url(../img/Congos_Panama.jpg)
+    center center; background-size:cover;
+}
+
+#banner_proyecto{
+    background: url(../img/NiñasGunas.jpg)
+    center center; background-size:cover;
+}
+
+.hero-foot{ background: rgba(54, 54, 54, 0.5); }
+
+.hero-foot h1{ padding: 2%; }
+
+#titulo{ color: #6048A8; }
+
+#descrip{
+    overflow: hidden;
+}
+
+#paginas{ 
+    background-color: #292C25;
+    color: white;
+}
+
+.is-current{
+    background-color: #6048A8;
+    color: white;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the
+two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+
+}
+/* Responsive layout - when the screen is less than 400px wide, make the
+navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 765px) {
+ #boton{
+     margin-top: 15px;
+ }
+
+#foto_proyecto{
+    margin-bottom: 15px;
+    align-content: center;
+}
+}
+
+@media screen and (max-width: 500px) {
+
+   #titulo_pagina{
+       font-size: large;
+   }
+   
+   }
+
+/**/

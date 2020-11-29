@@ -22,10 +22,7 @@
     color: #6048A8;
  
 }
-.label:active{
-    outline: #6048A8;
-    color: #6048A8;
-}
+
 .label1{
     margin-top: 5%;
 }
@@ -33,4 +30,8 @@
 
     border-color: #6048A8;
 
+}
+.input-is:active{
+    outline: #6048A8;
+    color: #6048A8;
 }

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include('./templates/header.html'); ?>
+    <?php include('./templates/header_usuario_admin.html'); ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">

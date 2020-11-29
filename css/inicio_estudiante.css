@@ -1,48 +1,28 @@
 .has-bg-img{
-    background: url(../img/voluntariado.jpeg) center center;
+    background: url(../img/Ayuda_social.jpg) center center;
     background-size:cover;
 }
-.ssu-cont p {
-    font-size: 1.5rem;
+
+.has-bg-color{
+    width: 100%;
+    background-color: #1c1e1a77;
+    color: white;
 }
-p .ssu {
+.is-purple{
     color: #6048A8;
-    font-weight: bold;
 }
 
-.ssu-cont {
-    margin: 1rem 0;
-}
-
-.mision-vision div {
-    padding: 5rem;
-    font-size: 1.2rem;
-}
-
-.mision-vision div h3 {
-    color: #FFF;
-}
-
-
-.mision {
+.container_morado{
     background-color: #6048A8;
-    color: #FFF;
+    color: white;
 }
 
-.vision {
+.container_darkgray{
     background-color: #1C1E1A;
-    color: #FFF;
-}
-
-.objetivos {
-    padding: 2rem;
+    color: white;
 }
 
 .opciones {
-    background-color: #F8F9FA;
-    -webkit-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.75);
     padding: 2rem;
 }
 

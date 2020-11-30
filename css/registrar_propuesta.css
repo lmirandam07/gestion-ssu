@@ -2,6 +2,17 @@
     background: url(../img/Siembra_de_arboles.webp)
     center center; background-size:cover;
 }
+#banner_proyecto{
+    background: url(../img/pintando.jpg)
+    center center; background-size:cover;
+}
+
+.hero-foot{ background: rgba(54, 54, 54, 0.5); }
+
+.hero-foot h1{ padding: 2%; }
+
+#titulo{ color: #6048A8; }
+
 .propuesta{
     border-style: solid;
     border-color: #6048A8;

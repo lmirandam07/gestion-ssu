@@ -80,7 +80,7 @@ CREATE TABLE usuario (
   nombre_us VARCHAR(50) NOT NULL,
   apellido_us VARCHAR(50) NOT NULL,
   cedula_us VARCHAR(20) NOT NULL,
-  total_horas INT DEFAULT 0,
+  total_horas INT,
   id_tipo_us INT NOT NULL,
   telefono INT NOT NULL,
   correo VARCHAR(50) NOT NULL,

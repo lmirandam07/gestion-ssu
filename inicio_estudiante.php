@@ -42,7 +42,7 @@
                         <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="./Ver_perfil.php">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>
@@ -57,7 +57,7 @@
                         <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="./proyecto,php">Ver Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="./Ver_perfil.php">Ver Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>

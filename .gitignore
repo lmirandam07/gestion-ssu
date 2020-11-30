@@ -1,4 +1,7 @@
 
+# PHP Composer
+.vendor/*
+
 ### PHPUnit ###
 # Covers PHPUnit
 # Reference: https://phpunit.de/

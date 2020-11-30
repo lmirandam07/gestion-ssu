@@ -27,7 +27,7 @@
                     <div class="column is-half">
 
                         <h3 class="texto">FECHA DE NACIMIENTO</h3>
-                        <H3 class="texto">GÉNERO</H3>
+                        <H3 class="texto">CÉDULA</H3>
                         <H3 class="texto">FACULTAD</H3>
                         <H3 class="texto">CORREO ELECTRONICO</H3>
                         <H3 class="texto">TELÉFONO</H3>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="column is-half">
                         <h3 class="texto">0 de Enero de 0000</h3>
-                        <h3 class="texto">Indefinido</h3>
+                        <h3 class="texto">0-000-0000</h3>
                         <h3 class="texto">Sistemas</h3>
                         <h3 class="texto">nombredecorreo@correo.com</h3>
                         <h3 class="texto">0000-0000</h3>

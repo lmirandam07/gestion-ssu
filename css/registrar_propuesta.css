@@ -1,6 +1,6 @@
 .has-bg-img{
-    background: url(../img/Siembra_de_arboles.webp);
-    background-size:cover;
+    background: url(../img/Siembra_de_arboles.webp)
+    center center; background-size:cover;
 }
 .propuesta{
     border-style: solid;

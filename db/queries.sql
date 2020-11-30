@@ -37,6 +37,7 @@ CREATE TABLE propuesta_proyecto (
 CREATE TABLE proyecto (
   id_proyecto INT AUTO_INCREMENT NOT NULL,
   nombre_pro VARCHAR(50) NOT NULL,
+  id_propuesta INT NOT NULL,
   lugar_pro VARCHAR(50) NOT NULL,
   fecha_pro DATE NOT NULL,
   hora_inicio_pro TIME NOT NULL,
@@ -53,7 +54,6 @@ CREATE TABLE proyecto (
   id_proPUESTA INT NOT NULL,
   CONSTRAINT pk_id_pro PRIMARY KEY (id_proyecto),
   CONSTRAINT fk_id_propuesta FOREIGN KEY (id_propuesta) REFERENCES propuesta_proyecto (id_propuesta)
-
 );
 CREATE TABLE ano_proyecto (
   id_propuesta INT NOT NULL,
@@ -88,30 +88,32 @@ CREATE TABLE usuario (
   contrasena VARCHAR(20) NOT NULL,
   CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
   CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)
-)
-
--- Tablas precargadas
-
-INSERT INTO facultad(id_facultad, nombre_facultad)
-VALUES (1, 'Ing. Civil'),
-VALUES (2, 'Ing. Mecánica'),
-VALUES (3, 'Ing. Eléctrica'),
-VALUES (4, 'Ing. Sistemas Computacionales'),
-VALUES (5, 'Ing. Industrial'),
-VALUES (6, 'Ciencias y Tecnología');
-
-INSERT INTO estado_proyecto(id_estado_pro, estado_pro)
-VALUES (1, 'Aprobado'),
-VALUES (2, 'Rechazado'),
-VALUES (3, 'En proceso'),
-
-
-INSERT INTO tipo_usuario (id_tipo_us, tipo_usuario)
-VALUES (1, 'estudiante'),
-VALUES (2, 'administrador');
-
-INSERT INTO ano(id_ano, ano_estudio)
-VALUES (1, 'Primer año'),
-VALUES (2, 'Segundo año'),
-VALUES (3, 'Tercer año'),
-VALUES (4, 'Cuarto año o más');
+);
+- - Tablas precargadas
+INSERT INTO
+  facultad(id_facultad, nombre_facultad)
+VALUES
+  (1, 'Ing. Civil'),
+  (2, 'Ing. Mecánica'),
+  (3, 'Ing. Eléctrica'),
+  (4, 'Ing. Sistemas Computacionales'),
+  (5, 'Ing. Industrial'),
+  (6, 'Ciencias y Tecnología');
+INSERT INTO
+  estado_proyecto(id_estado_pro, estado_pro)
+VALUES
+  (1, 'Aprobado'),
+  (2, 'Rechazado'),
+  (3, 'En proceso');
+INSERT INTO
+  tipo_usuario (id_tipo_us, tipo_usuario)
+VALUES
+  (1, 'estudiante'),
+  (2, 'administrador');
+INSERT INTO
+  ano(id_ano, ano_estudio)
+VALUES
+  (1, 'Primer año'),
+  (2, 'Segundo año'),
+  (3, 'Tercer año'),
+  (4, 'Cuarto año o más');

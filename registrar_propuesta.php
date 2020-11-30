@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/registrar_propuesta.css">
+    <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
     <title>Registrar Propuesta</title>
 </head>
 <body>

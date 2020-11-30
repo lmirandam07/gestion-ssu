@@ -1,3 +1,5 @@
+USE ssu_db;
+
 INSERT INTO
   usuario(
     nombre_us,
@@ -14,7 +16,7 @@ VALUES
     'Luis',
     'Miranda',
     '8-954-208',
-    NULL,
+    ,
     2,
     '6667777',
     'lu@gmail.com',
@@ -24,7 +26,7 @@ VALUES
     'Lionel',
     'Henríquez',
     '8-915-2155',
-    NULL,
+    ,
     2,
     '6667777',
     'lio@gmail.com',
@@ -54,7 +56,7 @@ VALUES
     'Javier',
     'Singh',
     '8-965-2155',
-    NULL,
+    ,
     2,
     '6667777',
     'javi@gmail.com',

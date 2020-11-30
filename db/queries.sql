@@ -101,7 +101,7 @@ VALUES (6, 'Ciencias y Tecnología');
 
 INSERT INTO estado_proyecto(id_estado_pro, estado_pro)
 VALUES (1, 'Aprobado'),
-VALUES (2, 'Rechazadp'),
+VALUES (2, 'Rechazado'),
 VALUES (3, 'En proceso'),
 
 

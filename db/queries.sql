@@ -42,3 +42,9 @@ CREATE TABLE proyecto_usuario (id_pro INT NOT NULL, id_usuario INT NOT NULL, hor
 CREATE TABLE tipo_usuario (id_tipo_us INT NOT NULL, tipo_usuario VARCHAR(50) NOT NULL,
                             CONSTRAINT pk_id_tipo_us PRIMARY KEY (id_tipo_us)
                             );
+
+CREATE TABLE usuario (id_usuario INT NOT NULL, nombre_us VARCHAR(50) NOT NULL, apellido_us VARCHAR(50) NOT NULL, cedula_us VARCHAR(20) NOT NULL,
+                     total_horas INT DEFAULT 0, id_tipo_us INT NOT NULL, telefono INT NOT NULL, correo VARCHAR(50) NOT NULL, contrasena VARCHAR(20) NOT NULL,
+                     CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
+                     CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)
+                    )

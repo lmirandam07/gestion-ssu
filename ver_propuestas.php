@@ -55,7 +55,7 @@
                                 <div class = "column is-gapless"></div>
                                 <div class = "column is-11 is-gapless"></div>
                                 <div class = "column is-narrow is-gapless has-text-centered">
-                                    <a href="" class="button is-dark is-hovered" id="boton"> Ver más </a>
+                                    <a href="./proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
                                 </div>
                             </div>
                         </div>

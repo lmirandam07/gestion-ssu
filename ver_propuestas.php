@@ -9,7 +9,7 @@
     <title>Ver Propuestas de Proyecto</title>
 </head>
 <body>
-    <?php include('./templates/header.html'); ?>
+    <?php include('./templates/header_usuario_admin.html'); ?>
     <br><section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>

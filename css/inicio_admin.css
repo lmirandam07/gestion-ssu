@@ -1,5 +1,5 @@
 .has-bg-img{
-    background: url(../img/campus_utp.jpg) center center;
+    background: url(../img/voluntario.jpeg) center center;
     background-size:cover;
 }
 
@@ -19,5 +19,13 @@
 
 .container_darkgray{
     background-color: #1C1E1A;
+    color: white;
+}
+
+.has_text_link{
+    color: white;
+}
+
+p a:hover {
     color: white;
 }

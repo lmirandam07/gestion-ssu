@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+
+.columna1{
+
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 0px !important;
+
+
+
+
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.colprin{
+    margin-top: 3%;
+
+}
+
+.texto{
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.textoP{
+
+    font-weight: bold;
+    margin-top: 3%;
+}
+.horas{
+    padding-right: 3.2%;
+    color: #6048A8;
+    font-weight: bold;
+}
+.icono-perfil{
+    flex: auto;
+    width: 128px;
+}
+.icono-edit{
+    flex: auto;
+}
+.columna-barra{
+    overflow: auto;
+}
+.pro-ins{
+    color: #6048A8;
+    margin-left: 3%;
+    margin-bottom: 5%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 3%;
+}
+.cont{
+    margin-bottom: 5%;
+}
+.reg{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.bod{
+    margin-bottom: 0%;
+}
+.textcol2{
+    font-weight: bold;
+}

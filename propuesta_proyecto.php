@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/registrar_propuesta.css">
+    <link rel="stylesheet" href="./css/propuesta_proyecto.css">
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
-    <title>Registrar Propuesta</title>
+    <title>Propuesta</title>
 </head>
 <body>
     <?php include('./templates/header.html'); ?>
@@ -283,10 +283,10 @@
                         <br>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
-                                <input type="submit" class="button is-second is-normal" value="CANCELAR">
+                                <input type="submit" class="button is-second is-normal" value="RECHAZAR">
                             </p>
                             <p class="control">
-                                <input type="submit" class="button is-principal is-normal" value="ENVIAR">
+                                <input type="submit" class="button is-principal is-normal" value="APROBAR">
                             </p>
                         </div>
                     </form>

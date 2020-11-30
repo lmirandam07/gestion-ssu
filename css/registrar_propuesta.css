@@ -1,0 +1,54 @@
+.has-bg-img{
+    background: url(../img/Siembra_de_arboles.webp);
+    background-size:cover;
+}
+.propuesta{
+    border-style: solid;
+    border-color: #6048A8;
+    padding: 1rem;
+    border-width: 1px;
+    margin-bottom: 2rem;
+    
+}
+.propuesta h2{
+    color: #6048A8;
+}
+.datos{
+    border-right-style: solid;
+    border-right-color: #6048A8;
+}
+.is-principal{
+    background-color: #6048A8;
+    color: white;
+    margin-left: 2rem;
+}
+.is-principal:hover{
+    border-color: #6048A8;
+    background-color: white;
+    color: #6048A8;
+}
+.is-second{
+    background-color: #292C25;
+    color: white;
+    
+}
+.is-second:hover{
+    border-color: #292C25;
+    background-color: white;
+    color: #292C25;
+}
+.field-label{
+    text-align: left;
+    font-size: 15px;
+}
+
+input:active{
+    border-color: #6048A8;
+}
+textarea{
+    resize: none;
+}
+textarea:active{
+    border-color: #6048A8;
+}
+

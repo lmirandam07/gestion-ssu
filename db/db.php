@@ -6,4 +6,4 @@ class Db {
 
         return $conexion;
     }
-}
+}   

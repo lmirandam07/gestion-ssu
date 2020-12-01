@@ -15,6 +15,18 @@
     <?php include('./templates/header2.html'); ?>
     <?php include('./db/db.php'); ?>
 
+    <?php  
+
+
+    $nombre=$_POST['nombre'];
+    $correo=$_POST['correo'];
+    $contra=$_POST['contra'];
+    $validarC=$_POST['validarC'];
+    $apellido=$_POST['apellido'];
+    $cedula=$_POST['cedula'];
+    $numero_contacto=$_POST['numero_contacto'];
+    $facultad=$_POST['facultad'];?>
+
 
     <div class="hero is-fullheight">
         <div class="hero-body ">
@@ -25,34 +37,34 @@
 <div class="box">
 <h3 class="title titulo">Formulario de Registro</h3>
 
-  <form action="" method="POST">
+  <form action="./Entidades/Usuario.php" method="POST">
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">
                         <label class="label has-text-left">Nombre</label>
                         <div class="control">
-                            <input class="input input-is" type="text"name="Nombre">
+                            <input class="input input-is" type="text"name="nombre">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Correo Institucional</label>
                         <div class="control">
-                            <input class="input input-is" type="email" name="Correo">
+                            <input class="input input-is" type="email" name="correo">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="Contraseña">
+                            <input class="input input-is" type="text" name="contra">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Validar Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="ValidarC">
+                            <input class="input input-is" type="text" name="validarC">
                         </div>
                     </div>
 
@@ -64,21 +76,21 @@
                     <div class="field">
                         <label class="label has-text-left">Apellido</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="Apellido">
+                            <input class="input input-is" type="text" name="apellido">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left ">Cédula</label>
                         <div class="control">
-                            <input class="input input-is" type="text" names="Cedula">
+                            <input class="input input-is" type="text" names="cedula">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Número de Contacto</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="Numero_Contacto">
+                            <input class="input input-is" type="text" name="numero_contacto">
                         </div>
                     </div>
 
@@ -86,7 +98,7 @@
                         <label class="label has-text-left">Facultad</label>
                         <div class="control">
                             <div class="select is-fullwidth input-is">
-                                <select name="Facultad">
+                                <select name="facultad">
                                     <option>F. Ing. Civil</option>
                                     <option>F. Ing. Eléctrica</option>
                                     <option>F. Ing. Industrial</option>

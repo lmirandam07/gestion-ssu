@@ -51,6 +51,7 @@ CREATE TABLE proyecto (
   telefono_encarg INT NOT NULL,
   correo_encarg VARCHAR(50) NOT NULL,
   perfil_estu_pro VARCHAR(300) NOT NULL,
+  id_proPUESTA INT NOT NULL,
   CONSTRAINT pk_id_pro PRIMARY KEY (id_proyecto),
   CONSTRAINT fk_id_propuesta FOREIGN KEY (id_propuesta) REFERENCES propuesta_proyecto (id_propuesta)
 );

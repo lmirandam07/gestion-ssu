@@ -13,6 +13,8 @@
 
 <body>
     <?php include('./templates/header2.html'); ?>
+    <?php include('./db/db.php'); ?>
+
 
     <div class="hero is-fullheight">
         <div class="hero-body ">

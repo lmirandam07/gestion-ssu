@@ -89,7 +89,7 @@ CREATE TABLE usuario (
   CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
   CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)
 );
-- - Tablas precargadas
+--Tablas precargadas
 INSERT INTO
   facultad(id_facultad, nombre_facultad)
 VALUES

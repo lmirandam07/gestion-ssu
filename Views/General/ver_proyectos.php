@@ -3,15 +3,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/ver_proyectos_propuestas.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/ver_proyectos_propuestas.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Ver Proyecto</title>
 </head>
 <body>
-    <?php include('./templates/header.html'); ?>
+    <?php include('../Layouts/header.html'); ?>
     <br><section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>
@@ -92,6 +92,6 @@
         </div> 
      </section>
      <br>
-     <?php include('./templates/footer.html'); ?>
+     <?php include('../Layouts/footer.html'); ?>
 </body>
 </html>

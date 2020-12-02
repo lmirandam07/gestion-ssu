@@ -29,7 +29,7 @@ CREATE TABLE propuesta_proyecto (
   cedula_encarg VARCHAR(20) NOT NULL,
   telefono_encarg INT NOT NULL,
   correo_encarg VARCHAR(50) NOT NULL,
-  id_estado INT NOT NULL,
+  id_estado INT DEFAULT 3,
   perfil_estu_pro VARCHAR(300) NOT NULL,
   CONSTRAINT pk_id_propuesta PRIMARY KEY (id_propuesta),
   CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES estado_proyecto (id_estado_pro)
@@ -89,7 +89,7 @@ CREATE TABLE usuario (
   CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
   CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)
 );
-- - Tablas precargadas
+--Tablas precargadas
 INSERT INTO
   facultad(id_facultad, nombre_facultad)
 VALUES
@@ -117,3 +117,5 @@ VALUES
   (2, 'Segundo año'),
   (3, 'Tercer año'),
   (4, 'Cuarto año o más');
+
+ 

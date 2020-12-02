@@ -3,18 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="../../css/header.css">
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/proyecto.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/proyecto.css">
     <title>Proyecto</title>
 </head>
 <body>
-    <?php include('./templates/header.html'); ?>
+<?php include('../Layouts/header.html'); ?>
     <div class="proyecto content">
         <div class="titulo columns is-vcentered">
             <div class="imagen column is-one-third">
-                <img src="./img/playa.png" alt="" width="350">
+                <img src="../../img/playa.png" alt="" width="350">
             </div>
             <div class="descripcion column">
                 <h1 class="is-large is-purple">Limpieza de Playas</h1>
@@ -69,6 +69,6 @@
         </div>
             
     </div>
-    <?php include('./templates/footer.html'); ?>
+    <?php include('../Layouts/footer.html'); ?>
 </body>
 </html>

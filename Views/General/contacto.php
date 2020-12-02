@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/contacto.css">
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/contacto.css">
+    <link rel="stylesheet" href="../../css/footer.css" />
     <title>Contacto</title>
 </head>
 <body>
-    <?php include('./templates/header.html'); ?>
+    <?php include('../Layouts/header.html'); ?>
    <div class="container level-item is-fluid container_titulo">
        <div>
             <h1 class= "has-text-centered is-size-3 has-text-weight-bold">¿Necesitas más información?</h1>
@@ -71,6 +71,6 @@
     </div>
    </div>
 </div>
-<?php include('./templates/footer.html'); ?>
+<?php include('../Layouts/footer.html'); ?>
 </body>
 </html>

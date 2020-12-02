@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/registrar_propuesta.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/propuesta_proyecto.css">
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
-    <title>Registrar Propuesta</title>
+    <title>Propuesta</title>
 </head>
 <body>
-    <?php include('./templates/header.html'); ?>
+<?php include('../Layouts/header.html'); ?>
     <br>
     <section class = "container is-fluid">
         <div class = "columns">
@@ -121,18 +121,18 @@
                                             <div class="columns ano_estudio">
                                                 <div class="column is-one-third">
 
-                                                    <input type="checkbox" name="primer" id="periodo" value="primer">
+                                                    <input type="checkbox" name="anio_list[]" id="periodo" value="primer">
                                                     <label for="primero"><strong>Primer Año</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="tercer" id="periodo" value="tercero">
+                                                    <input type="checkbox" name="anio_list[]" id="periodo" value="tercero">
                                                     <label for="tercero"><strong>Tercer Año</strong></label>
                                                         
                                                 </div>
                                                 <div class="column">
-                                                    <input type="checkbox" name="segundo" id="periodo" value="segundo">
+                                                    <input type="checkbox" name="anio_list[]" id="periodo" value="segundo">
                                                     <label for="segundo"><strong>Segundo Año</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="cuarto" id="periodo" value="cuarto">                           
+                                                    <input type="checkbox" name="anio_list[]" id="periodo" value="cuarto">                           
                                                     <label for="cuarto"><strong>Cuarto Año</strong></label>
                                                 </div>
                                                         
@@ -143,23 +143,23 @@
                                             <br>
                                             <div class="columns facultades">
                                                 <div class="column is-one-third">
-                                                    <input type="checkbox" name="civil" id="facultad" value="civil">
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="civil">
                                                     <label for="civil"><strong>F. Ing. Civil</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="industrial" id="facultad" value="industrial">
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="industrial">
                                                     <label for="industrial"><strong>F. Ing. Industrial</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="mecanica" id="facultad" value="mecanica">
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="mecanica">
                                                     <label for="mecanica"><strong>F. Ing. Mecánica</strong></label>
                                                 </div>
                                                 <div class="column">
-                                                    <input type="checkbox" name="electrica" id="facultad" value="electrica">
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="electrica">
                                                     <label for="electrica"><strong>F. Ing. Eléctrica</strong></label>
                                                     <br>                                                             
-                                                    <input type="checkbox" name="ciencias" id="facultad" value="ciencias">                           
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="ciencias">                           
                                                     <label for="cuarto"><strong>F. Ing. Ciencias y Tecnología</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="sistemas" id="facultad" value="sistema">                           
+                                                    <input type="checkbox" name="facultad_list[]" id="facultad" value="sistema">                           
                                                     <label for="sistema"><strong>F. Ing. Sistemas Computacionales</strong></label>
                                                 </div>
 
@@ -283,10 +283,10 @@
                         <br>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
-                                <input type="submit" class="button is-second is-normal" value="CANCELAR">
+                                <input type="submit" class="button is-second is-normal" value="RECHAZAR">
                             </p>
                             <p class="control">
-                                <input type="submit" class="button is-principal is-normal" value="ENVIAR">
+                                <input type="submit" class="button is-principal is-normal" value="APROBAR">
                             </p>
                         </div>
                     </form>
@@ -296,6 +296,6 @@
         </div>
     </section>
     
-     <?php include('./templates/footer.html'); ?>
+     <?php include('../Layouts/footer.html'); ?>
 </body>
 </html>

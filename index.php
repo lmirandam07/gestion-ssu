@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include('./templates/header.html'); ?>
+<?php include('./Views/Layouts/header.html'); ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body"></div>
@@ -76,7 +76,7 @@
         </section>
     </main>
 
-    <?php include('./templates/footer.html'); ?>
+    <?php include('./Views/Layouts/footer.html'); ?>
 </body>
 
 </html>

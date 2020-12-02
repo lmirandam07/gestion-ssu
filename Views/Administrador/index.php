@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/inicio_admin.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="../../css/header.css" />
+    <link rel="stylesheet" href="../../css/inicio_admin.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
     <script src="https://kit.fontawesome.com/e9fad0131d.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Inicio</title>
 </head>
 
 <body>
-    <?php include('./templates/header_usuario_admin.html'); ?>
+    <?php include('../Layouts/header_usuario_admin.html'); ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">
@@ -65,7 +65,7 @@
     </div>
     </main>
 
-    <?php include('./templates/footer.html'); ?>
+    <?php include('../Layouts/footer.html'); ?>
 </body>
 
 </html>

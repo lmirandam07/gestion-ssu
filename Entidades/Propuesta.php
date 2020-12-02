@@ -39,14 +39,6 @@
             return $propuestas;
         }
 
-        
-
-        public function index(){
-            $datos = $this->obtener_propuestas($num_per_page, $start_from);
-            $total_p = $this->total_propuestas();
-            require_once('./ver_propuestas.php');
-        }
-
         public function total_propuestas(){
             $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
             while($filas = $consulta->fetch_assoc()){

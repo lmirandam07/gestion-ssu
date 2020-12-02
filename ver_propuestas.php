@@ -47,7 +47,7 @@
             
             $this->total_propuestas($num_per_page, $start_from);
 
-
+            
             $resultados;
 
             foreach ($datos as $dato) {

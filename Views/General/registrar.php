@@ -37,7 +37,7 @@
 <div class="box">
 <h3 class="title titulo">Formulario de Registro</h3>
 
-  <form action="./Models/UsuarioModel.php" method="POST">
+  <form action="../../route2.php" method="POST">
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">
@@ -83,7 +83,7 @@
                     <div class="field">
                         <label class="label has-text-left ">Cédula</label>
                         <div class="control">
-                            <input class="input input-is" type="text" names="cedula">
+                            <input class="input input-is" type="text" name="cedula">
                         </div>
                     </div>
 
@@ -99,12 +99,12 @@
                         <div class="control">
                             <div class="select is-fullwidth input-is">
                                 <select name="facultad">
-                                    <option>F. Ing. Civil</option>
-                                    <option>F. Ing. Eléctrica</option>
-                                    <option>F. Ing. Industrial</option>
-                                    <option>F. Ing. Mecánica</option>
-                                    <option>F. Ciencias y Tecnología</option>
-                                    <option>F. Ing. Sist. Computacionales</option>
+                                    <option value="1">F. Ing. Civil</option>
+                                    <option value="3">F. Ing. Eléctrica</option>
+                                    <option value="5">F. Ing. Industrial</option>
+                                    <option value="2">F. Ing. Mecánica</option>
+                                    <option value="6">F. Ciencias y Tecnología</option>
+                                    <option value="4">F. Ing. Sist. Computacionales</option>
                                 </select>
                             </div>
                         </div>

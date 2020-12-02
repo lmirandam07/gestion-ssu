@@ -1,32 +1,47 @@
 <?php 
 
 
+require_once $_SERVER['/var/www/html'] .'db/db.php';
 
-
-class Usuario{
+class UsuarioModel{
     private $db;
-    private $registro;
+    private $registros;
 
     
 
-    public function contruct(){
+    public function __construct()
+    {
         $this->db = db::conexion();
-        $this->registro = array();
+        $this->registros = array(); 
     }
 
-    public function registrarUsuarios($parametro){
-        $nombre=$parametro['nombre'];
-        $apellido=$parametro['apellido'];
-        $cedula=$parametro['cedula'];
-        $numero_contacto=$parametro['numero_contaco'];
-        $correo=$parametro['correo'];
-        $contra=$parametro['contra'];
-        $facultad=$parametro['facultad'];
 
-        $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, facultad) 
-        VALUES ('$nombre', '$apellido', '$cedula', '1', '$numero_contacto', '$correo', '$contra', '$facultad')";
+    public function registrarUsuarios($datos){
+        $nombre=$datos['nombre_us'];
+        $apellido=$datos['apellido_us'];
+        $cedula=$datos['cedula_us'];
+        $numero_contacto=$datos['telefono'];
+        $correo=$datos['correo'];
+        $contra=$datos['contrasena'];
+        $facultad=$datos['facultad'];
 
-        $this->db->query($sql);
+        echo $nombre;
+        echo $apellido;
+        echo $cedula;
+        echo $numero_contacto;
+        echo $contra;
+        echo $correo;
+        echo $facultad;
+
+
+        $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
+        VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+        if($this->db->query($sql) == True){
+            echo 'Exitoso';
+        }
+        else{
+            echo 'No Exitoso';
+        }
     }
 
 

@@ -6,7 +6,7 @@ class UsuarioController{
 
     function __construct()
     {
-        
+
     }
 
     function registrar($datos){
@@ -15,9 +15,8 @@ class UsuarioController{
         require_once $_SERVER['/var/www/html'].'index.php';
 
 
-
     }
-    
+
 }
 
 

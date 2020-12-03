@@ -63,8 +63,8 @@
 
         public function obtener_propuestas($page){
             $num_per_page = 04;
-            $start_from = (1-intval($page))*$num_per_page;
-            $consulta = $this->db->query("select nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page ;");
+            $start_from = (intval($page)-1)*$num_per_page;
+            $consulta = $this->db->query("select nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
             }
@@ -73,10 +73,12 @@
 
         public function total_propuestas(){
             $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
+            $i = 0;
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
+                $i++;
             }
-            $total = mysqli_num_rows($propuestas);
+            $total = $i;
             return $total;
         }
 

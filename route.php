@@ -60,10 +60,12 @@
         }
 
     function ver_propuestas(){
+        $page = $_GET['Page'];
+        
         require_once('./Controllers/PropuestaController.php');
 
         $controller = new PropuestaController();
-        $controller->ver_propuestas();
+        $controller->ver_propuestas($page);
     }
 
     function inicio_sesion() {

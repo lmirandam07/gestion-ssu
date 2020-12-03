@@ -43,7 +43,7 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
                     header("Location: Views/Administrador/index.php");
                     die();
                 } else {
-                    header('Location: Views/General/inicio_sesion_error.php');
+                    header('Location: Views/General/iniciar_sesion_error.php');
                     die();
                 }
             } catch (Exception $e) {

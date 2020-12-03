@@ -37,7 +37,7 @@
 
             <?php
                 //require_once $_SERVER['/var/www/html'] .'Controllers/PropuestaController.php';
-                require_once('../../Controllers/PropuestaController.php');
+                //require_once('../../Controllers/PropuestaController.php');
                 if(isset($_GET['page'])){
                     $page = $_GET['page'];
                 }
@@ -48,10 +48,10 @@
                 $num_per_page = 04;
                 $inicio = ($page-1)*$num_per_page; /*MANDAR ESTE VALOR A EL CONTROLLER ($start_from)*/
 
-                $query = new  PropuestaController();
-                $query->ver_propuestas($inicio);
+                /*$query = new  PropuestaController();
+                $query->ver_propuestas($inicio);*/
 
-                foreach ($datos as $dato) {
+                //foreach ($datos as $dato) {
             ?>
 
                 <div class = "columns is-centered"> <!--Propuesta-->
@@ -87,7 +87,7 @@
                 </div> <!--Final Propuesta-->
 
             <?php
-                }
+                //}
             ?>
 
      </section>
@@ -108,15 +108,17 @@
 
     
                     ?>
+                        <form action="ver_propuesta.php?page=<?php echo $i ?>">
                         <li>
-                            <form action="ver_propuesta.php?page=<?php echo $dato['nombre_pro'] ?>">
-                            <?php
-                                //echo "<a href='ver_propuesta.php?page=".$i."' class='pagination-link' id='paginas'>$i</a>";
-                                //echo "<input type="submit"  value="XXXXXX" href='ver_propuesta.php?page=".$i."' class='pagination-link' id='paginas'>$i</a>";
-                                }
-                            ?>
-                            </form>
+                            <!--echo "<a href='ver_propuesta.php?page=".$i."' class='pagination-link' id='paginas'>$i</a>";-->
+                            <p>a</p>
+                            <input type='button'  value='<?php echo $inicio ?>' class='pagination-link' id='paginas'><?php echo $inicio ?></a>";
                         </li>
+                        </form>
+
+                    <?php
+                        }
+                    ?>
                         
 
                     </ul>

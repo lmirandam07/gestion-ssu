@@ -68,9 +68,10 @@
                     de Servicio Social Universitario, inscríbete como <span>voluntario</span>. Por otro lado, si desea
                     proponer un proyecto ingrese los datos solicitados para su aprobación.
                 </p>
+                
                 <div class="opc is-flex is-justify-content-space-evenly is-align-items-center has-text-centered">
                     <a class="voluntario" href="./registrar.php">Voluntario</a>
-                    <a class="proponer" href="./registrar_propuesta.php">Proponer</a>
+                    <a class="proponer" href="./Views/General/registrar_propuesta.php">Proponer</a>
                 </div>
             </div>
         </section>

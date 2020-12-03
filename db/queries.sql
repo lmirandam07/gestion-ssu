@@ -85,7 +85,7 @@ CREATE TABLE usuario (
   telefono INT NOT NULL,
   correo VARCHAR(50) NOT NULL,
   contrasena VARCHAR(20) NOT NULL,
-  facultad INT NOT NULL,
+  facultad INT DEFAULT NULL,
   CONSTRAINT fk_facultad FOREIGN KEY(facultad) REFERENCES facultad(id_facultad),
   CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
   CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)

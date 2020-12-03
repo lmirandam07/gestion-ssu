@@ -37,7 +37,7 @@
 <div class="box">
 <h3 class="title titulo">Formulario de Registro</h3>
 
-  <form action="../../route2.php" method="POST">
+  <form action="../../route.php?controller=Registrar" method="POST">
   <div class="columns">
                 <div class="column columna1">
                     <div class="field">

@@ -11,11 +11,10 @@
             
         }
         
-        function ver_propuestas(){
+        function ver_propuestas($page){
             $propuesta = new PropuestaModel();
-            //$paginas = $propuesta->total_paginas();
-            $datos = $propuesta->obtener_propuestas();
-            //require_once $_SERVER['/var/www/html'].'Views/Administrador/ver_propuestas.php';
+            $paginas = $propuesta->total_paginas();
+            $datos = $propuesta->obtener_propuestas($page);
             require_once('./Views/Administrador/ver_propuestas.php');
         }
 

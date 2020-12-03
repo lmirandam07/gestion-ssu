@@ -83,6 +83,31 @@
             ?>
 
      </section>
+
+     <section class="container is-fluid">
+        <div class = "columns is-centered"> 
+            <div class = "column is-11">
+                <nav class="pagination">
+                    <ul class="pagination-list">
+                    <?php
+
+                        for($i=1;$i<=$paginas;$i++){
+
+    
+                    ?>
+                        <li>
+                            <?php
+                                echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                }
+                            ?>
+                        </li>
+                        
+
+                    </ul>
+                </nav>
+           </div>
+        </div> 
+     </section>
      
      <br>
      <?php include('./Views/Layouts/footer_admin.html'); ?>

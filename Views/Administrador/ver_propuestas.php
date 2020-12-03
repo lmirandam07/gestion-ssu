@@ -40,7 +40,10 @@
      <section class="container is-fluid" id="propuestas">
 
             <?php
-                foreach ($datos as $dato) { 
+                foreach ($datos as $dato) {
+                    $imagenes = array();
+                    $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
+                    $random = rand ( 0 , 3 ); 
             ?>
 
                 <div class = "columns is-centered"> <!--Propuesta-->
@@ -52,8 +55,8 @@
                                     <div class="content">
                                         <div class = "columns is-gapless is-fluid is-multiline is-centered">
                                             <div class= "column is-gapless is-narrow">
-                                                <figure class="image is-128x128" id="foto_proyecto">
-                                                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                                                <figure class="image is-fluid">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo 'https://bulma.io/images/placeholders/128x128.png'; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class = "column is-8 is-gapless">
@@ -79,6 +82,31 @@
                 }
             ?>
 
+     </section>
+
+     <section class="container is-fluid">
+        <div class = "columns is-centered"> 
+            <div class = "column is-11">
+                <nav class="pagination">
+                    <ul class="pagination-list">
+                    <?php
+
+                        for($i=1;$i<=$paginas;$i++){
+
+    
+                    ?>
+                        <li>
+                            <?php
+                                echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                }
+                            ?>
+                        </li>
+                        
+
+                    </ul>
+                </nav>
+           </div>
+        </div> 
      </section>
      
      <br>

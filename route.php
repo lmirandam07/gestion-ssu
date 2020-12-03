@@ -5,10 +5,12 @@
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     }
-
-    function ingresar_propuesta(){
-        require_once('./Controllers/PropuestaController.php');
+    
+    function ingresar_propuesta(){    
+        require_once('./Controllers/PropuestaController.php');   
         $datos = [];
+        $facultades=[];
+        $anios = [];
         $datos['nombre_encarg'] = $_POST['nombre_encargado'];
         $datos['cedula_encarg'] = $_POST['cedula'];
         $datos['telefono_encarg'] = $_POST['telefono'];
@@ -23,9 +25,20 @@
         $datos['describ_pro'] = $_POST['descripcion'];
         $datos['objetivo_pro'] = $_POST['objetivo'];
         $datos['materiales_pro'] = $_POST['materiales'];
-        $ingresar_datos = new  PropuestaController();
-        $ingresar_datos->registrar_propuesta($datos);
+        if(!empty($_POST['facultad'])){
+            for($i=0;$i<=count($_POST['facultad']);$i++){
+                $facultades[$i] =$_POST['facultad'][$i];
+            }
+        }
+        if(!empty($_POST['anio'])){
+            for($i=0;$i<=count($_POST['anio']);$i++){
+                $anios[$i] =$_POST['anio'][$i];
+            }
+        }
 
+        $ingresar_datos = new  PropuestaController();
+        $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
+    
     }
 
     function registrar_usuario(){
@@ -47,10 +60,12 @@
         }
 
     function ver_propuestas(){
+        $page = $_GET['Page'];
+        
         require_once('./Controllers/PropuestaController.php');
 
         $controller = new PropuestaController();
-        $controller->ver_propuestas();
+        $controller->ver_propuestas($page);
     }
 
     function inicio_sesion() {
@@ -63,23 +78,16 @@
         $controller->inicio_sesion($datos);
     }
 
-    function ver_perfil(){
-        require_once('./Controllers/UsuarioController.php');
-        $controller= new UsuarioController();
-        $controller->verPerfil();
+    function cambiar_contra(){
+        require_once('./Controllers/CambiarContraController.php');
+        $datos=[];
+        $datos['nueva_contra']=$_POST['nueva_contra'];
+        $datos['verif_nueva_contra']=$_POST['verif_nueva_contra'];
 
-    }
-
-    if($controller=='Propuesta'){
-        ingresar_propuesta();
-    }
-    elseif($controller=='Registrar'){
-        registrar_usuario();
-    }
-    elseif($controller=='Ver_Propuestas'){
-        ver_propuestas();
-    }
-
+        $ingresar_datos=new CambiarContraController();
+        $ingresar_datos->cambiar_contrasena($datos);
+        }
+        
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
@@ -96,4 +104,9 @@
         case 'Inicio_Sesion':
             inicio_sesion();
             break;
+
+        case 'Cambiar_Contrasena';
+            cambiar_contra();
+            break;
     }
+    ?>

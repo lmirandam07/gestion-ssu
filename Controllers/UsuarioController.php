@@ -17,6 +17,12 @@ class UsuarioController{
 
     }
 
+    function verPerfil(){
+        $registro=new UsuarioModel();
+        $datos=$registro->obtenerPerfil();
+        require_once $_SERVER['/var/www/html'].'index.php';
+    }
+    
 }
 
 

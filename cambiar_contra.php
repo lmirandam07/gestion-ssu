@@ -26,14 +26,19 @@
   <form action="./route.php?controller=Cambiar_Contrasena" method="POST">
   <div class="field">
     <div class="control">
-    <label class="label has-text-left">Nueva Contraseña</label>
-      <input class="input is-medium input-is" type="text" name="nueva_contra" autofocus="">
-      <br>
+    <label class="label has-text-left label1">Correo Registrado</label>
+      <input class="input is-medium input-is" type="email" name="correo">
     </div>
   </div>
   <div class="field">
     <div class="control">
-    <label class="label has-text-left label1">Reescribir Contraseña</label>
+    <label class="label has-text-left">Nueva Contraseña</label>
+      <input class="input is-medium input-is" type="text" name="nueva_contra" autofocus="">
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+    <label class="label has-text-left ">Reescribir Contraseña</label>
       <input class="input is-medium input-is" type="text" name="verif_nueva_contra">
     </div>
   </div>

@@ -43,23 +43,42 @@
                 echo 'No Exitoso';
             }
         }
+        public function insertar_facultad_anio_propuesta($facultades,$anios){
+            $id_propuesta = (int)mysqli_insert_id($this->db);
+            foreach((array)$facultades as $facultad){
+                $facultad = (int)$facultad;
+            }
+            foreach((array)$anios as $anio){
+                $anio = (int)$anio;
+            }
+            foreach((array)$facultades as $facultad){
+                $this->db->query("INSERT INTO facultad_propuesta(id_propuesta,id_facultad)VALUES('$id_propuesta','$facultad');");
 
-        public function obtener_propuestas(){
+            }
+            foreach((array)$anios as $anio){
+                $this->db->query("INSERT INTO ano_proyecto(id_propuesta,id_ano)VALUES('$id_propuesta','$anio');");
+
+            }
+        }
+
+        public function obtener_propuestas($page){
             $num_per_page = 04;
-            $consulta = $this->db->query("select nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3';");
+            $start_from = (intval($page)-1)*$num_per_page;
+            $consulta = $this->db->query("select nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
             }
             return $propuestas;
         }
 
-        /*
         public function total_propuestas(){
             $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
+            $i = 0;
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
+                $i++;
             }
-            $total = mysqli_num_rows($propuestas);
+            $total = $i;
             return $total;
         }
 
@@ -70,7 +89,6 @@
             
             return $totalpages;
         }
-        */
         
     }
 

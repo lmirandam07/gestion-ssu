@@ -1,5 +1,6 @@
 <?php
 
+function registrarUsuario(){
 require_once('./Controllers/UsuarioController.php');
 
 $datos=[];
@@ -10,12 +11,16 @@ $datos['cedula_us']=$_POST['cedula'];
 $datos['contrasena']=$_POST['contra'];
 $datos['telefono']=$_POST['numero_contacto'];
 $datos['id_tipo_us']=$_POST['1'];
-$datos['facultad']=$_POST['facultad'];  
-
-
+$datos['facultad']=$_POST['facultad']; 
+$datos['validC']=$_POST['validarC']; 
 
 $ingresar_datos=new UsuarioController();
 $ingresar_datos->registrar($datos);
+}
+
+if(strpos($_SERVER['HTTP_REFERER'],'/registrar.php')){
+    registrarUsuario();
+}
 
 
 

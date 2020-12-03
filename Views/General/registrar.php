@@ -43,28 +43,28 @@
                     <div class="field">
                         <label class="label has-text-left">Nombre</label>
                         <div class="control">
-                            <input class="input input-is" type="text"name="nombre">
+                            <input class="input input-is" type="text"name="nombre" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Correo Institucional</label>
                         <div class="control">
-                            <input class="input input-is" type="email" name="correo">
+                            <input class="input input-is" type="email" name="correo"required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="contra">
+                            <input class="input input-is" type="text" name="contra"required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Validar Contraseña</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="validarC">
+                            <input class="input input-is" type="text" name="validarC"required>
                         </div>
                     </div>
 
@@ -76,21 +76,21 @@
                     <div class="field">
                         <label class="label has-text-left">Apellido</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="apellido">
+                            <input class="input input-is" type="text" name="apellido"required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left ">Cédula</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="cedula">
+                            <input class="input input-is" type="text" name="cedula"required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label has-text-left">Número de Contacto</label>
                         <div class="control">
-                            <input class="input input-is" type="text" name="numero_contacto">
+                            <input class="input input-is" type="text" name="numero_contacto"required>
                         </div>
                     </div>
 
@@ -98,7 +98,7 @@
                         <label class="label has-text-left">Facultad</label>
                         <div class="control">
                             <div class="select is-fullwidth input-is">
-                                <select name="facultad">
+                                <select name="facultad"required>
                                     <option value="1">F. Ing. Civil</option>
                                     <option value="3">F. Ing. Eléctrica</option>
                                     <option value="5">F. Ing. Industrial</option>

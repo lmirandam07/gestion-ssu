@@ -83,3 +83,4 @@ DROP TABLE propuesta_proyecto;
 DROP TABLE estado_proyecto;
 DROP TABLE facultad_propuesta;
 DROP TABLE proyecto_usuario;
+

@@ -13,13 +13,16 @@
 </head>
 
 <body>
-    <?php include('../Layouts/header_usuario_admin.html'); ?>
+    <?php include('../Layouts/header_usuario_admin.html');
+
+    echo $_SESSION['tipo_usuario'];
+    ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">
             </div>
             <div class="has-bg-color">
-                <h1 class="level-left is-size-2 has-text-weight-medium ml-4" >Bienvenido username - Administrador</h1>
+                <h1 class="level-left is-size-2 has-text-weight-medium ml-4" >Bienvenido <?php echo $_SESSION['nombre_usuario']; ?>  - Administrador</h1>
             </div>
         </section>
         <section class="ssu-cont columns is-vcentered is-multiline">

@@ -44,11 +44,22 @@
         $ingresar_datos=new UsuarioController();
         $ingresar_datos->registrar($datos);
         }
+
+    function ver_propuestas(){
+        require_once('./Controllers/PropuestaController.php');
+    
+        $controller = new PropuestaController();       
+        $controller->ver_propuestas();
+    }
+
     if($controller=='Propuesta'){
         registrar();
     }
     elseif($controller=='Registrar'){
         registrarUsuario();
+    }
+    elseif($controller=='Ver_Propuestas'){
+        ver_propuestas();
     }
     
 ?>

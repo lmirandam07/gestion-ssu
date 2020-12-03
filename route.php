@@ -86,7 +86,7 @@
         $ingresar_datos->cambiar_contrasena($datos);
         }
 
-    if($controller=='Propuesta'){
+   /* if($controller=='Propuesta'){
         ingresar_propuesta();
     }
     elseif($controller=='Registrar'){
@@ -98,8 +98,8 @@
     elseif($controller=='Cambiar_Contrasena'){
         cambiar_contra();
     }
-
-    /*switch ($controller) {
+    */
+    switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
             break;
@@ -119,5 +119,5 @@
         case 'Cambiar_Contrasena';
             cambiar_contra();
             break;
-    }*/
+    }
     ?>

@@ -121,18 +121,18 @@
                                             <div class="columns ano_estudio">
                                                 <div class="column is-one-third">
 
-                                                    <input type="checkbox" name="primer" id="periodo" value="primer">
+                                                    <input type="checkbox" name="anio[]" id="periodo" value="1">
                                                     <label for="primero"><strong>Primer Año</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="tercer" id="periodo" value="tercero">
+                                                    <input type="checkbox" name="anio[]" id="periodo" value="3">
                                                     <label for="tercero"><strong>Tercer Año</strong></label>
                                                         
                                                 </div>
                                                 <div class="column">
-                                                    <input type="checkbox" name="segundo" id="periodo" value="segundo">
+                                                    <input type="checkbox" name="anio[]" id="periodo" value="2">
                                                     <label for="segundo"><strong>Segundo Año</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="cuarto" id="periodo" value="cuarto">                           
+                                                    <input type="checkbox" name="anio[]" id="periodo" value="4">                           
                                                     <label for="cuarto"><strong>Cuarto Año</strong></label>
                                                 </div>
                                                         
@@ -143,23 +143,23 @@
                                             <br>
                                             <div class="columns facultades">
                                                 <div class="column is-one-third">
-                                                    <input type="checkbox" name="civil" id="facultad" value="civil">
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="1">
                                                     <label for="civil"><strong>F. Ing. Civil</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="industrial" id="facultad" value="industrial">
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="5">
                                                     <label for="industrial"><strong>F. Ing. Industrial</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="mecanica" id="facultad" value="mecanica">
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="2">
                                                     <label for="mecanica"><strong>F. Ing. Mecánica</strong></label>
                                                 </div>
                                                 <div class="column">
-                                                    <input type="checkbox" name="electrica" id="facultad" value="electrica">
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="3">
                                                     <label for="electrica"><strong>F. Ing. Eléctrica</strong></label>
                                                     <br>                                                             
-                                                    <input type="checkbox" name="ciencias" id="facultad" value="ciencias">                           
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="6">                           
                                                     <label for="cuarto"><strong>F. Ing. Ciencias y Tecnología</strong></label>
                                                     <br>
-                                                    <input type="checkbox" name="sistemas" id="facultad" value="sistema">                           
+                                                    <input type="checkbox" name="facultad[]" id="facultad" value="4">                           
                                                     <label for="sistema"><strong>F. Ing. Sistemas Computacionales</strong></label>
                                                 </div>
 

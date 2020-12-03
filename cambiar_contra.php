@@ -23,18 +23,18 @@
 <div class="box">
 <h3 class="title titulo">Cambiar Contraseña</h3>
 
-  <form action="" method="POST">
+  <form action="./route.php?controller=Cambiar_Contrasena" method="POST">
   <div class="field">
     <div class="control">
     <label class="label has-text-left">Nueva Contraseña</label>
-      <input class="input is-medium input-is" type="text" name="Contra" autofocus="">
+      <input class="input is-medium input-is" type="text" name="nueva_contra" autofocus="">
       <br>
     </div>
   </div>
   <div class="field">
     <div class="control">
     <label class="label has-text-left label1">Reescribir Contraseña</label>
-      <input class="input is-medium input-is" type="text" name="Nueva_Contraseña">
+      <input class="input is-medium input-is" type="text" name="verif_nueva_contra">
     </div>
   </div>
   <input class="button boton" type="submit" value="Cambiar Contraseña">

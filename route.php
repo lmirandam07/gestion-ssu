@@ -6,6 +6,8 @@
         $controller = $_GET['controller'];
     }
 
+    echo $controller;
+
     function ingresar_propuesta(){
         require_once('./Controllers/PropuestaController.php');
         $datos = [];
@@ -63,6 +65,16 @@
         $controller->inicio_sesion($datos);
     }
 
+    function cambiar_contra(){
+        require_once('./Controllers/CambiarContraController.php');
+        $datos=[];
+        $datos['nueva_contra']=$_POST['nueva_contra'];
+        $datos['verif_nueva_contra']=$_POST['verif_nueva_contra'];
+
+        $ingresar_datos=new CambiarContraController();
+        $ingresar_datos->cambiar_contrasena($datos);
+        }
+
     if($controller=='Propuesta'){
         ingresar_propuesta();
     }
@@ -72,8 +84,11 @@
     elseif($controller=='Ver_Propuestas'){
         ver_propuestas();
     }
+    elseif($controller=='Cambiar_Contrasena'){
+        cambiar_contra();
+    }
 
-    switch ($controller) {
+    /*switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
             break;
@@ -89,4 +104,9 @@
         case 'Inicio_Sesion':
             inicio_sesion();
             break;
-    }
+
+        case 'Cambiar_Contrasena';
+            cambiar_contra();
+            break;
+    }*/
+    ?>

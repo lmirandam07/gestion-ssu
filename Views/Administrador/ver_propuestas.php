@@ -12,7 +12,8 @@
     <title>Ver Propuestas de Proyecto</title>
 </head>
 <body>
-    <?php include('../Layouts/header_usuario_admin.html'); ?>
+    <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
+
     <br><section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>
@@ -36,22 +37,7 @@
      <section class="container is-fluid" id="propuestas">
 
             <?php
-                //require_once $_SERVER['/var/www/html'] .'Controllers/PropuestaController.php';
-                //require_once('../../Controllers/PropuestaController.php');
-                if(isset($_GET['page'])){
-                    $page = $_GET['page'];
-                }
-                else{
-                    $page = 1;
-                }
-
-                $num_per_page = 04;
-                $inicio = ($page-1)*$num_per_page; /*MANDAR ESTE VALOR A EL CONTROLLER ($start_from)*/
-
-                /*$query = new  PropuestaController();
-                $query->ver_propuestas($inicio);*/
-
-                //foreach ($datos as $dato) {
+                foreach ($datos as $dato) { 
             ?>
 
                 <div class = "columns is-centered"> <!--Propuesta-->
@@ -70,63 +56,28 @@
                                             <div class = "column is-8 is-gapless">
                                                 <h3 id="titulo"> <?php echo $dato['nombre_pro'] ?> </h3>
                                                 <p name="inicio" value="<?php $inicio ?>">
-                                                     <?php echo $dato['nombre_pro'] ?><br>
-                                                  </p>
+                                                     <?php echo $dato['descripcion_pro'] ?><br>
+                                                </p>
                                             </div>
                                             <div class = "column is-gapless"></div>
                                              <div class = "column is-11 is-gapless"></div>
                                              <div class = "column is-narrow is-gapless has-text-centered">
-                                                 <a href="../General/proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
+                                                 <a href="./Views/General/proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
                                              </div>
                                          </div>
                                          </div>
                                 </div>
                             </article>
                         </div>
-                </div>
+                </div> 
                 </div> <!--Final Propuesta-->
 
             <?php
-                //}
+                }
             ?>
 
      </section>
-
      <br>
-
-     <section class="container is-fluid">
-        <div class = "columns is-centered"> 
-            <div class = "column is-11">
-                <nav class="pagination">
-                    <a href="" class="pagination-previous" id="paginas" disabled>Anterior</a>
-                    <a href="" class="pagination-next" id="paginas">Siguiente</a>
-                    <ul class="pagination-list">
-                        <input type="text">
-                    <?php
-
-                        for($i=1;$i<=$paginas;$i++){
-
-    
-                    ?>
-                        <form action="ver_propuesta.php?page=<?php echo $i ?>">
-                        <li>
-                            <!--echo "<a href='ver_propuesta.php?page=".$i."' class='pagination-link' id='paginas'>$i</a>";-->
-                            <p>a</p>
-                            <input type='button'  value='<?php echo $inicio ?>' class='pagination-link' id='paginas'><?php echo $inicio ?></a>";
-                        </li>
-                        </form>
-
-                    <?php
-                        }
-                    ?>
-                        
-
-                    </ul>
-                </nav>
-           </div>
-        </div> 
-     </section>
-     <br>
-     <?php include('../Layouts/footer_admin.html'); ?>
+     <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
 </html> 

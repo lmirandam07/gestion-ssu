@@ -25,15 +25,6 @@ class UsuarioModel{
         $contra=$datos['contrasena'];
         $facultad=$datos['facultad'];
 
-        echo $nombre;
-        echo $apellido;
-        echo $cedula;
-        echo $numero_contacto;
-        echo $contra;
-        echo $correo;
-        echo $facultad;
-
-
         $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
         VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
         if($this->db->query($sql) == True){

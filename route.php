@@ -89,12 +89,21 @@
         $ingresar_datos->cambiar_contrasena($datos);
         }
 
-        function ver_perfil(){
-            require_once('./Controllers/UsuarioController.php');
-            $controller= new UsuarioController();
-            $controller->verPerfil();
+    function ver_perfil(){
+        require_once('./Controllers/UsuarioController.php');
+        $controller= new UsuarioController();
+        $controller->verPerfil();
     
-        }
+    }
+
+    function ver_proyectos(){
+        $page = $_GET['Page'];
+            
+        require_once('./Controllers/ProyectoController.php');
+    
+        $controller = new ProyectoController();
+        $controller->ver_proyectos($page);
+    }
         
     switch ($controller) {
         case 'Propuesta':
@@ -119,6 +128,10 @@
 
         case 'Ver_perfil';
             ver_perfil();
+            break;
+
+        case 'Ver_Proyectos':
+            ver_proyectos();
             break;
     }
     ?>

@@ -21,25 +21,32 @@
             <div class="column is-two-fifths columna1 box ">
             <div class="icono-edit is-pulled-top"><i class="far fa-edit is-pulled-right"></i></div>
                 <div class="content has-text-centered"><i class="far fa-user-circle fa-8x has-text-centered"></i></div>
-                <h1 class="has-text-centered textoP">NOMBRE APELLIDO</h1>
+                <?php foreach($datos as $dato){ ?>
+                <h1 class="has-text-centered textoP"> <?php echo $dato["nombre_us"]. ' ' . $dato["apellido_us"] ?> </h1>
                 <h3 class="has-text-centered texto">ESTUDIANTE</h3>
                 <div class="columns ">
                     <div class="column is-half">
 
-                        <h3 class="texto">FECHA DE NACIMIENTO</h3>
+
                         <H3 class="texto">CÉDULA</H3>
                         <H3 class="texto">FACULTAD</H3>
-                        <H3 class="texto">CORREO ELECTRONICO</H3>
+                        <H3 class="texto">CORREO ELECTRÓNICO</H3>
                         <H3 class="texto">TELÉFONO</H3>
-                        <H3 class="texto">CONTRASEÑA</H3>
+
                     </div>
-                    <div class="column is-half">
-                        <h3 class="texto">0 de Enero de 0000</h3>
-                        <h3 class="texto">0-000-0000</h3>
-                        <h3 class="texto">Sistemas</h3>
-                        <h3 class="texto">nombredecorreo@correo.com</h3>
-                        <h3 class="texto">0000-0000</h3>
-                        <h3 class="texto">***********</h3>
+                    <div class="column is-half ">
+                        
+
+                        <h3 class="texto"><?php echo $dato["cedula_us"] ?></h3>
+                        <h3 class="texto"><?php echo $dato["nombre_facultad"] ?></h3>
+                        <h3 class="texto"><?php echo $dato["correo"] ?></h3>
+                        <h3 class="texto"><?php echo $dato["telefono"] ?></h3>
+
+
+                        }
+
+                       
+
                     </div>
 
 

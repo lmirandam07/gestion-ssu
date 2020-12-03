@@ -64,7 +64,7 @@
         public function obtener_propuestas($page){
             $num_per_page = 04;
             $start_from = (intval($page)-1)*$num_per_page;
-            $consulta = $this->db->query("select nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
+            $consulta = $this->db->query("select id_propuesta, nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
             }

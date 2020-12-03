@@ -4,6 +4,7 @@ require_once $_SERVER['/var/www/html'].'Models/PropuestaModel.php';
 
 class PropuestaController
 {
+    public $start_from = 0;
 
 	function __construct()
 	{
@@ -13,9 +14,8 @@ class PropuestaController
 	function ver_propuestas($start_from){
 		$propuesta= new PropuestaModel();
         $paginas = $propuesta->total_paginas();
-        $start_from = 0;
         $datos = $propuesta->obtener_propuestas($start_from);
-		require_once $_SERVER['/var/www/html'].'/Views/Administrador/ver_propuestas.php';
+		require_once $_SERVER['/var/www/html'].'Views/Administrador/ver_propuestas.php';
 	}
 
     function registrar_propuesta($datos){

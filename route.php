@@ -85,20 +85,7 @@
         $ingresar_datos=new CambiarContraController();
         $ingresar_datos->cambiar_contrasena($datos);
         }
-
-   /* if($controller=='Propuesta'){
-        ingresar_propuesta();
-    }
-    elseif($controller=='Registrar'){
-        registrar_usuario();
-    }
-    elseif($controller=='Ver_Propuestas'){
-        ver_propuestas();
-    }
-    elseif($controller=='Cambiar_Contrasena'){
-        cambiar_contra();
-    }
-    */
+        
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();

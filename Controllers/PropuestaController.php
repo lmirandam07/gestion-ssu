@@ -19,9 +19,10 @@
             require_once('./Views/Administrador/ver_propuestas.php');
         }
 
-        function registrar_propuesta($datos){
+        function registrar_propuesta($datos,$facultades,$anios){
             $propuesta= new PropuestaModel();
             $propuesta->insertar_propuesta($datos);
+            $propuesta->insertar_facultad_anio_propuesta($facultades,$anios);
             require_once $_SERVER['/var/www/html'].'index.php';
         }
 

@@ -5,12 +5,20 @@
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     }
+<<<<<<< HEAD
 
     echo $controller;
 
     function ingresar_propuesta(){
         require_once('./Controllers/PropuestaController.php');
+=======
+    
+    function ingresar_propuesta(){    
+        require_once('./Controllers/PropuestaController.php');   
+>>>>>>> herrera
         $datos = [];
+        $facultades=[];
+        $anios = [];
         $datos['nombre_encarg'] = $_POST['nombre_encargado'];
         $datos['cedula_encarg'] = $_POST['cedula'];
         $datos['telefono_encarg'] = $_POST['telefono'];
@@ -25,9 +33,25 @@
         $datos['describ_pro'] = $_POST['descripcion'];
         $datos['objetivo_pro'] = $_POST['objetivo'];
         $datos['materiales_pro'] = $_POST['materiales'];
+        if(!empty($_POST['facultad'])){
+            for($i=0;$i<=count($_POST['facultad']);$i++){
+                $facultades[$i] =$_POST['facultad'][$i];
+            }
+        }
+        if(!empty($_POST['anio'])){
+            for($i=0;$i<=count($_POST['anio']);$i++){
+                $anios[$i] =$_POST['anio'][$i];
+            }
+        }
+
         $ingresar_datos = new  PropuestaController();
+<<<<<<< HEAD
         $ingresar_datos->registrar_propuesta($datos);
 
+=======
+        $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
+    
+>>>>>>> herrera
     }
 
     function registrar_usuario(){

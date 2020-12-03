@@ -43,6 +43,23 @@
                 echo 'No Exitoso';
             }
         }
+        public function insertar_facultad_anio_propuesta($facultades,$anios){
+            $id_propuesta = (int)mysqli_insert_id($this->db);
+            foreach((array)$facultades as $facultad){
+                $facultad = (int)$facultad;
+            }
+            foreach((array)$anios as $anio){
+                $anio = (int)$anio;
+            }
+            foreach((array)$facultades as $facultad){
+                $this->db->query("INSERT INTO facultad_propuesta(id_propuesta,id_facultad)VALUES('$id_propuesta','$facultad');");
+
+            }
+            foreach((array)$anios as $anio){
+                $this->db->query("INSERT INTO ano_proyecto(id_propuesta,id_ano)VALUES('$id_propuesta','$anio');");
+
+            }
+        }
 
         public function obtener_propuestas(){
             $num_per_page = 04;

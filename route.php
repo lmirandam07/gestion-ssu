@@ -5,17 +5,9 @@
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     }
-<<<<<<< HEAD
-
-    echo $controller;
-
-    function ingresar_propuesta(){
-        require_once('./Controllers/PropuestaController.php');
-=======
     
     function ingresar_propuesta(){    
         require_once('./Controllers/PropuestaController.php');   
->>>>>>> herrera
         $datos = [];
         $facultades=[];
         $anios = [];
@@ -45,13 +37,8 @@
         }
 
         $ingresar_datos = new  PropuestaController();
-<<<<<<< HEAD
-        $ingresar_datos->registrar_propuesta($datos);
-
-=======
         $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
     
->>>>>>> herrera
     }
 
     function registrar_usuario(){

@@ -87,6 +87,13 @@
         $ingresar_datos=new CambiarContraController();
         $ingresar_datos->cambiar_contrasena($datos);
         }
+
+        function ver_perfil(){
+            require_once('./Controllers/UsuarioController.php');
+            $controller= new UsuarioController();
+            $controller->verPerfil();
+    
+        }
         
     switch ($controller) {
         case 'Propuesta':
@@ -107,6 +114,10 @@
 
         case 'Cambiar_Contrasena';
             cambiar_contra();
+            break;
+
+        case 'Ver_perfil';
+            ver_perfil();
             break;
     }
     ?>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -35,7 +36,7 @@
 
                     </div>
                     <div class="column is-half ">
-                        
+
 
                         <h3 class="texto"><?php echo $dato["cedula_us"] ?></h3>
                         <h3 class="texto"><?php echo $dato["nombre_facultad"] ?></h3>
@@ -45,7 +46,7 @@
 
                         }
 
-                       
+
 
                     </div>
 
@@ -67,7 +68,7 @@
                         <h3 class="textcol2">HORAS ACUMULADAS</h3>
                     </div>
                 </div>
-                
+
 
 
             </div>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,14 +9,14 @@
     <link rel="stylesheet" href="../../css/ver_proyectos_propuestas.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    
+
     <title>Ver Propuestas de Proyecto</title>
 </head>
 <body>
     <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
 
     <br>
-     
+
      <section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>
@@ -34,16 +35,16 @@
            <div class = "column"></div>
         </div>
      </section>
-    
+
     <br>
-     
+
      <section class="container is-fluid" id="propuestas">
 
             <?php
                 foreach ($datos as $dato) {
                     $imagenes = array();
                     $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
-                    $random = rand ( 0 , 3 ); 
+                    $random = rand ( 0 , 3 );
             ?>
 
                 <div class = "columns is-centered"> <!--Propuesta-->
@@ -78,7 +79,7 @@
                                 </div>
                             </article>
                         </div>
-                </div> 
+                </div>
                 </div> <!--Final Propuesta-->
 
             <?php
@@ -88,7 +89,7 @@
      </section>
 
      <section class="container is-fluid">
-        <div class = "columns is-centered"> 
+        <div class = "columns is-centered">
             <div class = "column is-11">
                 <nav class="pagination">
                     <ul class="pagination-list">
@@ -96,7 +97,7 @@
 
                         for($i=1;$i<=$paginas;$i++){
 
-    
+
                     ?>
                         <li>
                             <?php
@@ -109,15 +110,15 @@
                                 }
                             ?>
                         </li>
-                        
+
 
                     </ul>
                 </nav>
            </div>
-        </div> 
+        </div>
      </section>
-     
+
      <br>
      <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
-</html> 
+</html>

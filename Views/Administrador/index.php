@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html lang="en">
 
 <head>
@@ -13,10 +15,7 @@
 </head>
 
 <body>
-    <?php include('../Layouts/header_usuario_admin.html');
-
-    echo $_SESSION['tipo_usuario'];
-    ?>
+    <?php include('../Layouts/header_usuario_admin.html');?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">

@@ -14,7 +14,9 @@
 <body>
     <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
 
-    <br><section class = "container is-fluid">
+    <br>
+     
+     <section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>
             <div class = "column is-11">
@@ -32,7 +34,8 @@
            <div class = "column"></div>
         </div>
      </section>
-     <br>
+    
+    <br>
      
      <section class="container is-fluid" id="propuestas">
 
@@ -77,6 +80,7 @@
             ?>
 
      </section>
+     
      <br>
      <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>

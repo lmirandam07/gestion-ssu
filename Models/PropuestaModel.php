@@ -43,7 +43,7 @@
                 echo 'No Exitoso';
             }
         }
-        public function insertar_facultad_propuesta($facultades,$anios){
+        public function insertar_facultad_anio_propuesta($facultades,$anios){
             $id_propuesta = (int)mysqli_insert_id($this->db);
             foreach((array)$facultades as $facultad){
                 $facultad = (int)$facultad;

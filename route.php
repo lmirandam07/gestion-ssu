@@ -4,9 +4,15 @@
     } else { 
         $controller = 'Home';
     }
+<<<<<<< HEAD
 
     function registrar(){       
         require_once('./Controllers/PropuestaController.php');
+=======
+    
+    function ingresar_propuesta(){    
+        require_once('./Controllers/PropuestaController.php');   
+>>>>>>> herrera
         $datos = [];
         $datos['nombre_encarg'] = $_POST['nombre_encargado'];
         $datos['cedula_encarg'] = $_POST['cedula'];
@@ -53,7 +59,7 @@
     }
 
     if($controller=='Propuesta'){
-        registrar();
+        ingresar_propuesta();
     }
     elseif($controller=='Registrar'){
         registrarUsuario();

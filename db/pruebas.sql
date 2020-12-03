@@ -9,7 +9,8 @@ INSERT INTO
     id_tipo_us,
     telefono,
     correo,
-    contrasena
+    contrasena,
+    facultad
   )
 VALUES
   (
@@ -20,8 +21,9 @@ VALUES
     2,
     '6667777',
     'lu@gmail.com',
-    '123'
-  );
+    '123',
+    NULL
+  ),
   (
     'Lionel',
     'Henríquez',
@@ -30,7 +32,8 @@ VALUES
     2,
     '6667777',
     'lio@gmail.com',
-    '123'
+    '123',
+    NULL
   ),
   (
     'Kirsten',
@@ -40,7 +43,8 @@ VALUES
     1,
     '6667777',
     'kirs@gmail.com',
-    '123'
+    '123',
+    1
   ),
   (
     'Alexander',
@@ -50,7 +54,8 @@ VALUES
     1,
     '6667777',
     'alex@gmail.com',
-    '123'
+    '123',
+    4
   ),
   (
     'Javier',
@@ -60,17 +65,18 @@ VALUES
     2,
     '6667777',
     'javi@gmail.com',
-    '123'
+    '123',
+    NULL
   );
 
-  INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro) 
+  INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
   VALUES('Mi pana','Zamora','2020-05-12','19:06:50','21:05:10',3,'Buen proyecto','Hacer un gran trabajo','Pico y pala','Hola','8-950-1232',651525,'hola@gmail.com','indice de 3');
 
 
 DROP TABLE ano;
 DROP TABLE ano_proyecto;
-DROP TABLE facultad;
 DROP TABLE usuario;
+DROP TABLE facultad;
 DROP TABLE tipo_usuario;
 DROP TABLE proyecto;
 DROP TABLE propuesta_proyecto;

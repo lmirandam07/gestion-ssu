@@ -4,8 +4,9 @@
     } else { 
         $controller = 'Home';
     }
-    require_once('./Controllers/PropuestaController.php');
-    function registrar(){       
+    
+    function ingresar_propuesta(){    
+        require_once('./Controllers/PropuestaController.php');   
         $datos = [];
         $datos['nombre_encarg'] = $_POST['nombre_encargado'];
         $datos['cedula_encarg'] = $_POST['cedula'];
@@ -26,7 +27,7 @@
     
     }
     if($controller=='Propuesta'){
-        registrar();
+        ingresar_propuesta();
     }
     
 ?>

@@ -65,7 +65,7 @@
     </div>
     </main>
 
-    <?php include('../Layouts/footer.html'); ?>
+    <?php include('../Layouts/footer_admin.html'); ?>
 </body>
 
 </html>

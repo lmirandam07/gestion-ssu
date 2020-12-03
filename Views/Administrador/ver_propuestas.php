@@ -139,6 +139,6 @@ for ($page=1;$page<=$number_of_pages;$page++) {
         </div> 
      </section>
      <br>
-     <?php include('../Layouts/footer.html'); ?>
+     <?php include('../Layouts/footer_admin.html'); ?>
 </body>
 </html> 

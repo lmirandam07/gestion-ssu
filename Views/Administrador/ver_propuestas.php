@@ -97,7 +97,12 @@
                     ?>
                         <li>
                             <?php
-                                echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                if($i!=$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                }
+                                elseif($i==$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-grey' id='paginas'>$i</a>";
+                                }
                                 }
                             ?>
                         </li>

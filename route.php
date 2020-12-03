@@ -81,6 +81,7 @@
     function cambiar_contra(){
         require_once('./Controllers/CambiarContraController.php');
         $datos=[];
+        $datos['correo']=$_POST['correo'];
         $datos['nueva_contra']=$_POST['nueva_contra'];
         $datos['verif_nueva_contra']=$_POST['verif_nueva_contra'];
 

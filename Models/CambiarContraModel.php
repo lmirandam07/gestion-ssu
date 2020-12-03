@@ -17,7 +17,7 @@ class CambiarContraModel{
 
 
     public function cambiarContrasena($datos){
-        $correo = 'kirsten@gmail.com';
+        $correo = $datos['correo'];
         $nueva_contra = $datos['nueva_contra'];
         $verif_nueva_contra = $datos['verif_nueva_contra'];
 

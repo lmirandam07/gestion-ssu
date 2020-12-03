@@ -57,7 +57,7 @@
                             <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
                         </div>
                         <div class="column is-12 is-gapless  is-centered">
-                            <p><a href="../../route.php?controller=Ver_Propuestas&Page=0" class="has_text_link has-text-centered is-size-5 level-item has-text-weight-medium"><span>Ver Propuestas</span><span class="icon"><i class="fas fa-chevron-right"></i></i></span></a></p>
+                            <p><a href="../../route.php?controller=Ver_Propuestas&Page=1" class="has_text_link has-text-centered is-size-5 level-item has-text-weight-medium"><span>Ver Propuestas</span><span class="icon"><i class="fas fa-chevron-right"></i></i></span></a></p>
                         </div>
                         <div class="column is-offset-12 is-gapless"></div>
                     </div>

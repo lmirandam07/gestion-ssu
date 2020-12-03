@@ -37,7 +37,7 @@
             <div class="column"></div>
             <div class="column is-11">
                 <div class="propuesta content" id="propuesta">
-                    <form action="../../route.php" method="POST" id="informacion_propuesta">
+                    <form action="../../route.php?controller=Propuesta" method="POST" id="informacion_propuesta">
                         <div class="columns">
                             <div class="datos column is-half">
                                 <h2>Información Personal</h2>
@@ -273,6 +273,7 @@
                                     <br>
                                     <li><label class="label">Materiales</label></li>
                                     <textarea name="materiales" id="" cols="50" rows="4"></textarea>
+                                    
 
                                 </ul>
 

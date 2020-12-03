@@ -63,6 +63,13 @@
         $controller->inicio_sesion($datos);
     }
 
+    function ver_perfil(){
+        require_once('./Controllers/UsuarioController.php');
+        $controller= new UsuarioController();
+        $controller->verPerfil();
+
+    }
+
     if($controller=='Propuesta'){
         ingresar_propuesta();
     }

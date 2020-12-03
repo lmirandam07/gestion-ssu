@@ -44,9 +44,9 @@ class UsuarioModel{
         FROM usuario us
         INNER JOIN facultad fa ON us.facultad=fa.id_facultad;");
         while($filas=$consulta->fetch_assoc()){
-            $registros[]=$filas;
+            $registro[]=$filas;
         }
-        return $registros;
+        return $registro;
 
 
 

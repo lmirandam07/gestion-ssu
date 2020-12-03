@@ -56,7 +56,7 @@
                                         <div class = "columns is-gapless is-fluid is-multiline is-centered">
                                             <div class= "column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_1.jpg' ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class = "column is-8 is-gapless">

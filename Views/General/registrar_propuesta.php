@@ -37,7 +37,7 @@
             <div class="column"></div>
             <div class="column is-11">
                 <div class="propuesta content" id="propuesta">
-                    <form action="" method="POST" id="informacion_propuesta">
+                    <form action="../../route.php" method="POST" id="informacion_propuesta">
                         <div class="columns">
                             <div class="datos column is-half">
                                 <h2>Información Personal</h2>
@@ -79,7 +79,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="text" placeholder="" name="telefono" id="telefono">
+                                                        <input class="input is-small" type="number" placeholder="" name="telefono" id="telefono">
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +229,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="datetime" placeholder="" name="hora_inicio" id="hora_inicio">
+                                                    <input class="input is-small" type="time" placeholder="" name="hora_inicio" id="hora_inicio">
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="datetime" placeholder="" name="hora_final" id="hora_final">
+                                                    <input class="input is-small" type="time" placeholder="" name="hora_final" id="hora_final">
                                                 </div>
                                             </div>
                                         </div>

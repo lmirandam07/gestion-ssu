@@ -1,11 +1,12 @@
-<?php 
-    if (isset($_GET['controller'])) { 
+<?php
+
+    $controller = 'Home';
+
+    if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
-    } else { 
-        $controller = 'Home';
     }
 
-    function registrar(){       
+    function ingresar_propuesta(){
         require_once('./Controllers/PropuestaController.php');
         $datos = [];
         $datos['nombre_encarg'] = $_POST['nombre_encargado'];
@@ -24,12 +25,12 @@
         $datos['materiales_pro'] = $_POST['materiales'];
         $ingresar_datos = new  PropuestaController();
         $ingresar_datos->registrar_propuesta($datos);
-    
+
     }
 
-    function registrarUsuario(){
+    function registrar_usuario(){
         require_once('./Controllers/UsuarioController.php');
-        
+
         $datos=[];
         $datos['nombre_us']=$_POST['nombre'];
         $datos['apellido_us']=$_POST['apellido'];
@@ -38,28 +39,54 @@
         $datos['contrasena']=$_POST['contra'];
         $datos['telefono']=$_POST['numero_contacto'];
         $datos['id_tipo_us']=$_POST['1'];
-        $datos['facultad']=$_POST['facultad']; 
-        $datos['validC']=$_POST['validarC']; 
-        
+        $datos['facultad']=$_POST['facultad'];
+        $datos['validC']=$_POST['validarC'];
+
         $ingresar_datos=new UsuarioController();
         $ingresar_datos->registrar($datos);
         }
 
     function ver_propuestas(){
         require_once('./Controllers/PropuestaController.php');
-    
-        $controller = new PropuestaController();       
+
+        $controller = new PropuestaController();
         $controller->ver_propuestas();
     }
 
+    function inicio_sesion() {
+        require_once('./Controllers/SesionController.php');
+        $datos = [];
+        $datos['correo'] = $_POST['correo'];
+        $datos['contrasena'] = $_POST['contrasena'];
+
+        $controller = new SesionController();
+        $controller->inicio_sesion($datos);
+    }
+
     if($controller=='Propuesta'){
-        registrar();
+        ingresar_propuesta();
     }
     elseif($controller=='Registrar'){
-        registrarUsuario();
+        registrar_usuario();
     }
     elseif($controller=='Ver_Propuestas'){
         ver_propuestas();
     }
-    
-?>
+
+    switch ($controller) {
+        case 'Propuesta':
+            ingresar_propuesta();
+            break;
+
+        case 'Registrar':
+            registrar_usuario();
+            break;
+
+        case 'Ver_Propuestas':
+            ver_propuestas();
+            break;
+
+        case 'Inicio_Sesion':
+            inicio_sesion();
+            break;
+    }

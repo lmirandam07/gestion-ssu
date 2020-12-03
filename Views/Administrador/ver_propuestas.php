@@ -56,7 +56,7 @@
                                         <div class = "columns is-gapless is-fluid is-multiline is-centered">
                                             <div class= "column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo 'https://bulma.io/images/placeholders/128x128.png'; ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class = "column is-8 is-gapless">
@@ -68,7 +68,10 @@
                                             <div class = "column is-gapless"></div>
                                              <div class = "column is-11 is-gapless"></div>
                                              <div class = "column is-narrow is-gapless has-text-centered">
-                                                 <a href="./Views/General/proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
+                                                 <?php
+                                                    $propuesta = $dato['id_propuesta'];
+                                                    echo "<a href='../../route.php?controller=######&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                ?>
                                              </div>
                                          </div>
                                          </div>
@@ -97,7 +100,12 @@
                     ?>
                         <li>
                             <?php
-                                echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                if($i!=$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                }
+                                elseif($i==$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-grey' id='paginas'>$i</a>";
+                                }
                                 }
                             ?>
                         </li>

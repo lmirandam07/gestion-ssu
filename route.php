@@ -81,12 +81,29 @@
     function cambiar_contra(){
         require_once('./Controllers/CambiarContraController.php');
         $datos=[];
+        $datos['correo']=$_POST['correo'];
         $datos['nueva_contra']=$_POST['nueva_contra'];
         $datos['verif_nueva_contra']=$_POST['verif_nueva_contra'];
 
         $ingresar_datos=new CambiarContraController();
         $ingresar_datos->cambiar_contrasena($datos);
         }
+
+    function ver_perfil(){
+        require_once('./Controllers/UsuarioController.php');
+        $controller= new UsuarioController();
+        $controller->verPerfil();
+    
+    }
+
+    function ver_proyectos(){
+        $page = $_GET['Page'];
+            
+        require_once('./Controllers/ProyectoController.php');
+    
+        $controller = new ProyectoController();
+        $controller->ver_proyectos($page);
+    }
         
     switch ($controller) {
         case 'Propuesta':
@@ -107,6 +124,14 @@
 
         case 'Cambiar_Contrasena';
             cambiar_contra();
+            break;
+
+        case 'Ver_perfil';
+            ver_perfil();
+            break;
+
+        case 'Ver_Proyectos':
+            ver_proyectos();
             break;
     }
     ?>

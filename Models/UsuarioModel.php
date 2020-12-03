@@ -39,6 +39,19 @@ class UsuarioModel{
 
     }
 
+    public function obtenerPerfil(){
+        $consulta=$this->db->query("SELECT us.nombre_us, us.apellido_us, us.cedula_us, fa.nombre_facultad, us.correo, us.telefono
+        FROM usuario us
+        INNER JOIN facultad fa ON us.facultad=fa.id_facultad;");
+        while($filas=$consulta->fetch_assoc()){
+            $registro[]=$filas;
+        }
+        return $registro;
+
+
+
+    }
+
 
 
 

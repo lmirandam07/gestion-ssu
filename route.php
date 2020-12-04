@@ -6,6 +6,9 @@
         $controller = $_GET['controller'];
     }
 
+
+// Funciones para hacer de nexo con los controller y tomar los datos de POST
+
     function ingresar_propuesta(){
         require_once('./Controllers/PropuestaController.php');
         $datos = [];
@@ -116,7 +119,7 @@
 
     function proyecto(){
         $proyecto = $_GET['Proyecto'];
-        
+
         require_once('./Controllers/ProyectoController.php');
 
         $controller = new ProyectoController();
@@ -127,9 +130,11 @@
         $id_propuesta = $_GET['Propuesta'];
         require_once('./Controllers/PropuestaController.php');
         $controller = new PropuestaController();
-        $controller->acceder_propuesta($id_propuesta);        
+        $controller->acceder_propuesta($id_propuesta);
     }
-        
+
+
+
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
@@ -161,7 +166,7 @@
 
         case 'Cerrar_Sesion':
             cerrar_sesion();
-            
+
         case 'Acceder':
             acceder_propuesta();
             break;

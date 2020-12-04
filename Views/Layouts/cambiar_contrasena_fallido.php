@@ -62,12 +62,12 @@
           
         </header>
         <section class="modal-card-body">
-            <p class="medium">Las contraseñas ingresadas no coinciden</p>
+            <p class="medium">Las contraseñas ingresadas no coinciden, intente nuevamente</p>
         </section>
         <footer class="modal-card-foot columns">
           <div class="column"></div>
           <div class="column is-two-fifths">
-              <a href="../../cambiar_contra.php"><button class="button is-principal">Ok</button></a>
+              <a href="../General/cambiar_contra.php"><button class="button is-principal">Ok</button></a>
           </div>
           <div class="column"></div>
             

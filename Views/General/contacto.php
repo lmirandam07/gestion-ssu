@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +13,26 @@
     <title>Contacto</title>
 </head>
 <body>
-    <?php include('../Layouts/header.html'); ?>
+    <?php
+        try {
+
+            if($_SESSION['tipo_usuario'] == 1) {
+                include('../Layouts/header_usuario.html');
+            } else if ($_SESSION['tipo_usuario'] == 2) {
+                include('../Layouts/header_usuario_admin.html');
+            } else {
+                include('../Layouts/header.html');
+            }
+        } catch (Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+    ?>
    <div class="container level-item is-fluid container_titulo">
        <div>
             <h1 class= "has-text-centered is-size-3 has-text-weight-bold">¿Necesitas más información?</h1>
             <h2 class="has-text-centered is-size-3 has-text-weight-bold is-purple">Contáctanos</h2>
         </div>
-   </div> 
+   </div>
    <div class="is-fluid">
     <div class="columns is-gapless is-fluid">
             <div class="column is-half is-gapless container_morado level-item">

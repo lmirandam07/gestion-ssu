@@ -44,7 +44,13 @@
         function aprobar_propuesta($id_propuesta){
             $propuesta = new PropuestaModel();
             $propuesta->aprobar_propuesta($id_propuesta);
-            
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/aprobar_propuesta.php';
+        }
+        function rechazar_propuesta($id_propuesta){
+            $propuesta = new PropuestaModel();
+            $propuesta->rechazar_propuesta($id_propuesta);
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/rechazar_propuesta.php';
+
         }
 
     }

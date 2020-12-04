@@ -125,9 +125,18 @@
         }
         public function aprobar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '1' WHERE id_propuesta = '$id_propuesta';";
+            $this->db->query($sql);
 
 
         }
+
+        public function rechazar_propuesta($id_propuesta){
+            $sql = "UPDATE propuesta_proyecto SET id_estado = '2' WHERE id_propuesta = '$id_propuesta';";
+            $this->db->query($sql);
+
+
+        }
+        
         
     }
 

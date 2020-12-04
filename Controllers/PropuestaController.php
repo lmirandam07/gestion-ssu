@@ -23,7 +23,14 @@
             $propuesta= new PropuestaModel();
             $propuesta->insertar_propuesta($datos);
             $propuesta->insertar_facultad_anio_propuesta($facultades,$anios);
-            require_once $_SERVER['/var/www/html'].'index.php';
+            if($propuesta->registro_exitoso == True){
+                require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_exitoso.html';
+            }
+            else{
+                require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_fallido.html';
+            }
+            
+            //require_once $_SERVER['/var/www/html'].'index.php';
         }
 
     }

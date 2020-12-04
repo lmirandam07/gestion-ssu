@@ -3,10 +3,13 @@
     Class PropuestaModel{
         private $db;
         private $propuestas;
+        public $registro_exitoso;
+        
 
         public function __construct(){
             $this->db = Db::conexion();
             $this->propuestas = array();
+            $this->registro_exitoso = False;
         }
         
         public function insertar_propuesta($datos){
@@ -29,18 +32,20 @@
             $materiales_pro = $datos['materiales_pro'];
 
             $nombre_encarg = $datos['nombre_encarg'];
-            
+ 
             $cedula_encarg = $datos['cedula_encarg'];
             $telefono_encarg = (int)$datos['telefono_encarg'];
             $correo_encarg = $datos['correo'];
             $perfil_estu_pro = $datos['perfil_estu_pro'];
             $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro) 
-                    VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
+                        VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
             if($this->db->query($sql) == True){
-                echo 'Exitoso';
+                $this->registro_exitoso = True;
+                echo '<script>console.log("Exitoso")</script>';
             }
             else{
-                echo 'No Exitoso';
+                $this->registro_exitoso = False;
+                echo '<script>console.log("No Exitoso")</script>';
             }
         }
         public function insertar_facultad_anio_propuesta($facultades,$anios){

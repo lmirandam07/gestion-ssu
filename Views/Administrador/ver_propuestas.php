@@ -71,7 +71,7 @@
                                              <div class = "column is-narrow is-gapless has-text-centered">
                                                  <?php
                                                     $propuesta = $dato['id_propuesta'];
-                                                    echo "<a href='../../route.php?controller=######&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                    echo "<a href='../../route.php?controller=Acceder&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
                                                 ?>
                                              </div>
                                          </div>

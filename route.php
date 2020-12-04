@@ -104,6 +104,12 @@
         $controller = new ProyectoController();
         $controller->ver_proyectos($page);
     }
+    function acceder_propuesta(){
+        $id_propuesta = $_GET['Propuesta'];
+        require_once('./Controllers/PropuestaController.php');
+        $controller = new PropuestaController();
+        $controller->acceder_propuesta($id_propuesta);        
+    }
         
     switch ($controller) {
         case 'Propuesta':
@@ -132,6 +138,10 @@
 
         case 'Ver_Proyectos':
             ver_proyectos();
+            break;
+            
+        case 'Acceder':
+            acceder_propuesta();
             break;
     }
     ?>

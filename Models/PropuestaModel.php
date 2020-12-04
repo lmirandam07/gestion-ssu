@@ -3,12 +3,14 @@
     Class PropuestaModel{
         private $db;
         private $propuestas;
+        private $acceso_propuesta;
         public $registro_exitoso;
         
 
         public function __construct(){
             $this->db = Db::conexion();
             $this->propuestas = array();
+            $this->acceso_propuesta = array();
             $this->registro_exitoso = False;
         }
         
@@ -93,6 +95,17 @@
             $totalpages = ceil($totalrecord/$num_per_page);
             
             return $totalpages;
+        }
+
+        public function acceder_propuesta($id_propuesta){
+            $consulta= $this->db->query("select * from propuesta_proyecto where id_propuesta ='$id_propuesta';");
+            while($filas= $consulta->fetch_assoc()){
+                $acceso_propuesta[] = $filas; 
+
+            }
+            return $acceso_propuesta;
+
+
         }
         
     }

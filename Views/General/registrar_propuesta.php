@@ -46,7 +46,7 @@
 
                                         <div class="field is-horizontal">
                                             <div class="field-label">
-                                                <li><label class="label is-small">Nombre: </label></li>
+                                                <li><label class="label is-small">Nombre Completo: </label></li>
                                             </div>
                                             <div class="field-body">
                                                 <div class="field">
@@ -284,7 +284,7 @@
                         <br>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
-                                <input type="submit" class="button is-second is-normal" value="CANCELAR">
+                                <a href="../../index.php"><button type="button" class="button is-second is-normal">CANCELAR</button></a>
                             </p>
                             <p class="control">
                                 <input type="submit" class="button is-principal is-normal" value="ENVIAR">

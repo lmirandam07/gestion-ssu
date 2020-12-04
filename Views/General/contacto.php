@@ -21,7 +21,7 @@
             } else if ($_SESSION['tipo_usuario'] == 2) {
                 include('../Layouts/header_usuario_admin.html');
             } else {
-                // include('../Layouts/header.html');
+                include('../Layouts/header.html');
             }
         } catch (Exception $e) {
             echo 'Error encontrado: ', $e->getMessage(), "\n";

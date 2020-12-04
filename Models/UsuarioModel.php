@@ -1,5 +1,6 @@
 <?php 
 
+session_start();
 
 require_once $_SERVER['/var/www/html'] .'db/db.php';
 
@@ -25,6 +26,7 @@ class UsuarioModel{
         $contra=$datos['contrasena'];
         $facultad=$datos['facultad'];
         $validarC=$datos['validC'];
+        
 
         if ($contra!=$validarC){
             header("location:../Views/General/registrar.php");
@@ -39,16 +41,26 @@ class UsuarioModel{
 
     }
 
-    public function obtenerPerfil(){
+    public function obtenerPerfil($correo){
         $consulta=$this->db->query("SELECT us.nombre_us, us.apellido_us, us.cedula_us, fa.nombre_facultad, us.correo, us.telefono
         FROM usuario us
-        INNER JOIN facultad fa ON us.facultad=fa.id_facultad;");
+        INNER JOIN facultad fa ON us.facultad=fa.id_facultad
+        WHERE '$correo'=us.correo;");
         while($filas=$consulta->fetch_assoc()){
-            $registro[]=$filas;
+            $registros[]=$filas;
         }
-        return $registro;
+        return $registros;
+    }
+    
 
 
+
+    public function obtenerHoras(){
+    $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro
+            FROM proyecto pro
+            INNER JOIN proyecto_usuario p
+            INNER JOIN usuario u
+            WHERE pro.id_proyecto = p.id_proyecto AND p.id_usuario");
 
     }
 

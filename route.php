@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
     $controller = 'Home';
 
     if (isset($_GET['controller'])) {
@@ -90,11 +90,14 @@
         }
 
     function ver_perfil(){
+        $correo=$_SESSION['usuario_actual'];
         require_once('./Controllers/UsuarioController.php');
-        $controller= new UsuarioController();
-        $controller->verPerfil();
+        $controller = new UsuarioController();
+        $controller->verPerfil($correo);
 
     }
+
+
 
     function ver_proyectos(){
         $page = $_GET['Page'];
@@ -128,11 +131,11 @@
             inicio_sesion();
             break;
 
-        case 'Cambiar_Contrasena';
+        case 'Cambiar_Contrasena':
             cambiar_contra();
             break;
 
-        case 'Ver_perfil';
+        case 'Ver_Perfil':
             ver_perfil();
             break;
 

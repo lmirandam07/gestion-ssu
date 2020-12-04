@@ -21,7 +21,7 @@
             <div class="hero-body">
             </div>
             <div class="has-bg-color">
-                <h1 class="level-left is-size-2 has-text-weight-medium ml-4">Bienvenido <?php echo $_SESSION['correo']; ?> - Estudiante</h1>
+                <h1 class="level-left is-size-2 has-text-weight-medium ml-4">Bienvenido <?php echo $_SESSION['usuario_actual']; ?> - Estudiante</h1>
             </div>
         </section>
         <section class="ssu-cont columns is-vcentered is-multiline">

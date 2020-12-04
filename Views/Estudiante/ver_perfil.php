@@ -14,7 +14,10 @@
 </head>
 
 <body>
-<?php include('../Layouts/header_usuario.html'); ?>
+            
+            <?php include('./Views/Layouts/header_usuario.html');?> 
+
+
 
 
 
@@ -22,10 +25,13 @@
             <div class="column is-two-fifths columna1 box ">
             <div class="icono-edit is-pulled-top"><i class="far fa-edit is-pulled-right"></i></div>
                 <div class="content has-text-centered"><i class="far fa-user-circle fa-8x has-text-centered"></i></div>
-                <?php foreach($datos as $dato){ ?>
-                <h1 class="has-text-centered textoP"> <?php echo $dato["nombre_us"]. ' ' . $dato["apellido_us"] ?> </h1>
+                <?php foreach ($datos as $dato){ 
+                    ?>
+
+                <h1 class="has-text-centered textoP"> <?php echo $dato['nombre_us']. ' ' . $dato["apellido_us"] ;?> </h1>
                 <h3 class="has-text-centered texto">ESTUDIANTE</h3>
                 <div class="columns ">
+                                          
                     <div class="column is-half">
 
 
@@ -38,21 +44,20 @@
                     <div class="column is-half ">
 
 
-                        <h3 class="texto"><?php echo $dato["cedula_us"] ?></h3>
-                        <h3 class="texto"><?php echo $dato["nombre_facultad"] ?></h3>
-                        <h3 class="texto"><?php echo $dato["correo"] ?></h3>
-                        <h3 class="texto"><?php echo $dato["telefono"] ?></h3>
+                        <h3 class="texto"><?php echo $dato["cedula_us"] ;?></h3>
+                        <h3 class="texto"><?php echo $dato["nombre_facultad"] ;?></h3>
+                        <h3 class="texto"><?php echo $dato["correo"]; ?></h3>
+                        <h3 class="texto"><?php echo $dato["telefono"]; ?></h3>
 
 
-                <?php } ?>
 
 
 
                     </div>
 
-
+                
                 </div>
-
+                <?php }?>
             </div>
             <div class="column is-half bod box">
                 <h1 class="has-text-centered reg">Registro de Horas</h1>
@@ -151,7 +156,7 @@
         <!--Final Proyecto-->
     </section>
 
-    <?php include('../Layouts/footer.html'); ?>
+    <?php include('./Views/Layouts/footer.html'); ?>
 
 
 </body>

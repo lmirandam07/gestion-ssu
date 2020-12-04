@@ -15,7 +15,12 @@
 </head>
 
 <body>
-    <?php include('../Layouts/header_usuario_admin.html');?>
+    <?php include('../Layouts/header_usuario_admin.html');
+            require_once $_SERVER['/var/www/html'].'../../Controllers/ContadorAdminController.php';
+            $controller = new ContadorAdminController();
+            $countpropuesta = $controller->contador_propuesta();
+            $countproyecto = $controller->contador_proyecto();
+    ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">
@@ -41,10 +46,10 @@
                             <p class="has-text-centered is-size-3 has-text-weight-medium">Proyectos de SSU <br> Activos</p>
                         </div>
                         <div class="column is-12 is-gapless">
-                            <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
+                            <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countproyecto; ?></p>
                         </div>
                         <div class="column is-12 is-gapless  is-centered">
-                            <p><a href="../ver_proyectos.php"  class="has_text_link has-text-centered is-size-5 level-item has-text-weight-medium"><span>Ver Proyectos</span><span class="icon"><i class="fas fa-chevron-right"></i></i></span></a></p>
+                            <p><a href="/Views/General/ver_proyectos.php"  class="has_text_link has-text-centered is-size-5 level-item has-text-weight-medium"><span>Ver Proyectos</span><span class="icon"><i class="fas fa-chevron-right"></i></i></span></a></p>
                         </div>
                         <div class="column is-offset-12 is-gapless"></div>
                     </div>
@@ -56,7 +61,7 @@
                             <p class="has-text-centered is-size-3 has-text-weight-medium">Nuevas Propuestas<br>de Proyectos</p>
                         </div>
                         <div class="column is-12 is-gapless">
-                            <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
+                            <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countpropuesta; ?></p>
                         </div>
                         <div class="column is-12 is-gapless  is-centered">
                             <p><a href="../../route.php?controller=Ver_Propuestas&Page=1" class="has_text_link has-text-centered is-size-5 level-item has-text-weight-medium"><span>Ver Propuestas</span><span class="icon"><i class="fas fa-chevron-right"></i></i></span></a></p>

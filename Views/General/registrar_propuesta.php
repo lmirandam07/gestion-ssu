@@ -51,7 +51,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="text" placeholder="" name="nombre_encargado" id="nombre_encargado">
+                                                        <input class="input is-small" type="text" placeholder="" name="nombre_encargado" id="nombre_encargado" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="text" placeholder="" name="cedula" id="cedula">
+                                                        <input class="input is-small" type="text" placeholder="" name="cedula" id="cedula" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="number" placeholder="" name="telefono" id="telefono">
+                                                        <input class="input is-small" type="number" placeholder="" name="telefono" id="telefono" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,7 +93,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="email" placeholder="" name="correo" id="correo">
+                                                        <input class="input is-small" type="email" placeholder="" name="correo" id="correo" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                         <ul>
                                             <li><label for="perfil"><strong>Perfil de Estudiante: </strong></label></li>
                                             <br>
-                                            <textarea name="perfil" id="perfil" cols="50" rows="4">
+                                            <textarea name="perfil" id="perfil" cols="50" rows="4" required>
                                             </textarea>
                                             <br>
                                             <br>
@@ -187,7 +187,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="nombre_proyecto" id="nombre_proyecto">
+                                                    <input class="input is-small" type="text" placeholder="" name="nombre_proyecto" id="nombre_proyecto" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="lugar" id="lugar">
+                                                    <input class="input is-small" type="text" placeholder="" name="lugar" id="lugar" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="date" placeholder="" name="fecha" id="fecha">
+                                                    <input class="input is-small" type="date" placeholder="" name="fecha" id="fecha" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +229,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time" placeholder="" name="hora_inicio" id="hora_inicio">
+                                                    <input class="input is-small" type="time" placeholder="" name="hora_inicio" id="hora_inicio" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time" placeholder="" name="hora_final" id="hora_final">
+                                                    <input class="input is-small" type="time" placeholder="" name="hora_final" id="hora_final" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +256,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="number" placeholder="" name="cantidad" id="cantidad">
+                                                    <input class="input is-small" type="number" placeholder="" name="cantidad" id="cantidad" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,15 +264,15 @@
 
                                     <br>
                                     <li><label class="label">Descripción</label></li>
-                                    <textarea name="descripcion" id="" cols="50" rows="4"></textarea>
+                                    <textarea name="descripcion" id="" cols="50" rows="4" required></textarea>
                                     <br>
                                     <br>
                                     <li><label class="label">Objetivo</label></li>
-                                    <textarea name="objetivo" id="" cols="50" rows="4"></textarea>
+                                    <textarea name="objetivo" id="" cols="50" rows="4" required></textarea>
                                     <br>
                                     <br>
                                     <li><label class="label">Materiales</label></li>
-                                    <textarea name="materiales" id="" cols="50" rows="4"></textarea>
+                                    <textarea name="materiales" id="" cols="50" rows="4" required></textarea>
                                     
 
                                 </ul>

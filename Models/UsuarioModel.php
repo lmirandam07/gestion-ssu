@@ -55,12 +55,12 @@ class UsuarioModel{
 
 
 
-    public function obtenerHoras(){
+    public function obtenerHoras($correo){
     $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro
             FROM proyecto pro
             INNER JOIN proyecto_usuario p
             INNER JOIN usuario u
-            WHERE pro.id_proyecto = p.id_proyecto AND p.id_usuario");
+            WHERE pro.id_proyecto = p.id_proyecto AND p.id_usuario=u.id_usuario ");
 
     }
 

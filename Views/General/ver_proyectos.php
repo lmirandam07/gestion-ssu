@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -151,7 +152,20 @@
     ?>
 
     <br>
-    <?php include('./Views/Layouts/footer.html'); ?>
+    <?php
+        try {
+
+            if($_SESSION['tipo_usuario'] == 1) {
+                include('./Views/Layouts/footer_estu.html');
+            } else if ($_SESSION['tipo_usuario'] == 2) {
+                include('./Views/Layouts/footer_admin.html');
+            } else {
+                include('./Views/Layouts/footer.html');
+            }
+        } catch (Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+    ?>
 </body>
 
 </html>

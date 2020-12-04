@@ -111,6 +111,15 @@
         $controller->cerrar_sesion();
     }
 
+    function proyecto(){
+        $proyecto = $_GET['Proyecto'];
+        
+        require_once('./Controllers/ProyectoController.php');
+
+        $controller = new ProyectoController();
+        $controller->proyecto($proyecto);
+    }
+
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
@@ -142,6 +151,10 @@
 
         case 'Cerrar_Sesion':
             cerrar_sesion();
+            break;
+
+        case 'Proyecto':
+            proyecto();
             break;
     }
     ?>

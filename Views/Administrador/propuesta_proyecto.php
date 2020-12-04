@@ -76,52 +76,211 @@
                                                 <?php echo $dato['perfil_estu_pro']; ?>
                                             </p>
                                         <br>
+                   
+                   
+                    <?php 
+                        }
+                        $arr_anios = array();
+                        $i = 0;
+                        foreach($anios as $anio){
+                            $arr_anios[$i] = $anio['id_ano'];
+                            $i++;
+                        }
+                        
+                    ?>
+                
                                         <br>
                                         <li><label for=""><strong>Año de Estudio:</strong></label></li>
                                         <br>
                                         <div class="columns ano_estudio">
                                             <div class="column is-one-third">
-
-                                                <input type="checkbox" name="anio_list[]" id="periodo" value="primer">
-                                                <label for="primero"><strong>Primer Año</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="anio_list[]" id="periodo" value="tercero">
-                                                <label for="tercero"><strong>Tercer Año</strong></label>
-
+                                            <?php
+                                                
+                                                if(in_array(1, $arr_anios)){
+                                                    echo "
+                                                    <input type='checkbox' name='anio_list[]' id='periodo' checked disabled>
+                                                    <label for='primero'><strong>Primer Año</strong></label>
+                                                    ";
+                                                }
+                                                else{
+                                                    echo "
+                                                    <input type='checkbox' name='anio_list[]' id='periodo' disabled>
+                                                    <label for='primero'><strong>Primer Año</strong></label>
+                                                    ";
+                                                }
+                                            
+                                                if(in_array(3, $arr_anios)){
+                                                    echo "
+                                                    <br>
+                                                    <input type='checkbox' name='anio_list[]' id='periodo'  checked disabled>
+                                                    <label for='tercero'><strong>Tercer Año</strong></label>
+                                                    ";
+                                                }
+                                                else{
+                                                    echo "
+                                                    <br>
+                                                    <input type='checkbox' name='anio_list[]' id='periodo'  disabled>
+                                                    <label for='tercero'><strong>Tercer Año</strong></label>
+                                                    ";
+                                                }
+                                            ?>
+                                                
                                             </div>
                                             <div class="column">
-                                                <input type="checkbox" name="anio_list[]" id="periodo" value="segundo">
-                                                <label for="segundo"><strong>Segundo Año</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="anio_list[]" id="periodo" value="cuarto">
-                                                <label for="cuarto"><strong>Cuarto Año</strong></label>
+                                            <?php
+                                                if(in_array(2, $arr_anios)){
+                                                    echo "
+                                                   
+                                                    <input type='checkbox' name='anio_list[]' id='periodo'  checked disabled>
+                                                    <label for='tercero'><strong>Segundo Año</strong></label>
+                                                    ";
+                                                }
+                                                else{
+                                                    echo "
+                                                    <input type='checkbox' name='anio_list[]' id='periodo' disabled>
+                                                    <label for='primero'><strong>Segundo Año</strong></label>
+                                                    ";
+                                                }
+                                                echo "<br>";
+                                                if(in_array(4, $arr_anios)){
+                                                    echo "
+                                                    
+                                                    <input type='checkbox' name='anio_list[]' id='periodo'  checked disabled>
+                                                    <label for='tercero'><strong>Cuarto año o mas</strong></label>
+                                                    ";
+                                                }
+                                                else{
+                                                    echo "
+                                                    <input type='checkbox' name='anio_list[]' id='periodo' disabled>
+                                                    <label for='primero'><strong>Cuarto año o mas Año</strong></label>
+                                                    ";
+                                                }
+                                            ?>
                                             </div>
 
                                         </div>
+ 
+                                       
 
-                                        <br>
-                                        <li><label for="facultad"><strong>Facultades: </strong></label></li>
-                                        <br>
-                                        <div class="columns facultades">
+                            <?php
+                                        
+                                $arr_facultades = array();
+                                $i = 0;
+                                foreach($facultades as $facultad){
+                                    $arr_facultades[$i] = $facultad['id_facultad'];
+                                    $i++;
+                                }        
+                                        
+                            ?>
+                                             <br>
+                                            <li><label for="facultad"><strong>Facultades: </strong></label></li>
+                                            <br>
+                                            <div class="columns facultades">
                                             <div class="column is-one-third">
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="civil">
-                                                <label for="civil"><strong>F. Ing. Civil</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="industrial">
-                                                <label for="industrial"><strong>F. Ing. Industrial</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="mecanica">
-                                                <label for="mecanica"><strong>F. Ing. Mecánica</strong></label>
+                                                <?php
+
+                                                    if(in_array(1,$arr_facultades)){
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='civil'><strong>F. Ing. Civil</strong></label>
+                                                        <br>
+                                                        ";
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='civil'><strong>F. Ing. Civil</strong></label>
+                                                        <br>                             
+                                                        ";
+                                                    }
+
+                                                    if(in_array(5,$arr_facultades)){
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='industrial'><strong>F. Ing. Industrial</strong></label>
+                                                        <br>
+                                                        ";                                                        
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='industrial'><strong>F. Ing. Industrial</strong></label>
+                                                        <br>
+                                                        ";
+                                                    }
+
+                                                    if(in_array(2,$arr_facultades)){
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='mecanica'><strong>F. Ing. Mecánica</strong></label>
+                                                        ";
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='mecanica'><strong>F. Ing. Mecánica</strong></label>
+                                                        ";
+                                                    }
+
+                                                
+                                                ?>
+                                                
+                                                
+                                                
                                             </div>
                                             <div class="column">
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="electrica">
-                                                <label for="electrica"><strong>F. Ing. Eléctrica</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="ciencias">
-                                                <label for="cuarto"><strong>F. Ing. Ciencias y Tecnología</strong></label>
-                                                <br>
-                                                <input type="checkbox" name="facultad_list[]" id="facultad" value="sistema">
-                                                <label for="sistema"><strong>F. Ing. Sistemas Computacionales</strong></label>
+                                                <?php
+                                                    if(in_array(3,$arr_facultades)){
+
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='electrica'><strong>F. Ing. Eléctrica</strong></label>
+                                                        <br>
+                                                        
+                                                        ";
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='electrica'><strong>F. Ing. Eléctrica</strong></label>
+                                                        <br>
+                                                        
+                                                        ";
+                                                    }
+
+                                                    if(in_array(6,$arr_facultades)){
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='cuarto'><strong>F. Ing. Ciencias y Tecnología</strong></label>
+                                                        <br>
+                                                        ";
+
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='cuarto'><strong>F. Ing. Ciencias y Tecnología</strong></label>
+                                                        <br>
+                                                        ";
+                                                    }
+
+                                                    if(in_array(4,$arr_facultades)){
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
+                                                        <label for='sistema'><strong>F. Ing. Sistemas Computacionales</strong></label>
+                                                        ";
+                                                    }
+                                                    else{
+                                                        echo"
+                                                        <input type='checkbox' name='facultad_list[]' id='facultad' disabled>
+                                                        <label for='sistema'><strong>F. Ing. Sistemas Computacionales</strong></label>
+                                                        ";
+                                                    }
+                                                
+                                                ?>
+                                                
+                                                
+                                                
                                             </div>
 
                                         </div>
@@ -133,7 +292,12 @@
                                 </fieldset>
 
 
+                    <?php
+                        foreach($datos as $dato){
 
+                        
+                    
+                    ?>
 
 
                             </div>
@@ -176,15 +340,17 @@
                             </div>
                         </div>
                         <br>
+                        
+                    </form>
+                    <?php $id_propuesta = $dato['id_propuesta'];?>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
-                                <input type="submit" class="button is-second is-normal" value="RECHAZAR">
+                                <?php echo"<a href='?controller=Rechazar&Propuesta=".$id_propuesta."' class='button is-second is-normal'>RECHAZAR</a>";?>
                             </p>
                             <p class="control">
-                                <input type="submit" class="button is-principal is-normal" value="APROBAR">
+                                <?php echo"<a href='?controller=Aprobar&Propuesta=".$id_propuesta."' class='button is-principal is-normal'>APROBAR</a>";?>                               
                             </p>
                         </div>
-                    </form>
                     <?php 
                         }
                     ?>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -48,89 +49,123 @@
     </section>
     <br>
 
-    <section class="container is-fluid" id="propuestas">
+    <?php
+    if ($cantidad !=0) {
+    ?>
+        <section class="container is-fluid" id="propuestas">
 
-        <?php
-        foreach ($datos as $dato) {
-            $imagenes = array();
-            $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
-            $random = rand(0, 3);
-        ?>
+            <?php
+            foreach ($datos as $dato) {
+                $imagenes = array();
+                $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
+                $random = rand(0, 3);
+            ?>
 
-            <div class="columns is-centered">
-                <!--Proyecto-->
-                <div class="column is-11">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left"></div>
-                            <div class="media-content" id="descrip">
-                                <div class="content">
-                                    <div class="columns is-gapless is-fluid is-multiline is-centered">
-                                        <div class="column is-gapless is-narrow">
-                                            <figure class="image is-fluid">
-                                                <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo 'https://bulma.io/images/placeholders/128x128.png'; ?> " alt="Image">
-                                            </figure>
-                                        </div>
-                                        <div class="column is-8 is-gapless">
-                                            <h3 id="titulo"> <?php echo $dato['nombre_pro'] ?> </h3>
-                                            <p name="inicio" value="<?php $inicio ?>">
-                                                <?php echo $dato['descripcion_pro'] ?><br>
-                                            </p>
-                                        </div>
-                                        <div class="column is-gapless"></div>
-                                        <div class="column is-11 is-gapless"></div>
-                                        <div class="column is-narrow is-gapless has-text-centered">
-                                            <?php
-                                            $proyecto = $dato['id_proyecto'];
-                                            echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
-                                            ?>
+                <div class="columns is-centered">
+                    <!--Proyecto-->
+                    <div class="column is-11">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left"></div>
+                                <div class="media-content" id="descrip">
+                                    <div class="content">
+                                        <div class="columns is-gapless is-fluid is-multiline is-centered">
+                                            <div class="column is-gapless is-narrow">
+                                                <figure class="image is-fluid">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                </figure>
+                                            </div>
+                                            <div class="column is-8 is-gapless">
+                                                <h3 id="titulo"> <?php echo $dato['nombre_pro'] ?> </h3>
+                                                <p name="inicio" value="<?php $inicio ?>">
+                                                    <?php echo $dato['descripcion_pro'] ?><br>
+                                                </p>
+                                            </div>
+                                            <div class="column is-gapless"></div>
+                                            <div class="column is-11 is-gapless"></div>
+                                            <div class="column is-narrow is-gapless has-text-centered">
+                                                <?php
+                                                $proyecto = $dato['id_proyecto'];
+                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--Final Proyecto-->
+                <!--Final Proyecto-->
 
-        <?php
-        }
-        ?>
+            <?php
+            }
+            ?>
 
-    </section>
+        </section>
 
-    <section class="container is-fluid">
-        <div class="columns is-centered">
-            <div class="column is-11">
-                <nav class="pagination">
-                    <ul class="pagination-list">
-                        <?php
-
-                        for ($i = 1; $i <= $paginas; $i++) {
-
-
-                        ?>
-                            <li>
+        <section class="container is-fluid">
+            <div class="columns is-centered">
+                <div class="column is-11">
+                    <nav class="pagination">
+                        <ul class="pagination-list">
                             <?php
-                            if ($i != $active) {
-                                echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
-                            } elseif ($i == $active) {
-                                echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
-                            }
-                        }
+
+                            for ($i = 1; $i <= $paginas; $i++) {
+
+
                             ?>
-                            </li>
+                                <li>
+                                <?php
+                                if ($i != $active) {
+                                    echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
+                                } elseif ($i == $active) {
+                                    echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
+                                }
+                            }
+                                ?>
+                                </li>
 
 
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    <?php } else {
+    ?>
+
+        <section class="container is-fluid">
+            <div class="columns is-centered">
+                <div class="column is-11">
+                    <article class="message is-medium">
+                        <div class="message-body">
+                            <strong class="has-text-purpura"> Vaya... </strong><br> No hay ningún proyecto registrado en el sistema. Inténtalo más tarde.
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    <?php }
+    ?>
 
     <br>
-    <?php include('./Views/Layouts/footer.html'); ?>
+    <?php
+        try {
+
+            if($_SESSION['tipo_usuario'] == 1) {
+                include('./Views/Layouts/footer_estu.html');
+            } else if ($_SESSION['tipo_usuario'] == 2) {
+                include('./Views/Layouts/footer_admin.html');
+            } else {
+                include('./Views/Layouts/footer.html');
+            }
+        } catch (Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+    ?>
 </body>
 
 </html>

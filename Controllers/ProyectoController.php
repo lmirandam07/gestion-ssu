@@ -22,7 +22,8 @@
         function proyecto($id_proyecto){
             $proyecto = new ProyectoModel();
             $datos = $proyecto->informacion_proyecto($id_proyecto);
-            //$facultades = $proyecto->facultad_proyecto();
+            $facultades = $proyecto->facultad_proyecto($id_proyecto);
+            $anios = $proyecto->ano_proyecto($id_proyecto);
             require_once('./Views/General/proyecto.php');
         }
 

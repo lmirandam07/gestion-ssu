@@ -43,16 +43,74 @@
                     </p>
                 </div>
             </div>
+
             <div class="info2 columns">
                 <div class="perfil column is-half">
                     <h1 class="subtitle is-purple">Perfil de Estudiante</h1>
                     <p>
                         <?php echo $dato['perfil_estu_pro'] ?>
                     </p>
-                    <ul>
-                        <li><strong>Facultades</strong>: Sistemas Computacionales</li>
-                        <li><strong>Año de Estudio</strong>: 3er y 4to año</li>
-                    </ul>
+                <?php
+            }
+            foreach ($facultades as $facultad) {
+                $arr_facultad[$i] = $facultad['id_facultad'];
+                $i++;
+            }
+                ?>
+                <ul>
+                    <li><strong>Facultades</strong>:
+                        <ul>
+                                <?php
+                                    if (in_array(1, $arr_facultad)) {
+                                        echo "<li> Ing. Civil </li>";
+                                    }
+                                    if (in_array(2, $arr_facultad)) {
+                                        echo "<li> Ing. Mecánica </li>";
+                                    }
+                                    if (in_array(3, $arr_facultad)) {
+                                        echo "<li> Ing. Eléctrica </li>";
+                                    }
+                                    if (in_array(4, $arr_facultad)) {
+                                        echo "<li> Ing. Sistemas Computacionales</li>";
+                                    }
+                                    if (in_array(5, $arr_facultad)) {
+                                        echo "<li> Ing. Industrial</li>";
+                                    }
+                                    if (in_array(6, $arr_facultad)) {
+                                        echo "<li> Ciencias y Tecnología</li>";
+                                    }
+                                ?>
+                        </ul>
+                    </li>
+                <?php
+                foreach ($anios as $anio) {
+                    $arr_anios[$i] = $anio['id_ano'];
+                    $i++;
+                }
+                ?>
+                    <br>
+                    <li><strong>Año de Estudio</strong>:
+                        <ul>
+                                <?php
+                                    if (in_array(1, $arr_anios)) {
+                                        echo "<li> 1er Año </li>";
+                                    }
+                                    if (in_array(2, $arr_anios)) {
+                                        echo "<li> 2do Año </li>";
+                                    }
+                                    if (in_array(3, $arr_anios)) {
+                                        echo "<li> 3er Año </li>";
+                                    }
+                                    if (in_array(4, $arr_anios)) {
+                                        echo "<li> 4to Año o más</li>";
+                                    }
+                                ?>
+                        </ul>
+                    </li>
+                </ul>
+                <?php
+                foreach ($datos as $dato) {
+                ?>
                 </div>
                 <div class="informacion column">
                     <h1 class="subtitle is-purple">Información</h1>
@@ -71,7 +129,7 @@
 
         </div>
     <?php
-    }
+                }
     ?>
     <?php include('./Views/Layouts/footer.html'); ?>
 </body>

@@ -10,6 +10,7 @@
     <title>Registrar Propuesta</title>
 </head>
 <body>
+    
     <?php include('../Layouts/header.html'); ?>
     <br>
     <section class = "container is-fluid">

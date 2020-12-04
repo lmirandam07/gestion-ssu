@@ -9,19 +9,23 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
         }
 
         public function inicio_sesion($datos) {
+            // En caso de no existir una sesión, esta se crea
             if(session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
 
+            // Si ya existe un usuario actual llamar a la función de redirigir
             if($_SESSION['usuario_actual']) {
                 $this->redirigir();
             } else {
                 $correo = $datos['correo'];
                 $contrasena = $datos['contrasena'];
 
+                // Se crea el modelo que hará las peticiones a la base de datos con los datos de inicio
                 $sesion_model = new SesionModel();
                 $sesion_actual = $sesion_model->inicio_sesion($correo, $contrasena);
 
+                // Si los datos ingresados son válidos o no llamar a la función de redirigir
                 if ($sesion_actual) {
                     $_SESSION['usuario_actual'] = $correo;
                     $_SESSION['tipo_usuario'] = $sesion_actual['id_tipo_us'];
@@ -35,7 +39,7 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
 
         public function redirigir() {
             try {
-
+                // Si el ususario es de tipo 1 (estudiante) enviarlo a su index, igual para administrador
                 if($_SESSION['tipo_usuario'] == 1) {
                     header('Location: Views/Estudiante/index.php');
                     die();
@@ -43,6 +47,7 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
                     header("Location: Views/Administrador/index.php");
                     die();
                 } else {
+                    // En caso de no existir el usuario enviar a una pantalla de error
                     header('Location: Views/General/iniciar_sesion_error.php');
                     die();
                 }
@@ -52,8 +57,8 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
         }
 
         public function cerrar_sesion() {
+            // Se destruye la sesión actual del usuario
             session_start();
-            unset($_SESSION["usuario_actual"]);
             session_destroy();
             header('Location: index.php');
             die();

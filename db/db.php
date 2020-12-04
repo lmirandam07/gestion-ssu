@@ -1,8 +1,9 @@
 <?php
 
 class Db {
-
+    //
     public static function conexion() {
+        // Atributos para conectar a la base de datos
         $servername = "mysql";
         $username = "root";
         $password = "ssu12345";
@@ -19,4 +20,4 @@ class Db {
         }
 
     }
-}   
+}

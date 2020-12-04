@@ -13,7 +13,13 @@ class UsuarioController{
     function registrar($datos){
         $registro= new UsuarioModel();
         $registro->registrarUsuarios($datos);
-        require_once $_SERVER['/var/www/html'].'index.php';
+        if($registro->registro_exitoso == True){
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_usuario_exitoso.php';
+        }
+        else{
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_usuario_fallido.php';
+        }
+        //require_once $_SERVER['/var/www/html'].'index.php';
 
 
     }
@@ -21,6 +27,8 @@ class UsuarioController{
     function verPerfil($correo){
         $cliente=new UsuarioModel();
         $datos=$cliente->obtenerPerfil($correo);
+        $data=$cliente->obtenerHoras($correo);
+        $usuario=$cliente->obtenerProyectosUsuario($correo);
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
     }

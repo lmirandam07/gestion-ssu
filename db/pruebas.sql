@@ -72,8 +72,11 @@ VALUES
   INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
   VALUES('Mi pana','Zamora','2020-05-12','19:06:50','21:05:10',3,'Buen proyecto','Hacer un gran trabajo','Pico y pala','Hola','8-950-1232',651525,'hola@gmail.com','indice de 3');
 
-  
+  INSERT INTO proyecto(id_propuesta,nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
+  VALUES('122','Mi pana','Zamora','2020-05-12','19:06:50','21:05:10',3,'Buen proyecto','Hacer un gran trabajo','Pico y pala','Hola','8-950-1232',651525,'hola@gmail.com','indice de 3');
 
+  INSERT INTO proyecto_usuario(id_proyecto, id_usuario, horas_usuario)
+  VALUES(12,8,10);
 
 DROP TABLE ano;
 DROP TABLE ano_proyecto;

@@ -38,7 +38,7 @@
                             <input class="button boton" type="submit" value="Iniciar Sesión">
                         </form>
 
-                        <p class="sent">¿Haz olvidado la contraseña?<a class="link" href="http://localhost:8000/cambiar_contra.php">Haz clic aquí</a></p>
+                        <p class="sent">¿Haz olvidado la contraseña?<a class="link" href="http://localhost:8000/Views/General/cambiar_contra.php">Haz clic aquí</a></p>
 
                         <br>
 

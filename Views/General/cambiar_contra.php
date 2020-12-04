@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-<?php include('header2.html'); ?>
+<?php include('../Layouts/header2.html'); ?>
 
     <div class="hero is-fullheight">
         <div class="hero-body ">
@@ -22,7 +23,7 @@
 <div class="box">
 <h3 class="title titulo">Cambiar Contraseña</h3>
 
-  <form action="./route.php?controller=Cambiar_Contrasena" method="POST">
+  <form action="../../route.php?controller=Cambiar_Contrasena" method="POST">
   <div class="field">
     <div class="control">
     <label class="label has-text-left label1">Correo Registrado</label>
@@ -54,26 +55,9 @@
     </div>
 
 
-<div class="modal is-active">
-    <div class="modal-background"></div>
-    <div class="modal-card has-text-centered">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Cambiar Contraseña</p>
-        
-      </header>
-      <section class="modal-card-body">
-       <p class="medium">Para completar el cambio de contraseña, abrir el enlace enviado a su correo electronico</p>
-      </section>
-      <footer class="modal-card-foot columns">
-        <div class="column"></div>
-        <div class="column is-two-fifths">
-            <a href="../../index.php"><button class="button is-principal">Ok</button></a>
-        </div>
-        <div class="column"></div>
-          
-      </footer>
-    </div>
-  </div>
+
+
+
 
 </body>
 

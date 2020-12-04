@@ -14,7 +14,7 @@ class SesionModel
     public function inicio_sesion($correo, $contrasena)
     {
         try {
-            $sql = "SELECT id_tipo_us FROM usuario WHERE correo = '$correo' AND contrasena = '$contrasena' ";
+            $sql = "SELECT id_tipo_us,nombre_us FROM usuario WHERE correo = '$correo' AND contrasena = '$contrasena' ";
             $result = $this->db->query($sql);
 
         } catch(Exception $e) {
@@ -25,6 +25,9 @@ class SesionModel
             return False;
         }
 
+        $result =  $result->fetch_assoc();
+
+        $this->db->close();
         return $result;
     }
 }

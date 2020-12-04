@@ -1,3 +1,7 @@
+.has-background-purpura{
+    background-color: #6048A8;
+}
+
 .has-bg-img{
     background: url(../img/techo.jpg)
     center center; background-size:cover;
@@ -18,14 +22,8 @@
     overflow: hidden;
 }
 
-#paginas{ 
-    background-color: #292C25;
-    color: white;
-}
-
-.is-current{
+.has-background-color{
     background-color: #6048A8;
-    color: white;
 }
 
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,14 +9,14 @@
     <link rel="stylesheet" href="../../css/ver_proyectos_propuestas.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    
+
     <title>Ver Propuestas de Proyecto</title>
 </head>
 <body>
     <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
 
     <br>
-     
+
      <section class = "container is-fluid">
         <div class = "columns">
             <div class = "column"></div>
@@ -34,16 +35,16 @@
            <div class = "column"></div>
         </div>
      </section>
-    
+
     <br>
-     
+
      <section class="container is-fluid" id="propuestas">
 
             <?php
                 foreach ($datos as $dato) {
                     $imagenes = array();
                     $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
-                    $random = rand ( 0 , 3 ); 
+                    $random = rand ( 0 , 3 );
             ?>
 
                 <div class = "columns is-centered"> <!--Propuesta-->
@@ -56,7 +57,7 @@
                                         <div class = "columns is-gapless is-fluid is-multiline is-centered">
                                             <div class= "column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo 'https://bulma.io/images/placeholders/128x128.png'; ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class = "column is-8 is-gapless">
@@ -68,14 +69,17 @@
                                             <div class = "column is-gapless"></div>
                                              <div class = "column is-11 is-gapless"></div>
                                              <div class = "column is-narrow is-gapless has-text-centered">
-                                                 <a href="./Views/General/proyecto.php" class="button is-dark is-hovered" id="boton"> Ver más </a>
+                                                 <?php
+                                                    $propuesta = $dato['id_propuesta'];
+                                                    echo "<a href='../../route.php?controller=######&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                ?>
                                              </div>
                                          </div>
                                          </div>
                                 </div>
                             </article>
                         </div>
-                </div> 
+                </div>
                 </div> <!--Final Propuesta-->
 
             <?php
@@ -85,7 +89,7 @@
      </section>
 
      <section class="container is-fluid">
-        <div class = "columns is-centered"> 
+        <div class = "columns is-centered">
             <div class = "column is-11">
                 <nav class="pagination">
                     <ul class="pagination-list">
@@ -93,23 +97,28 @@
 
                         for($i=1;$i<=$paginas;$i++){
 
-    
+
                     ?>
                         <li>
                             <?php
-                                echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                if($i!=$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                }
+                                elseif($i==$active){
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-grey' id='paginas'>$i</a>";
+                                }
                                 }
                             ?>
                         </li>
-                        
+
 
                     </ul>
                 </nav>
            </div>
-        </div> 
+        </div>
      </section>
-     
+
      <br>
      <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
-</html> 
+</html>

@@ -15,6 +15,7 @@
             $propuesta = new PropuestaModel();
             $paginas = $propuesta->total_paginas();
             $datos = $propuesta->obtener_propuestas($page);
+            $active = intval($page);
             require_once('./Views/Administrador/ver_propuestas.php');
         }
 

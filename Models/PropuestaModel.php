@@ -107,6 +107,36 @@
 
 
         }
+        public function acceder_anios_propuesta($id_propuesta){
+            $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta'");
+            while($filas= $consulta->fetch_assoc()){
+                $acceso_propuesta[] = $filas; 
+
+            }
+            return $acceso_propuesta;
+        }
+        public function acceder_facultades_propuesta($id_propuesta){
+            $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta'");
+            while($filas= $consulta->fetch_assoc()){
+                $acceso_propuesta[] = $filas; 
+
+            }
+            return $acceso_propuesta;
+        }
+        public function aprobar_propuesta($id_propuesta){
+            $sql = "UPDATE propuesta_proyecto SET id_estado = '1' WHERE id_propuesta = '$id_propuesta';";
+            $this->db->query($sql);
+
+
+        }
+
+        public function rechazar_propuesta($id_propuesta){
+            $sql = "UPDATE propuesta_proyecto SET id_estado = '2' WHERE id_propuesta = '$id_propuesta';";
+            $this->db->query($sql);
+
+
+        }
+        
         
     }
 

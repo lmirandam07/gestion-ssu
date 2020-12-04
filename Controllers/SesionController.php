@@ -56,6 +56,21 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
             }
         }
 
+        public function header_redirigir() {
+            try {
+
+                if($_SESSION['tipo_usuario'] == 1) {
+                    include('./Views/Layouts/header_usuario.html');
+                } else if ($_SESSION['tipo_usuario'] == 2) {
+                    include('./Views/Layouts/header_usuario_admin.html');
+                } else {
+                    include('./Views/Layouts/header.html');
+                }
+            } catch (Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+        }
+
         public function cerrar_sesion() {
             // Se destruye la sesión actual del usuario
             session_start();

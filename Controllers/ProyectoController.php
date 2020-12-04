@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     require_once $_SERVER['/var/www/html']. 'Models/ProyectoModel.php';
     //require_once('../Models/ProyectoModel.php');
@@ -8,9 +8,9 @@
 
         function __construct()
         {
-            
+
         }
-        
+
         function ver_proyectos($page){
             $proyecto = new ProyectoModel();
             $paginas = $proyecto->total_paginas();

@@ -12,7 +12,21 @@
 </head>
 
 <body>
-    <?php include('./Views//Layouts/header.html'); ?>
+    <?php
+        try {
+
+            if($_SESSION['tipo_usuario'] == 1) {
+                include('./Views/Layouts/header_usuario.html');
+            } else if ($_SESSION['tipo_usuario'] == 2) {
+                include('./Views/Layouts/header_usuario_admin.html');
+            } else {
+                include('./Views/Layouts/header.html');
+            }
+        } catch (Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
+    ?>
     <?php
     foreach ($datos as $dato) {
     ?>

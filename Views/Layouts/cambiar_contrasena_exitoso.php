@@ -67,7 +67,7 @@
       <footer class="modal-card-foot columns">
         <div class="column"></div>
         <div class="column is-two-fifths">
-            <a href="../index.php"><button class="button is-principal">Ok</button></a>
+            <a href="../../index.php"><button class="button is-principal">Ok</button></a>
         </div>
         <div class="column"></div>
           

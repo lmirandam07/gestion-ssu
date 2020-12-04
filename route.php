@@ -133,6 +133,8 @@
         $controller->acceder_propuesta($id_propuesta);
     }
 
+
+
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();

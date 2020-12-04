@@ -13,6 +13,12 @@ class UsuarioController{
     function registrar($datos){
         $registro= new UsuarioModel();
         $registro->registrarUsuarios($datos);
+        if($propuesta->registro_exitoso == True){
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_exitoso.html';
+        }
+        else{
+            require_once $_SERVER['/var/www/html'].'Views/Layouts/registro_fallido.html';
+        }
         require_once $_SERVER['/var/www/html'].'index.php';
 
 

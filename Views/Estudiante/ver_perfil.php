@@ -78,16 +78,13 @@
                     <th><?php echo $horas["nombre_pro"] ;?></th>
                     <th><?php echo $horas["fecha_pro"] ;?></th>
                     <th><?php echo $horas["horas_usuario"] ;?></th>
-                    <?php 
-                    $total=0;
-                    $total=$total+$horas["total_horas"];?>
+
                     <?php }?>
                 </tr>
                 
             </tbody>
             </table>
-            <h3 class="has-text-right horas">Total: <?php
-            echo $total ;?></h3>
+            <h3 class="has-text-right horas">Total: <?php echo $horas["total_horas"] ;?> </h3>
             </div>         
         </div>
 

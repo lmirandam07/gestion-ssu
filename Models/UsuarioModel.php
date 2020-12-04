@@ -41,6 +41,14 @@ class UsuarioModel{
         $this->db->query($sql);
 
         }
+        if($this->db->query($sql) == True){
+            $this->registro_exitoso = True;
+            echo '<script>console.log("Exitoso")</script>';
+        }
+        else{
+            $this->registro_exitoso = False;
+            echo '<script>console.log("No Exitoso")</script>';
+        }
 
 
     }
@@ -60,7 +68,7 @@ class UsuarioModel{
 
 
     public function obtenerHoras($correo){
-    $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro, p.horas_usuario
+    $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro, u.total_horas, p.horas_usuario
     FROM proyecto pro
     INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
     INNER JOIN usuario u ON '$correo'=u.correo
@@ -83,6 +91,7 @@ class UsuarioModel{
             $proyectos[]=$filas;
             $n++;
         }
+
         return $proyectos;
 
 

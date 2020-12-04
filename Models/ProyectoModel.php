@@ -3,10 +3,12 @@
     Class ProyectoModel{
         private $db;
         private $proyectos;
+        private $info_proyecto;
 
         public function __construct(){
             $this->db = Db::conexion();
             $this->proyectos = array();
+            $this->info_proyecto = array();
         }
 
         public function obtener_proyecto($page){
@@ -37,7 +39,14 @@
             
             return $totalpages;
         }
+
+        public function informacion_proyecto($id_proyecto){
+            $id = intval($id_proyecto);
+            $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
+            while($filas = $consulta->fetch_assoc()){
+                $info_proyecto[] = $filas;
+            }
+            return $info_proyecto;
+        }
         
     }
-
-?>

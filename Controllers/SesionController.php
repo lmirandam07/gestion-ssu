@@ -50,4 +50,12 @@ require_once $_SERVER['/var/www/html'].'Models/SesionModel.php';
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
         }
+
+        public function cerrar_sesion() {
+            session_start();
+            unset($_SESSION["usuario_actual"]);
+            session_destroy();
+            header('Location: index.php');
+            die();
+        }
     }

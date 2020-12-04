@@ -5,9 +5,9 @@
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     }
-    
-    function ingresar_propuesta(){    
-        require_once('./Controllers/PropuestaController.php');   
+
+    function ingresar_propuesta(){
+        require_once('./Controllers/PropuestaController.php');
         $datos = [];
         $facultades=[];
         $anios = [];
@@ -38,7 +38,7 @@
 
         $ingresar_datos = new  PropuestaController();
         $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
-    
+
     }
 
     function registrar_usuario(){
@@ -61,7 +61,7 @@
 
     function ver_propuestas(){
         $page = $_GET['Page'];
-        
+
         require_once('./Controllers/PropuestaController.php');
 
         $controller = new PropuestaController();
@@ -93,16 +93,38 @@
         require_once('./Controllers/UsuarioController.php');
         $controller= new UsuarioController();
         $controller->verPerfil();
-    
+
     }
 
     function ver_proyectos(){
         $page = $_GET['Page'];
-            
+
         require_once('./Controllers/ProyectoController.php');
-    
+
         $controller = new ProyectoController();
         $controller->ver_proyectos($page);
+    }
+
+    function cerrar_sesion() {
+        require_once('./Controllers/SesionController.php');
+        $controller = new SesionController();
+        $controller->cerrar_sesion();
+    }
+
+    function proyecto(){
+        $proyecto = $_GET['Proyecto'];
+        
+        require_once('./Controllers/ProyectoController.php');
+
+        $controller = new ProyectoController();
+        $controller->proyecto($proyecto);
+    }
+
+    function acceder_propuesta(){
+        $id_propuesta = $_GET['Propuesta'];
+        require_once('./Controllers/PropuestaController.php');
+        $controller = new PropuestaController();
+        $controller->acceder_propuesta($id_propuesta);        
     }
         
     switch ($controller) {
@@ -132,6 +154,17 @@
 
         case 'Ver_Proyectos':
             ver_proyectos();
+            break;
+
+        case 'Cerrar_Sesion':
+            cerrar_sesion();
+            
+        case 'Acceder':
+            acceder_propuesta();
+            break;
+
+        case 'Proyecto':
+            proyecto();
             break;
     }
     ?>

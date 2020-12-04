@@ -71,7 +71,7 @@
                                              <div class = "column is-narrow is-gapless has-text-centered">
                                                  <?php
                                                     $propuesta = $dato['id_propuesta'];
-                                                    echo "<a href='../../route.php?controller=######&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                    echo "<a href='../../route.php?controller=Acceder&Propuesta=".$propuesta."' class='button is-dark is-hovered' id='boton'>Ver más</a>";
                                                 ?>
                                              </div>
                                          </div>
@@ -102,10 +102,10 @@
                         <li>
                             <?php
                                 if($i!=$active){
-                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link' id='paginas'>$i</a>";
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
                                 }
                                 elseif($i==$active){
-                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-grey' id='paginas'>$i</a>";
+                                    echo "<a href='../../route.php?controller=Ver_Propuestas&Page=".$i."' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
                                 }
                                 }
                             ?>

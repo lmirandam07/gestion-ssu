@@ -32,6 +32,13 @@
             
             //require_once $_SERVER['/var/www/html'].'index.php';
         }
+        function acceder_propuesta($id_propuesta){
+            $propuesta = new PropuestaModel();
+            $datos = $propuesta->acceder_propuesta($id_propuesta);
+            require_once $_SERVER['/var/www/html'].'Views/Administrador/propuesta_proyecto.php';
+
+
+        }
 
     }
 ?>

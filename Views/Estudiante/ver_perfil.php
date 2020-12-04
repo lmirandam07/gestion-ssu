@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<?php include('../Layouts/header.html'); ?>
+<?php include('../Layouts/header_usuario.html'); ?>
 
 
 
@@ -44,7 +44,7 @@
                         <h3 class="texto"><?php echo $dato["telefono"] ?></h3>
 
 
-                        }
+                <?php } ?>
 
 
 
@@ -150,11 +150,6 @@
         </div>
         <!--Final Proyecto-->
     </section>
-
-
-
-
-
 
     <?php include('../Layouts/footer.html'); ?>
 

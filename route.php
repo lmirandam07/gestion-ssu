@@ -104,7 +104,6 @@
         $controller = new ProyectoController();
         $controller->ver_proyectos($page);
     }
-<<<<<<< HEAD
 
     function cerrar_sesion() {
         require_once('./Controllers/SesionController.php');
@@ -112,7 +111,6 @@
         $controller->cerrar_sesion();
     }
 
-=======
     function acceder_propuesta(){
         $id_propuesta = $_GET['Propuesta'];
         require_once('./Controllers/PropuestaController.php');
@@ -120,7 +118,6 @@
         $controller->acceder_propuesta($id_propuesta);        
     }
         
->>>>>>> herrera
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
@@ -149,15 +146,12 @@
         case 'Ver_Proyectos':
             ver_proyectos();
             break;
-<<<<<<< HEAD
 
         case 'Cerrar_Sesion':
             cerrar_sesion();
-=======
             
         case 'Acceder':
             acceder_propuesta();
->>>>>>> herrera
             break;
     }
     ?>

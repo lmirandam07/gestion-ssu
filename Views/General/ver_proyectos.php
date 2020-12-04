@@ -35,7 +35,7 @@
     <br>
 
     <?php
-    if (count((array) $datos) != null) {
+    if ($cantidad !=0) {
     ?>
         <section class="container is-fluid" id="propuestas">
 

@@ -16,6 +16,7 @@
             $paginas = $proyecto->total_paginas();
             $datos = $proyecto->obtener_proyecto($page);
             $active = intval($page);
+            $cantidad = $proyecto->total_proyectos();
             require_once('./Views/General/ver_proyectos.php');
         }
 

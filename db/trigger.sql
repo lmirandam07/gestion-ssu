@@ -1,4 +1,4 @@
-CREATE TRIGGER generar_proyecto AFTER UPDATE ON propuesta_proyecto 
+CREATE TRIGGER generar_proyecto AFTER UPDATE ON propuesta_proyecto
 FOR EACH ROW
 BEGIN
     IF NEW.id_estado = 1 THEN
@@ -10,3 +10,27 @@ BEGIN
     NEW.nombre_encarg,NEW.cedula_encarg, NEW.telefono_encarg, NEW.correo_encarg, NEW.perfil_estu_pro);
     END IF;
 END;
+
+-- TRIGER ACTUALIZAR HORAS DE ESTUDIANTE
+
+CREATE TRIGGER actualizar_horas_estudiante
+AFTER
+INSERT
+  ON proyecto_usuario FOR EACH ROW BEGIN
+SET
+  @horas_proyecto =
+(SELECT
+  FORMAT(TIME_TO_SEC(TIMEDIFF(hora_final_pro, hora_inicio_pro)) / 3600,0) AS diferencia
+FROM
+  proyecto
+WHERE
+  id_proyecto = NEW.id_proyecto);
+
+UPDATE
+  usuario
+SET
+  total_horas = (total_horas + @horas_proyecto)
+WHERE
+  id_usuario = NEW.id_usuario;
+END;
+

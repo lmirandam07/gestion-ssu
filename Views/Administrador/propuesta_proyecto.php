@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include('../Layouts/header.html'); ?>
+    <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
     <br>
     <section class="container is-fluid">
         <div class="columns">
@@ -40,67 +40,25 @@
             <div class="column"></div>
             <div class="column is-11">
                 <div class="propuesta content" id="propuesta">
+                    <?php
+                        foreach($datos as $dato){
+
+                        
+                    
+                    ?>
                     <form action="" method="POST" id="informacion_propuesta">
                         <div class="columns">
                             <div class="datos column is-half">
                                 <h2>Información Personal</h2>
 
                                 <ul>
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Nombre: </label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="nombre_encargado" id="nombre_encargado">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Cédula: </label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="cedula" id="cedula">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Teléfono celular: </label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="telefono" id="telefono">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Correo Electrónico: </label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="email" placeholder="" name="correo" id="correo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <li><strong>Nombre Completo:</strong> <?php echo $dato['nombre_encarg']; ?></li>
+                                    <br>
+                                    <li><strong>Cédula:</strong> <?php echo $dato['cedula_encarg']; ?></strong></li>
+                                    <br>
+                                    <li><strong>Teléfono celular:</strong> <?php echo $dato['telefono_encarg']; ?></li>
+                                    <br>
+                                    <li><strong>Correo Electrónico:</strong> <?php echo $dato['correo_encarg']; ?></li>
 
 
                                 </ul>
@@ -113,10 +71,10 @@
                                 <fieldset id="datos_estudiante">
                                     <h2>Estudiantes</h2>
                                     <ul>
-                                        <li><label for="perfil"><strong>Perfil de Estudiante: </strong></label></li>
-                                        <br>
-                                        <textarea name="perfil" id="perfil" cols="50" rows="4">
-                                            </textarea>
+                                        <li><strong>Perfil de Estudiante: </strong></li>
+                                            <p>
+                                                <?php echo $dato['perfil_estu_pro']; ?>
+                                            </p>
                                         <br>
                                         <br>
                                         <li><label for=""><strong>Año de Estudio:</strong></label></li>
@@ -181,101 +139,35 @@
                             </div>
                             <div class="column">
                                 <h2>Tu Proyecto</h2>
-                                <ul>
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Nombre:</label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="nombre_proyecto" id="nombre_proyecto">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Lugar:</label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="lugar" id="lugar">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Fecha:</label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="date" placeholder="" name="fecha" id="fecha">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is">Hora Inicio:</label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="datetime" placeholder="" name="hora_inicio" id="hora_inicio">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label is-small">Hora Final:</label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="datetime" placeholder="" name="hora_final" id="hora_final">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="field is-horizontal">
-                                        <div class="field-label">
-                                            <li><label class="label">Cantidad de Estudiantes: </label></li>
-                                        </div>
-                                        <div class="field-body">
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-small" type="number" placeholder="" name="cantidad" id="cantidad">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <ul>                                   
+                                    <li><strong>Nombre:</strong> <?php echo $dato['nombre_pro']; ?></li>
                                     <br>
-                                    <li><label class="label">Descripción</label></li>
-                                    <textarea name="descripcion" id="" cols="50" rows="4"></textarea>
+                                    <li><strong>Lugar:</strong> <?php echo $dato['lugar_pro']; ?></li>
+                                    <br>
+                                    <li><strong>Fecha:</strong> <?php echo $dato['fecha_pro']; ?></li>
+                                    <br>
+                                    <li><strong>Hora Inicio:</strong> <?php echo $dato['hora_inicio_pro']; ?></li>
+                                    <br>
+                                    <li><strong>Hora Final:</strong> <?php echo $dato['hora_final_pro']; ?></li>
+                                    <br>
+                                    <li><strong>Cantidad de Estudiantes:</strong> <?php echo $dato['participantes_pro']; ?></li>
+                                    <br>
+                                    <li><strong>Descripción</strong></li>
+                                    <p>
+                                        <?php echo $dato['descripcion_pro']; ?>
+                                    </p>
                                     <br>
                                     <br>
-                                    <li><label class="label">Objetivo</label></li>
-                                    <textarea name="objetivo" id="" cols="50" rows="4"></textarea>
+                                    <li><strong>Objetivo</strong></li>
+                                    <p>
+                                        <?php echo $dato['objetivo_pro']; ?>
+                                    </p>
                                     <br>
                                     <br>
-                                    <li><label class="label">Materiales</label></li>
-                                    <textarea name="materiales" id="" cols="50" rows="4"></textarea>
+                                    <li><strong>Materiales</strong></li>
+                                    <p>
+                                        <?php echo $dato['materiales_pro']; ?>
+                                    </p>
 
                                 </ul>
 
@@ -293,13 +185,16 @@
                             </p>
                         </div>
                     </form>
+                    <?php 
+                        }
+                    ?>
                 </div>
             </div>
             <div class="column"></div>
         </div>
     </section>
 
-    <?php include('../Layouts/footer_admin.html'); ?>
+    <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
 
 </html>

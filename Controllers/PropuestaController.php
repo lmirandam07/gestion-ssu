@@ -35,9 +35,16 @@
         function acceder_propuesta($id_propuesta){
             $propuesta = new PropuestaModel();
             $datos = $propuesta->acceder_propuesta($id_propuesta);
+            $anios = $propuesta->acceder_anios_propuesta($id_propuesta);
+            $facultades = $propuesta->acceder_facultades_propuesta($id_propuesta);
             require_once $_SERVER['/var/www/html'].'Views/Administrador/propuesta_proyecto.php';
 
 
+        }
+        function aprobar_propuesta($id_propuesta){
+            $propuesta = new PropuestaModel();
+            $propuesta->aprobar_propuesta($id_propuesta);
+            
         }
 
     }

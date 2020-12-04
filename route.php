@@ -132,6 +132,13 @@
         $controller = new PropuestaController();
         $controller->acceder_propuesta($id_propuesta);
     }
+    function aprobar_propuesta(){
+        $id_propuesta = $_GET['Propuesta'];
+        require_once('./Controllers/PropuestaController.php');
+        $controller = new PropuestaController();
+        $controller->aprobar_propuesta($id_propuesta);
+
+    }
 
     switch ($controller) {
         case 'Propuesta':
@@ -171,6 +178,9 @@
 
         case 'Proyecto':
             proyecto();
+            break;
+        case 'Aprobar':
+            aprobar_propuesta();
             break;
     }
     ?>

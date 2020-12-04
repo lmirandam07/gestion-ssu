@@ -120,6 +120,13 @@
         $controller->proyecto($proyecto);
     }
 
+    function acceder_propuesta(){
+        $id_propuesta = $_GET['Propuesta'];
+        require_once('./Controllers/PropuestaController.php');
+        $controller = new PropuestaController();
+        $controller->acceder_propuesta($id_propuesta);        
+    }
+        
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();
@@ -151,6 +158,9 @@
 
         case 'Cerrar_Sesion':
             cerrar_sesion();
+            
+        case 'Acceder':
+            acceder_propuesta();
             break;
 
         case 'Proyecto':

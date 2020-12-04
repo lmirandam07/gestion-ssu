@@ -133,7 +133,7 @@
                                                     <label for="segundo"><strong>Segundo Año</strong></label>
                                                     <br>
                                                     <input type="checkbox" name="anio[]" id="periodo" value="4">                           
-                                                    <label for="cuarto"><strong>Cuarto Año</strong></label>
+                                                    <label for="cuarto"><strong>Cuarto Año o más</strong></label>
                                                 </div>
                                                         
                                             </div>                                                               

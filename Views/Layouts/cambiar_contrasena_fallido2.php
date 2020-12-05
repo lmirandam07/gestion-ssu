@@ -67,7 +67,7 @@
         <footer class="modal-card-foot columns">
           <div class="column"></div>
           <div class="column is-two-fifths">
-              <a href="./cambiar_contra.php"><button class="button is-principal">Ok</button></a>
+              <a href="./Views/General/cambiar_contra.php"><button class="button is-principal">Ok</button></a>
           </div>
           <div class="column"></div>
             

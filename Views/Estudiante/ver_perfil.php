@@ -163,8 +163,7 @@
 </thead>
 
 <tbody>
-    <tr><h3 class="has-text-right horas">Total: 0 Horas </h3></tr>
-    
+   
     
 </tbody>
 

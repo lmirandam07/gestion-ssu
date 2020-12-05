@@ -15,7 +15,8 @@
 
         public function contadorPropuesta(){
             $sql_propuesta="SELECT COUNT(*) AS total
-                        FROM propuesta_proyecto";
+                        FROM propuesta_proyecto
+                        WHERE id_estado = 3";
             $contador_propuesta=$this->db->query($sql_propuesta);
             while($row = mysqli_fetch_assoc($contador_propuesta))[
                 $total_propuesta=$row['total']

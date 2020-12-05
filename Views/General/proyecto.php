@@ -33,7 +33,7 @@
         <div class="proyecto content">
             <div class="titulo columns is-vcentered">
                 <div class="imagen column is-one-third">
-                    <img src="../../img/playa.png" alt="" width="350">
+                    <img src="<?php echo './img/voluntario_rand_1_try.jpg'; ?>" alt="" width="350">
                 </div>
                 <div class="descripcion column">
                     <h1 class="is-large is-purple"><?php echo $dato['nombre_pro'] ?></h1>

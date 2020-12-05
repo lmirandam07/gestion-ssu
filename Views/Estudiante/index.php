@@ -15,7 +15,12 @@
 </head>
 
 <body>
-    <?php include('../Layouts/header_usuario.html');?>
+    <?php include('../Layouts/header_usuario.html');
+    require_once $_SERVER['/var/www/html'].'../../Controllers/ContadorEstuController.php';
+            $controller = new ContadorEstuController();
+            $counthoras = $controller->contador_horas();
+            $countproyectoI = $controller->contador_proyectoI($correo);
+        ?>
     <main>
         <section class="hero has-bg-img is-large">
             <div class="hero-body">
@@ -41,10 +46,10 @@
                         <p class="has-text-centered is-size-3 has-text-weight-medium">Cantidad de horas acumuladas</p>
                     </div>
                     <div class="column is-12 is-gapless">
-                        <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
+                        <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $counthoras ?></p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="./Ver_perfil.php">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>
@@ -56,10 +61,10 @@
                         <p class="has-text-centered is-size-3 has-text-weight-medium">Proyectos Inscritos</p>
                     </div>
                     <div class="column is-12 is-gapless">
-                        <p class="has-text-centered is-size-1 has-text-weight-light">0</p>
+                        <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countproyectoI ?></p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="./Ver_perfil.php">Ver Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil">Ver Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>
@@ -71,7 +76,7 @@
                     Lo único que necesitas para involucrarte es tiempo, energía y tu pasión por mejorar el mundo.
                 </p>
                 <div class="opc is-flex is-justify-content-space-evenly is-align-items-center has-text-centered">
-                    <a class="proponer" href="./ver_proyectos.php">Involucrate</a>
+                    <a class="proponer" href="../../route.php?controller=Ver_Proyectos&Page=1">Involucrate</a>
                 </div>
             </div>
         </section>

@@ -29,6 +29,7 @@ class UsuarioController{
         $datos=$cliente->obtenerPerfil($correo);
         $data=$cliente->obtenerHoras($correo);
         $usuario=$cliente->obtenerProyectosUsuario($correo);
+        $cantidad=$cliente->totalProyectos($correo);
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
     }

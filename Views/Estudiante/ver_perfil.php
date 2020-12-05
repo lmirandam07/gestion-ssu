@@ -58,6 +58,7 @@
             </div>
             <?php }?>
         </div>
+        <?php if ($cantidad) {?>
         <div class="column is-half bod box">
 
             <h1 class="has-text-centered reg">Registro de Horas</h1>
@@ -80,11 +81,17 @@
                     <th><?php echo $horas["horas_usuario"] ;?></th>
 
                     <?php }?>
+                    
+                </tr>
+                <tr>
+                    <th><h3 class="has-text-centered horas">TOTAL</h3></th>
+                    <th></th>
+                <th><h3 class="has-text-centered horas"><?php echo $horas["total_horas"] ?></h3></th>
                 </tr>
                 
             </tbody>
             </table>
-            <h3 class="has-text-right horas">Total: <?php echo $horas["total_horas"] ;?> </h3>
+
             </div>         
         </div>
 
@@ -138,7 +145,43 @@
         <!--Final Proyecto-->
     </section>
     <?php }?>
+
     <?php include('./Views/Layouts/footer.html'); ?>
+    <?php } else {?>
+        <div class="column is-half bod box">
+
+<h1 class="has-text-centered reg">Registro de Horas</h1>
+
+<div class="table-container">
+<table class="table is-fullwidth is-scrollable">
+<thead>
+    <tr class="has-text-centered">
+        <th class="textcol2 ">PROYECTO</th>
+        <th class="textcol2">FECHA </th>
+        <th class="textcol2">HORAS ACUMULADAS</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr><h3 class="has-text-right horas">Total: 0 Horas </h3></tr>
+    
+    
+</tbody>
+
+</table>
+<h3 class="has-text-centered">Usted no se ha inscrito en ningun proyecto.</h3>
+</div>         
+</div>
+
+</div>
+
+
+
+
+
+<?php include('./Views/Layouts/footer.html'); ?>
+        <?php }?>
+
 
 
 </body>

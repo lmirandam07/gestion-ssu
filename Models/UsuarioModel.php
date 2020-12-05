@@ -63,6 +63,33 @@ class UsuarioModel{
     }
     
 
+    public function totalProyectos($correo){
+        $n=0;
+        $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro
+        FROM proyecto pro
+        INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
+        INNER JOIN usuario u ON '$correo'=u.correo
+        WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
+
+        if (mysqli_num_rows($consulta) == 0){
+            return false;
+        }
+        return $consulta->fetch_assoc();
+
+        /*if (mysqli_num_rows($consulta) == 0) {
+            $cantidad=0;
+            return $cantidad;
+        } elseif(mysqli_num_rows($consulta)){
+
+            while($filas=$consulta->fetch_assoc()){
+                $cantidad[]=$filas;
+                $n++;
+            }
+            return $cantidad;*/
+
+
+        
+   }
 
 
     public function obtenerHoras($correo){
@@ -94,6 +121,8 @@ class UsuarioModel{
 
 
     }
+
+    
 
 
 

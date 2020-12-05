@@ -33,6 +33,11 @@ class UsuarioController{
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
     }
+    function inscribirse($correo,$id_proyecto){
+        $usuario = new UsuarioModel();
+        $usuario->inscribirse($correo,$id_proyecto);
+        require_once $_SERVER['/var/www/html'].'Views/Layouts/estudiante_inscrito.php';
+    }
     
 }
 

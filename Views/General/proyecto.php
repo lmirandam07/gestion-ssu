@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -137,15 +138,58 @@
                     </ul>
                 </div>
             </div>
-            <div class="inscribirse content has-text-centered">
-                <button class="button is-principal is-medium is-outlined">Inscribirse</button>
-            </div>
 
+
+            <div class="inscribirse content has-text-centered">
+                <?php 
+                    $id_proyecto = $dato['id_proyecto'];
+
+                    try {
+                        if($_SESSION['tipo_usuario'] == 1) {
+                            if(($inscrito == False)and($dato['participantes_pro'] > 0)){
+                                echo "<a href='?controller=Inscribirse&Proyecto=".$id_proyecto."' class='button is-principal is-medium is-outlined'>Inscribirse</a>";
+                            }
+                            elseif(($inscrito == True)and($dato['participantes_pro'] > 0)){
+                                ?>
+                                <button class='button is-medium is-cancelado' disabled>Inscrito</button>
+                                <?php
+                            }
+                            elseif($dato['participantes_pro'] <= 0){
+
+                                ?>
+                                <button class='button is-medium is-cancelado' disabled>Proyecto lleno</button>
+                                <?php
+
+                            }
+
+                            
+                            
+                        } 
+                    } catch (Exception $e) {
+                        echo 'Error encontrado: ', $e->getMessage(), "\n";
+                    }
+
+                ?>
+            </div>
+<p></p>
         </div>
     <?php
                 }
     ?>
-    <?php include('./Views/Layouts/footer.html'); ?>
+    <?php
+        try {
+
+            if($_SESSION['tipo_usuario'] == 1) {
+                include('./Views/Layouts/footer_estu.html');
+            } else if ($_SESSION['tipo_usuario'] == 2) {
+                include('./Views/Layouts/footer_admin.html');
+            } else {
+                include('./Views/Layouts/footer.html');
+            }
+        } catch (Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+    ?>
 </body>
 
 </html>

@@ -45,3 +45,13 @@ ul{
     background-color: white;
     color: #6048A8;
 }
+.is-cancelado:hover{
+    background-color: #6048A8 !important;
+    color: white !important;
+    cursor: default !important;
+}
+.is-cancelado:hover{
+    background-color: #6048A8 !important;
+    color: white !important;
+    cursor: default !important;
+}

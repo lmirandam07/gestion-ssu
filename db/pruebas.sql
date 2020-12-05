@@ -86,3 +86,4 @@ DROP TABLE estado_proyecto;
 DROP TABLE facultad_propuesta;
 DROP TABLE proyecto_usuario;
 
+select * from proyecto_usuario where id_usuario = '3' AND id_proyecto='3';

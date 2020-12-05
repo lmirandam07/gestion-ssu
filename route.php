@@ -145,6 +145,14 @@
         $controller = new PropuestaController();
         $controller->rechazar_propuesta($id_propuesta);
     }
+    function inscribirse(){
+        $id_proyecto = $_GET['Proyecto'];
+        $correo = $_SESSION['usuario_actual'];
+        require_once('./Controllers/UsuarioController.php');
+        $usuario = new UsuarioController();
+        $usuario->inscribirse($correo,$id_proyecto);
+
+    }
 
 
 
@@ -192,6 +200,9 @@
             break;
         case 'Rechazar':
             rechazar_propuesta();
+            break;
+        case 'Inscribirse':
+            inscribirse();
             break;
     }
     ?>

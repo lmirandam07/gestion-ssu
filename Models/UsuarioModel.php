@@ -65,11 +65,25 @@ class UsuarioModel{
     }
 
 
+    public function inscribirse($correo,$id_proyecto){
+        $consulta = $this->db->query("SELECT id_usuario FROM usuario WHERE correo = '$correo';");
+        $consulta_horas = $this->db->query("SELECT FORMAT(TIME_TO_SEC(TIMEDIFF(hora_final_pro, hora_inicio_pro)) / 3600,0) AS diferencia FROM proyecto WHERE id_proyecto = '$id_proyecto'");
+        if(mysqli_num_rows($consulta)==0){
+            return 'Error';
 
+        }
+        if(mysqli_num_rows($consulta_horas)==0){
+            return 'Error';
 
+        }
+        $id_usuario = $consulta->fetch_assoc()['id_usuario'];
+        $horas = $consulta_horas->fetch_assoc()['diferencia'];
+
+        $this->db->query("INSERT INTO proyecto_usuario(id_proyecto,id_usuario,horas_usuario) VALUES('$id_proyecto','$id_usuario','$horas');");
+    }
 
     
-
+    
 }
 
 

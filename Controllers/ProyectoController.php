@@ -22,12 +22,13 @@
             require_once('./Views/General/ver_proyectos.php');
         }
 
-        function proyecto($id_proyecto){
+        function proyecto($id_proyecto, $img){
             $proyecto = new ProyectoModel();
             $datos = $proyecto->informacion_proyecto($id_proyecto);
             $facultades = $proyecto->facultad_proyecto($id_proyecto);
             $anios = $proyecto->ano_proyecto($id_proyecto);
             $correo = $_SESSION['usuario_actual'];
+            $num_img = intval($img);
             $inscrito = $proyecto->estudiante_inscrito($correo, $id_proyecto);
             require_once('./Views/General/proyecto.php');
         }

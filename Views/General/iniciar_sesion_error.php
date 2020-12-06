@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/header2.css">
     <link rel="stylesheet" href="../../css/iniciar_sesion.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Inicio</title>
+    <title>Iniciar Sesión</title>
 </head>
 
 <body>

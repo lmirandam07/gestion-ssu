@@ -111,10 +111,9 @@
                                 <fieldset id="datos_estudiante">
                                         <h2>Estudiantes</h2>
                                         <ul>
-                                            <li><label for="perfil"><strong>Perfil de Estudiante: </strong></label></li>
+                                            <li><label><strong>Perfil de Estudiante: </strong></label></li>
                                             <br>
-                                            <textarea name="perfil" id="perfil" cols="50" rows="4" required>
-                                            </textarea>
+                                            <textarea class="textarea is-small" name="perfil" required></textarea>
                                             <br>
                                             <br>
                                             <li><label for=""><strong>Año de Estudio:</strong></label></li>
@@ -265,15 +264,15 @@
 
                                     <br>
                                     <li><label class="label">Descripción</label></li>
-                                    <textarea name="descripcion" id="" cols="50" rows="4" required></textarea>
+                                    <textarea class="textarea is-small" name="descripcion" required></textarea>
                                     <br>
                                     <br>
                                     <li><label class="label">Objetivo</label></li>
-                                    <textarea name="objetivo" id="" cols="50" rows="4" required></textarea>
+                                    <textarea class="textarea is-small" name="objetivo"  required></textarea>
                                     <br>
                                     <br>
                                     <li><label class="label">Materiales</label></li>
-                                    <textarea name="materiales" id="" cols="50" rows="4" required></textarea>
+                                    <textarea class="textarea is-small" name="materiales" required></textarea>
                                     
 
                                 </ul>

@@ -14,11 +14,13 @@
 </head>
 
 <body>
-    <?php include('./Views/Layouts/header_usuario_admin.html'); ?>
+    <?php include('./Views/Layouts/header_usuario_admin.html'); //Al ser una página accedida únicamente por administradores, siempre se muestra este header. 
+    ?>
 
     <br>
 
     <section class="container is-fluid">
+        <!--Container del hero banner-->
         <div class="columns">
             <div class="column"></div>
             <div class="column is-11">
@@ -40,15 +42,17 @@
     <br>
 
     <?php
-    if ($cantidad!=0) {
+    if ($cantidad != 0) { //En caso de que exista algún proyecto dentro de la base de datos, se mostrarán las propuestas mediante una paginación.
     ?>
 
         <section class="container is-fluid" id="propuestas">
 
             <?php
-            foreach ($datos as $dato) {
+            //Al usar un foreach se consigue mostrar un nuevo contenedor de propuestas para cada uno de las propuestas que existen en la base de datos.
+            foreach ($datos as $dato) { //Arreglo resultante del query en la base de datos. Nos retorna la información de las propuestas.
                 $imagenes = array();
-                $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
+                //Arreglo de imagenes aleatorias para los proyectos.
+                $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
                 $random = rand(0, 3);
             ?>
 
@@ -62,14 +66,14 @@
                                     <div class="content">
                                         <div class="columns is-gapless is-fluid is-multiline is-centered">
                                             <div class="column is-gapless is-narrow">
-                                                <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                <figure class="image is-fluid is-peque">
+                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; /*echo './img/voluntario_rand_1_try.jpg';*/ ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="column is-8 is-gapless">
-                                                <h3 id="titulo"> <?php echo $dato['nombre_pro'] ?> </h3>
+                                                <h3 id="titulo"> <?php echo $dato['nombre_pro'] //Se obtiene el nombre de la propuesta del arreglo resultante del query  ?> </h3>
                                                 <p name="inicio" value="<?php $inicio ?>">
-                                                    <?php echo $dato['descripcion_pro'] ?><br>
+                                                    <?php echo $dato['descripcion_pro'] //Se obtiene el nombre de la propuesta del arreglo resultante del query ?><br>
                                                 </p>
                                             </div>
                                             <div class="column is-gapless"></div>
@@ -77,6 +81,8 @@
                                             <div class="column is-narrow is-gapless has-text-centered">
                                                 <?php
                                                 $propuesta = $dato['id_propuesta'];
+                                                //Se manda como argumentos tanto el nombre del controller correspondiente y el id de la propuesta.
+                                                //Esto se hace para poder mostrar la información de la propuesta correspondiente en la pantalla de propuesta_proyecto.php
                                                 echo "<a href='../../route.php?controller=Acceder&Propuesta=" . $propuesta . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
                                                 ?>
                                             </div>
@@ -102,15 +108,15 @@
                         <ul class="pagination-list">
                             <?php
 
-                            for ($i = 1; $i <= $paginas; $i++) {
+                            for ($i = 1; $i <= $paginas; $i++) { //For con el que se muestran los botones de la paginación.
 
 
                             ?>
                                 <li>
                                 <?php
-                                if ($i != $active) {
+                                if ($i != $active) { //Las demás páginas se muestran del mismo color.
                                     echo "<a href='../../route.php?controller=Ver_Propuestas&Page=" . $i . "' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
-                                } elseif ($i == $active) {
+                                } elseif ($i == $active) { //La página que se encuentra "activa" se muestra con un color diferente a las demás para dar feedback al usuario.
                                     echo "<a href='../../route.php?controller=Ver_Propuestas&Page=" . $i . "' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
                                 }
                             }
@@ -124,7 +130,7 @@
             </div>
         </section>
 
-    <?php } else {
+    <?php } else { //En caso de no encontrarse un proyecto en la base de datos, se muestra un mensaje indicando al usuario que no hay ninguna propuesta registrada momentaneamente.
     ?>
 
         <section class="container is-fluid">
@@ -143,7 +149,8 @@
     ?>
 
     <br>
-    <?php include('./Views/Layouts/footer_admin.html'); ?>
+    <?php include('./Views/Layouts/footer_admin.html'); //Al ser una página accedida únicamente por administradores, siempre se muestra este footer. 
+    ?>
 </body>
 
 </html>

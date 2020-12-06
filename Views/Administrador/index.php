@@ -46,6 +46,7 @@
                             <p class="has-text-centered is-size-3 has-text-weight-medium">Proyectos de SSU <br> Activos</p>
                         </div>
                         <div class="column is-12 is-gapless">
+                            <!-- Se rescata el valor de la variable countproyecto definida en el modal -->
                             <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countproyecto; ?></p>
                         </div>
                         <div class="column is-12 is-gapless  is-centered">
@@ -61,6 +62,7 @@
                             <p class="has-text-centered is-size-3 has-text-weight-medium">Nuevas Propuestas<br>de Proyectos</p>
                         </div>
                         <div class="column is-12 is-gapless">
+                            <!-- Se rescata el valor de la variable countpropuesta definida en el modal -->
                             <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countpropuesta; ?></p>
                         </div>
                         <div class="column is-12 is-gapless  is-centered">

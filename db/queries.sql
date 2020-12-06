@@ -1,4 +1,5 @@
 USE ssu_db;
+# Creacion de tablas para la base de datos 
 CREATE TABLE estado_proyecto (
   id_estado_pro INT NOT NULL,
   estado_pro VARCHAR(50) NOT NULL,
@@ -83,14 +84,14 @@ CREATE TABLE usuario (
   total_horas INT DEFAULT NULL,
   id_tipo_us INT NOT NULL,
   telefono INT NOT NULL,
-  correo VARCHAR(50) NOT NULL,
+  correo VARCHAR(50) NOT NULL UNIQUE,
   contrasena VARCHAR(20) NOT NULL,
   facultad INT DEFAULT NULL,
   CONSTRAINT fk_facultad FOREIGN KEY(facultad) REFERENCES facultad(id_facultad),
   CONSTRAINT pk_id_us PRIMARY KEY (id_usuario),
   CONSTRAINT pk_id_tipo_us FOREIGN KEY (id_tipo_us) REFERENCES tipo_usuario(id_tipo_us)
 );
-
+# Insercion de algunos valores para contar con ciertos registros en el sistema
 INSERT INTO
   facultad(id_facultad, nombre_facultad)
 VALUES

@@ -35,8 +35,9 @@ class UsuarioController{
         
     }
     //funcion para inscribir a un usuario en un proyecto
-    function inscribirse($correo,$id_proyecto){
+    function inscribirse($correo,$id_proyecto, $img){
         $usuario = new UsuarioModel();
+        $num_img = $img;
         $usuario->inscribirse($correo,$id_proyecto);
         require_once $_SERVER['/var/www/html'].'Views/Layouts/estudiante_inscrito.php';
     }

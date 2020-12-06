@@ -150,7 +150,7 @@
                     try { //Try and catch con el que se controla el tipo de usuario y, en caso de ser estudiante, si este ya se inscribió en el proyecto específico.
                         if ($_SESSION['tipo_usuario'] == 1) {
                             if (($inscrito == False) and ($dato['participantes_pro'] > 0)) { //Si es un estudiante y no está inscrito se mostrará el botón de inscribirse habilitado.
-                                echo "<a href='?controller=Inscribirse&Proyecto=" . $id_proyecto . "' class='button is-principal is-medium is-outlined'>Inscribirse</a>";
+                                echo "<a href='?controller=Inscribirse&Proyecto=" . $id_proyecto."&Imagen=" .$num_img. "' class='button is-principal is-medium is-outlined'>Inscribirse</a>";
                             } elseif (($inscrito == True) and ($dato['participantes_pro'] > 0)) { //Si es un estudiante y está inscrito se mostrará el botón de inscribirse deshabilitado y dirá "Inscrito".
                 ?>
                             <button class='button is-medium is-cancelado' disabled>Inscrito</button>

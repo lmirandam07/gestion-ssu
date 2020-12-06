@@ -143,6 +143,7 @@ class UsuarioModel{
         $this->db->query("INSERT INTO proyecto_usuario(id_proyecto,id_usuario,horas_usuario) VALUES('$id_proyecto','$id_usuario','$horas');");
     }
 
+    //funcion para conseguir el id del usuario 
     public function estudiante_inscrito($correo, $id_proyecto){
         $id = intval($id_proyecto);
         $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
@@ -155,7 +156,7 @@ class UsuarioModel{
             return True;
         }
     }
-    
+    //funcion para adquirir la informacion de un proyecto
     public function informacion_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);
@@ -166,6 +167,7 @@ class UsuarioModel{
         return $info_proyecto;
     }
 
+    //funcion para conseguir las facultades que se necesitan en un proyecto
     public function facultad_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);
@@ -182,6 +184,7 @@ class UsuarioModel{
         return $facultad_proyecto;
     }
 
+    //funcion para conseguir los años de los estudiantes que se necesitan en un proyecto
     public function ano_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);

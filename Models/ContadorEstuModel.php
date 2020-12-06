@@ -16,11 +16,18 @@
         public function contadorHoras(){
             //Se crea una variable para almacenar el correo de la sesion actual y se busca dicho correo en la BD
             //Luego se busca la cantidad de horas que lleva dicho usuario
-            $correo = $_SESSION['usuario_actual'];
-            $sql_horas="SELECT total_horas AS total
-                        FROM usuario
-                        WHERE correo = '$correo';";
-            $contador_horas=$this->db->query($sql_horas);
+
+            try {
+                $correo = $_SESSION['usuario_actual'];
+                $sql_horas="SELECT total_horas AS total
+                            FROM usuario
+                            WHERE correo = '$correo';";
+                $contador_horas=$this->db->query($sql_horas);
+    
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+            
             while($row = mysqli_fetch_assoc($contador_horas))[
                 $total_horas=$row['total']
             ];

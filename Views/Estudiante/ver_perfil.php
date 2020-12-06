@@ -25,7 +25,10 @@
         <div class="column is-two-fifths columna1 box ">
             <div class="icono-edit is-pulled-top"><i class="far fa-edit is-pulled-right"></i></div>
             <div class="content has-text-centered"><i class="far fa-user-circle fa-8x has-text-centered"></i></div>
-            <?php foreach ($datos as $dato){ ?>
+            
+            <?php
+            //Arreglo resultante del query en la base de datos. Nos retorna la información del estudiante. 
+            foreach ($datos as $dato){ ?>
 
             <h1 class="has-text-centered textoP"> <?php echo $dato['nombre_us']. ' ' . $dato["apellido_us"] ;?> </h1>
             <h3 class="has-text-centered texto">ESTUDIANTE</h3>
@@ -50,40 +53,17 @@
                     <td><H3 class="texto">TELÉFONO</H3></td>
                     <td><h3 class="texto"><?php echo $dato["telefono"] ;?></h3></td>
                     </tr>
-                
-                   
-                    
+  
                 </tbody>
             </table>
-
-                <!--<div class="column is-half">
-
-
-                    <H3 class="texto">CÉDULA</H3>
-                    <H3 class="texto">FACULTAD</H3>
-                    <H3 class="texto">CORREO ELECTRÓNICO</H3>
-                    <H3 class="texto">TELÉFONO</H3>
-
-                </div>
-                <div class="column is-half ">
-
-
-                    <h3 class="texto"><?php echo $dato["cedula_us"] ;?></h3>
-                    <h3 class="texto"><?php echo $dato["nombre_facultad"] ;?></h3>
-                    <h3 class="texto"><?php echo $dato["correo"]; ?></h3>
-                    <h3 class="texto"><?php echo $dato["telefono"]; ?></h3>
-
-
-
-
-
-                </div> -->
-
 
             </div>
             <?php }?>
         </div>
-        <?php if ($cantidad) {?>
+        <?php 
+        //Esta condicional sirve para saber si hay cero proyectos en lo cual el estudiante esta inscrito o si hay mas de uno 
+        //dependiendo del resultado se muestra un container diferente, en este caso nos muestra cuando hay 1 o más proyectos.
+        if ($cantidad) {?>
         <div class="column is-half bod box">
 
             <h1 class="has-text-centered reg">Registro de Horas</h1>
@@ -125,10 +105,17 @@
 
     <h1 class="pro-ins has-text-left">Proyectos Inscritos</h1>
 
-    <?php foreach ($usuario as $total){ ?>
+    <?php 
+    //Arreglo resultante del query en la base de datos. Nos retorna los proyectos en la cual el estudiante esta. 
+    foreach ($usuario as $total){ ?>
     <section class="container is-fluid cont" id="proyectos">
         <div class="columns is-centered">
+            
             <!--Proyecto-->
+            <?php $imagenes = array();
+                //Arreglo de imagenes aleatorias para los proyectos.
+                $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
+                $random = rand(0, 3);?>
 
             <div class="column is-11">
                         <div class="box">
@@ -139,13 +126,15 @@
                                         <div class="columns is-gapless is-fluid is-multiline is-centered">
                                             <div class="column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="column is-8 is-gapless">
-                                                <h3 id="titulo"> <?php echo $total['nombre_pro'] ?> </h3>
+                                                <h3 id="titulo"> <?php echo $total['nombre_pro'] //Se obtiene el nombre del proyecto del arreglo resultante del query 
+                                                                    ?> </h3>
                                                 <p name="inicio" value="<?php $inicio ?>">
-                                                    <?php echo $total['descripcion_pro'] ?><br>
+                                                    <?php echo $total['descripcion_pro'] //Se obtiene el nombre del proyecto del arreglo resultante del query
+                                                    ?><br>
                                                 </p>
                                             </div>
                                             <div class="column is-gapless"></div>
@@ -153,7 +142,9 @@
                                             <div class="column is-narrow is-gapless has-text-centered">
                                                 <?php
                                                 $proyecto = $total['id_proyecto'];
-                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                //Se manda como argumentos tanto el nombre del controller correspondiente y el id del proyecto.
+                                                //Esto se hace para poder mostrar la información del proyecto correspondiente en la pantalla de proyecto.php
+                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto ."&Imagen=" .$random. "' class='button is-dark is-hovered' id='boton'>Detalles</a>";
                                                 ?>
                                             </div>
                                         </div>
@@ -167,8 +158,13 @@
     </section>
     <?php }?>
 
-    <?php include('./Views/Layouts/footer.html'); ?>
-    <?php } else {?>
+    <?php
+    //Se incluye el footer
+    include('./Views/Layouts/footer.html'); ?>
+    <?php } 
+    //se muestra la pantalla que no tiene proyectos
+    else {
+        ?>
         <div class="column is-half bod box">
 
 <h1 class="has-text-centered reg">Registro de Horas</h1>
@@ -191,15 +187,13 @@
 </table>
 <h3 class="has-text-centered">Usted no se ha inscrito en ningun proyecto.</h3>
 </div>         
-</div>
-
-</div>
 
 
 
 
-
-<?php include('./Views/Layouts/footer.html'); ?>
+<?php
+//Se incluye el footer
+include('./Views/Layouts/footer.html'); ?>
         <?php }?>
 
 

@@ -106,42 +106,38 @@
             <!--Proyecto-->
 
             <div class="column is-11">
-                <div class="box">
-                    <article class="media">
-                        <div class="media-left">
-
-
-                            <?php  $imagenes = array();
-                            $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
-                            $random = rand ( 0 , 3 );?>
-
-                            <figure class="image is-128x128">
-                                <img src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> "
-                                    alt="Image">
-                            </figure>
-                        </div>
-                        <div class="media-content" id="descrip">
-                            <div class="content">
-                                <h3 id="titulo"><?php echo $total["nombre_pro"] ;?></h3>
-                                <div class="columns">
-                                    <div class="column is-10">
-                                        <p>
-                                            <?php echo $total["descripcion_pro"] ;?>
-                                        </p>
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left"></div>
+                                <div class="media-content" id="descrip">
+                                    <div class="content">
+                                        <div class="columns is-gapless is-fluid is-multiline is-centered">
+                                            <div class="column is-gapless is-narrow">
+                                                <figure class="image is-fluid">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                </figure>
+                                            </div>
+                                            <div class="column is-8 is-gapless">
+                                                <h3 id="titulo"> <?php echo $total['nombre_pro'] ?> </h3>
+                                                <p name="inicio" value="<?php $inicio ?>">
+                                                    <?php echo $total['descripcion_pro'] ?><br>
+                                                </p>
+                                            </div>
+                                            <div class="column is-gapless"></div>
+                                            <div class="column is-11 is-gapless"></div>
+                                            <div class="column is-narrow is-gapless has-text-centered">
+                                                <?php
+                                                $proyecto = $total['id_proyecto'];
+                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="columns is-variable is-8-desktop">
-                                    <div class="column is-2 is-offset-10">
-                                        <button class="button is-dark is-hovered"> Ver más </button>
-                                    </div>
-                                </div>
-                            </div>
+                            </article>
                         </div>
-
-                    </article>
+                    </div>
                 </div>
-            </div>
-        </div>
         <!--Final Proyecto-->
     </section>
     <?php }?>

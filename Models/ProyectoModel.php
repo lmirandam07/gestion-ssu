@@ -21,7 +21,14 @@ class ProyectoModel
     {
         $num_per_page = 04;
         $start_from = (intval($page) - 1) * $num_per_page;
-        $consulta = $this->db->query("select id_proyecto, nombre_pro, descripcion_pro from proyecto limit $start_from,$num_per_page;");
+
+        try {
+            $consulta = $this->db->query("select id_proyecto, nombre_pro, descripcion_pro from proyecto limit $start_from,$num_per_page;");
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         while ($filas = $consulta->fetch_assoc()) {
             $proyectos[] = $filas;
         }
@@ -30,7 +37,13 @@ class ProyectoModel
 
     public function total_proyectos()
     {
-        $consulta = $this->db->query("select * from proyecto;");
+        try {
+            $consulta = $this->db->query("select * from proyecto;");
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         $i = 0;
         while ($filas = $consulta->fetch_assoc()) {
             $proyectos[] = $filas;
@@ -51,9 +64,23 @@ class ProyectoModel
 
         public function estudiante_inscrito($correo, $id_proyecto){
             $id = intval($id_proyecto);
-            $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
+
+            try {
+                $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
+    
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+
             $id_usuario = $consulta->fetch_assoc()['id_usuario'];
-            $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+
+            try {
+                $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+    
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+
             if(mysqli_num_rows($inscrito) == 0){
                 return False;
             }
@@ -65,7 +92,14 @@ class ProyectoModel
     public function informacion_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);
-        $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
+
+        try {
+            $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         while ($filas = $consulta->fetch_assoc()) {
             $info_proyecto[] = $filas;
         }
@@ -75,13 +109,27 @@ class ProyectoModel
     public function facultad_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);
-        $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+
+        try {
+            $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }
         $id_propuesta =  $id_propuesta->fetch_assoc()['id_propuesta'];
 
-        $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta';");
+
+        try {
+            $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta';");
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         while ($filas = $consulta->fetch_assoc()) {
             $facultad_proyecto[] = $filas;
         }
@@ -92,12 +140,24 @@ class ProyectoModel
     {
         $id = intval($id_proyecto);
         $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+
+        try {
+            $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }
         $id_propuesta =  $id_propuesta->fetch_assoc()['id_propuesta'];
 
-        $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta';");
+        try {
+            $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta';");
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
         while ($filas = $consulta->fetch_assoc()) {
             $ano_proyecto[] = $filas;
         }

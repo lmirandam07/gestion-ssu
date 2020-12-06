@@ -16,11 +16,13 @@ body {
 }
 
 .navbar-item #registrarse {
-    border: 1px solid #FFF;
+    color: #FFF;
+    background-color: #7760BB !important;
     border-radius: 15px;
 }
 
-.navbar-item #registrarse:hover {
+.navbar-item #iniciar {
+    border-radius: 15px;
     color: #7760BB;
 }
 

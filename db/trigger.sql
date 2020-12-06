@@ -1,3 +1,4 @@
+# Trigger que inserta las propuestas aprobadas en la tabla de proyectos
 CREATE TRIGGER generar_proyecto AFTER UPDATE ON propuesta_proyecto
 FOR EACH ROW
 BEGIN

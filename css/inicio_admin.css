@@ -1,31 +1,32 @@
+//Define la imagen del hero banner en la pantalla de inicio de admin
 .has-bg-img{
     background: url(../img/voluntario.jpeg) center center;
     background-size:cover;
 }
-
 .has-bg-color{
     width: 100%;
     background-color: #1c1e1a77;
     color: white;
 }
+//Clase para asignar el color morado
 .is-purple{
     color: #6048A8;
 }
-
+//Clase para asignar un fondo morado y complementarlo con texto color blanco
 .container_morado{
     background-color: #6048A8;
     color: white;
 }
-
+//Clase para asignar un fondo gris oscuro y complementarlo con texto color blanco
 .container_darkgray{
     background-color: #1C1E1A;
     color: white;
 }
-
+//Estilos para el texto de los links
 .has_text_link{
     color: white;
 }
-
+//Estilo para el hover sobre un link
 p a:hover {
     color: white;
 }

@@ -14,24 +14,25 @@
 
 <body>
     <?php
-        try {
+    try { //Try catch implementado para mostrar el header correspondiente al tipo de usuario que accede a la pantalla.
 
-            if($_SESSION['tipo_usuario'] == 1) {
-                include('./Views/Layouts/header_usuario.html');
-            } else if ($_SESSION['tipo_usuario'] == 2) {
-                include('./Views/Layouts/header_usuario_admin.html');
-            } else {
-                include('./Views/Layouts/header.html');
-            }
-        } catch (Exception $e) {
-            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        if ($_SESSION['tipo_usuario'] == 1) {
+            include('./Views/Layouts/header_usuario.html'); //Header para estudiantes
+        } else if ($_SESSION['tipo_usuario'] == 2) {
+            include('./Views/Layouts/header_usuario_admin.html'); //Header para administradores
+        } else {
+            include('./Views/Layouts/header.html'); //Header para usuarios sin sesión
         }
+    } catch (Exception $e) {
+        echo 'Error encontrado: ', $e->getMessage(), "\n"; //Manejo de errores
+    }
 
     ?>
     <?php
-    foreach ($datos as $dato) {
+    foreach ($datos as $dato) { //Arreglo resultante del query en la base de datos. Nos retorna la información del proyecto.
     ?>
         <div class="proyecto content">
+            <!--Container que muestra la información del proyecto específico.-->
             <div class="titulo columns is-vcentered">
                 <div class="imagen column is-one-third">
                     <img src="<?php echo './img/voluntario_rand_1_try.jpg'; ?>" alt="" width="350">
@@ -67,7 +68,7 @@
                     </p>
                 <?php
             }
-            foreach ($facultades as $facultad) {
+            foreach ($facultades as $facultad) { //Arreglo con los ids de las facultades del proyecto.
                 $arr_facultad[$i] = $facultad['id_facultad'];
                 $i++;
             }
@@ -75,51 +76,51 @@
                 <ul>
                     <li><strong>Facultades</strong>:
                         <ul>
-                                <?php
-                                    if (in_array(1, $arr_facultad)) {
-                                        echo "<li> Ing. Civil </li>";
-                                    }
-                                    if (in_array(2, $arr_facultad)) {
-                                        echo "<li> Ing. Mecánica </li>";
-                                    }
-                                    if (in_array(3, $arr_facultad)) {
-                                        echo "<li> Ing. Eléctrica </li>";
-                                    }
-                                    if (in_array(4, $arr_facultad)) {
-                                        echo "<li> Ing. Sistemas Computacionales</li>";
-                                    }
-                                    if (in_array(5, $arr_facultad)) {
-                                        echo "<li> Ing. Industrial</li>";
-                                    }
-                                    if (in_array(6, $arr_facultad)) {
-                                        echo "<li> Ciencias y Tecnología</li>";
-                                    }
-                                ?>
+                            <?php
+                            if (in_array(1, $arr_facultad)) {
+                                echo "<li> Ing. Civil </li>";
+                            }
+                            if (in_array(2, $arr_facultad)) {
+                                echo "<li> Ing. Mecánica </li>";
+                            }
+                            if (in_array(3, $arr_facultad)) {
+                                echo "<li> Ing. Eléctrica </li>";
+                            }
+                            if (in_array(4, $arr_facultad)) {
+                                echo "<li> Ing. Sistemas Computacionales</li>";
+                            }
+                            if (in_array(5, $arr_facultad)) {
+                                echo "<li> Ing. Industrial</li>";
+                            }
+                            if (in_array(6, $arr_facultad)) {
+                                echo "<li> Ciencias y Tecnología</li>";
+                            }
+                            ?>
                         </ul>
                     </li>
-                <?php
-                foreach ($anios as $anio) {
-                    $arr_anios[$i] = $anio['id_ano'];
-                    $i++;
-                }
-                ?>
+                    <?php
+                    foreach ($anios as $anio) { //Arreglo con los ids de las años de estudios de los estudiantes del proyecto.
+                        $arr_anios[$i] = $anio['id_ano'];
+                        $i++;
+                    }
+                    ?>
                     <br>
                     <li><strong>Año de Estudio</strong>:
                         <ul>
-                                <?php
-                                    if (in_array(1, $arr_anios)) {
-                                        echo "<li> 1er Año </li>";
-                                    }
-                                    if (in_array(2, $arr_anios)) {
-                                        echo "<li> 2do Año </li>";
-                                    }
-                                    if (in_array(3, $arr_anios)) {
-                                        echo "<li> 3er Año </li>";
-                                    }
-                                    if (in_array(4, $arr_anios)) {
-                                        echo "<li> 4to Año o más</li>";
-                                    }
-                                ?>
+                            <?php
+                            if (in_array(1, $arr_anios)) {
+                                echo "<li> 1er Año </li>";
+                            }
+                            if (in_array(2, $arr_anios)) {
+                                echo "<li> 2do Año </li>";
+                            }
+                            if (in_array(3, $arr_anios)) {
+                                echo "<li> 3er Año </li>";
+                            }
+                            if (in_array(4, $arr_anios)) {
+                                echo "<li> 4to Año o más</li>";
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
@@ -141,54 +142,49 @@
 
 
             <div class="inscribirse content has-text-centered">
-                <?php 
+                <?php
                     $id_proyecto = $dato['id_proyecto'];
 
-                    try {
-                        if($_SESSION['tipo_usuario'] == 1) {
-                            if(($inscrito == False)and($dato['participantes_pro'] > 0)){
-                                echo "<a href='?controller=Inscribirse&Proyecto=".$id_proyecto."' class='button is-principal is-medium is-outlined'>Inscribirse</a>";
-                            }
-                            elseif(($inscrito == True)and($dato['participantes_pro'] > 0)){
-                                ?>
-                                <button class='button is-medium is-cancelado' disabled>Inscrito</button>
-                                <?php
-                            }
-                            elseif($dato['participantes_pro'] <= 0){
+                    try { //Try and catch con el que se controla el tipo de usuario y, en caso de ser estudiante, si este ya se inscribió en el proyecto específico.
+                        if ($_SESSION['tipo_usuario'] == 1) {
+                            if (($inscrito == False) and ($dato['participantes_pro'] > 0)) { //Si es un estudiante y no está inscrito se mostrará el botón de inscribirse habilitado.
+                                echo "<a href='?controller=Inscribirse&Proyecto=" . $id_proyecto . "' class='button is-principal is-medium is-outlined'>Inscribirse</a>";
+                            } elseif (($inscrito == True) and ($dato['participantes_pro'] > 0)) { //Si es un estudiante y está inscrito se mostrará el botón de inscribirse deshabilitado y dirá "Inscrito".
+                ?>
+                            <button class='button is-medium is-cancelado' disabled>Inscrito</button>
+                        <?php
+                            } elseif ($dato['participantes_pro'] <= 0) { //Si la cantidad de estudiantes requeridos ya llegó a 0, se mostrará el botón deshabilitado y dirá "Proyecto Lleno".
 
-                                ?>
-                                <button class='button is-medium is-cancelado' disabled>Proyecto lleno</button>
-                                <?php
+                        ?>
+                            <button class='button is-medium is-cancelado' disabled>Proyecto lleno</button>
+                <?php
 
                             }
-
-                            
-                            
-                        } 
-                    } catch (Exception $e) {
+                        }
+                    } catch (Exception $e) { //Manejo de errores mediante excepciones.
                         echo 'Error encontrado: ', $e->getMessage(), "\n";
                     }
 
                 ?>
             </div>
-<p></p>
+            <p></p>
         </div>
     <?php
                 }
     ?>
     <?php
-        try {
+    try { //Try catch implementado para mostrar el footer correspondiente al tipo de usuario que accede a la pantalla.
 
-            if($_SESSION['tipo_usuario'] == 1) {
-                include('./Views/Layouts/footer_estu.html');
-            } else if ($_SESSION['tipo_usuario'] == 2) {
-                include('./Views/Layouts/footer_admin.html');
-            } else {
-                include('./Views/Layouts/footer.html');
-            }
-        } catch (Exception $e) {
-            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        if ($_SESSION['tipo_usuario'] == 1) { //Footer para estudiantes
+            include('./Views/Layouts/footer_estu.html');
+        } else if ($_SESSION['tipo_usuario'] == 2) { //Footer para administradores
+            include('./Views/Layouts/footer_admin.html');
+        } else {
+            include('./Views/Layouts/footer.html'); //Footer para usuarios sin sesión
         }
+    } catch (Exception $e) {
+        echo 'Error encontrado: ', $e->getMessage(), "\n"; //Manejo de errores
+    }
     ?>
 </body>
 

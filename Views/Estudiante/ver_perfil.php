@@ -31,7 +31,32 @@
             <h3 class="has-text-centered texto">ESTUDIANTE</h3>
             <div class="columns ">
 
-                <div class="column is-half">
+
+            <table class="table is-fullwidth">
+                <tbody>
+                    <tr>
+                    <td><H3 class="texto">CÉDULA</H3></td>
+                    <td><h3 class="texto"><?php echo $dato["cedula_us"] ;?></h3></td>
+                    </tr>
+                    <tr>
+                    <td><H3 class="texto">FACULTAD</H3></td>
+                    <td><h3 class="texto"><?php echo $dato["nombre_facultad"] ;?></h3></td>
+                    </tr>
+                    <tr>
+                    <td><H3 class="texto">CORREO ELECTRÓNICO</H3></td>
+                    <td><h3 class="texto"><?php echo $dato["correo"] ;?></h3></td>
+                    </tr>
+                    <tr>
+                    <td><H3 class="texto">TELÉFONO</H3></td>
+                    <td><h3 class="texto"><?php echo $dato["telefono"] ;?></h3></td>
+                    </tr>
+                
+                   
+                    
+                </tbody>
+            </table>
+
+                <!--<div class="column is-half">
 
 
                     <H3 class="texto">CÉDULA</H3>
@@ -52,7 +77,7 @@
 
 
 
-                </div>
+                </div> -->
 
 
             </div>

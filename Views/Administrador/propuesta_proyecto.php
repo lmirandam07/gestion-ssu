@@ -41,6 +41,8 @@
             <div class="column is-11">
                 <div class="propuesta content" id="propuesta">
                     <?php
+                    /*Ciclo for que va recorriendo el arreglo de Datos que viene desde el Controller de Propuesta
+                    con todos los datos de la propuesta seleccionada para mostrarla en la pagina*/
                         foreach($datos as $dato){
 
                         
@@ -80,6 +82,8 @@
                    
                     <?php 
                         }
+                        /*Ciclo for para almacenar los datos del arreglo anios que viene desde el Controller de 
+                        Propuesta  para realizar condicionales con los valores que posee*/
                         $arr_anios = array();
                         $i = 0;
                         foreach($anios as $anio){
@@ -95,7 +99,9 @@
                                         <div class="columns ano_estudio">
                                             <div class="column is-one-third">
                                             <?php
-                                                
+                                                /*Condicional que verifica si el año del checkbox existe en el 
+                                                arreglo de los años de esa propuesta que se selecciona para 
+                                                mostrar el checkbox checked o no*/
                                                 if(in_array(1, $arr_anios)){
                                                     echo "
                                                     <input type='checkbox' name='anio_list[]' id='periodo' checked disabled>
@@ -163,7 +169,8 @@
                                        
 
                             <?php
-                                        
+                             /*Ciclo for para almacenar los datos del arreglo facultades que viene desde el Controller de 
+                                Propuesta  para realizar condicionales con los valores que posee*/        
                                 $arr_facultades = array();
                                 $i = 0;
                                 foreach($facultades as $facultad){
@@ -178,7 +185,9 @@
                                             <div class="columns facultades">
                                             <div class="column is-one-third">
                                                 <?php
-
+                                                /*Condicional que verifica si la facultad del checkbox existe en el 
+                                                arreglo de los facultades de esa propuesta que se selecciona para 
+                                                mostrar el checkbox checked o no*/
                                                     if(in_array(1,$arr_facultades)){
                                                         echo"
                                                         <input type='checkbox' name='facultad_list[]' id='facultad' checked disabled>
@@ -342,7 +351,11 @@
                         <br>
                         
                     </form>
-                    <?php $id_propuesta = $dato['id_propuesta'];?>
+                    <?php 
+                        /*Se obtiene el id de la propuesta que se muestra para enviarlo como atributo en el boton
+                        para que se pueda aprobar o rechazar*/
+                        $id_propuesta = $dato['id_propuesta'];
+                    ?>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
                                 <?php echo"<a href='?controller=Rechazar&Propuesta=".$id_propuesta."' class='button is-second is-normal'>RECHAZAR</a>";?>

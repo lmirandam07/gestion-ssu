@@ -1,5 +1,7 @@
 <?php
+    //Se incluye la clase y metodos de el arcivo de conexion a la base de datos
     require_once $_SERVER['/var/www/html'] .'db/db.php';
+    //Clase donde se encuentran todos los metodos para realizar consultas a la base de datos
     Class PropuestaModel{
         private $db;
         private $propuestas;
@@ -13,7 +15,7 @@
             $this->acceso_propuesta = array();
             $this->registro_exitoso = False;
         }
-        
+        //Metodo donde se realiza el query para insertar los datos en la tabla propuesta_proyecto
         public function insertar_propuesta($datos){
 
             $nombre_pro = $datos['nombre_pro'];
@@ -50,7 +52,9 @@
                 echo '<script>console.log("No Exitoso")</script>';
             }
         }
+        //Metodo donde se realiza el query para insertar los datos en la tabla facultad_propuesta y anio_proyecto
         public function insertar_facultad_anio_propuesta($facultades,$anios){
+            //consulta que devuelve el id de un campo autoincrementado del ultimo INSERT realizado
             $id_propuesta = (int)mysqli_insert_id($this->db);
             foreach((array)$facultades as $facultad){
                 $facultad = (int)$facultad;
@@ -67,7 +71,7 @@
 
             }
         }
-
+        //Metodo para el query que retorna el nombre y descripcion de las propuestas para una vista previa
         public function obtener_propuestas($page){
             $num_per_page = 04;
             $start_from = (intval($page)-1)*$num_per_page;
@@ -77,7 +81,7 @@
             }
             return $propuestas;
         }
-
+        //Metodo para calcular el total de propuestas que se encuentran para la paginacion de la vista previa
         public function total_propuestas(){
             $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
             $i = 0;
@@ -88,7 +92,7 @@
             $total = $i;
             return $total;
         }
-
+        //Metodo para el query que retorna el numero de paginas en las que se seccionara la paginacion
         public function total_paginas(){
             $num_per_page = 04;
             $totalrecord = $this->total_propuestas();
@@ -96,7 +100,7 @@
             
             return $totalpages;
         }
-
+        //Metodo para la obtencion de todos los datos de la tabla propuesta para mostarla a los usuarios
         public function acceder_propuesta($id_propuesta){
             $consulta= $this->db->query("select * from propuesta_proyecto where id_propuesta ='$id_propuesta';");
             while($filas= $consulta->fetch_assoc()){
@@ -107,6 +111,7 @@
 
 
         }
+        //Obntencion de los años de la propuesta que se selecciona para ver los detalles
         public function acceder_anios_propuesta($id_propuesta){
             $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta'");
             while($filas= $consulta->fetch_assoc()){
@@ -115,6 +120,7 @@
             }
             return $acceso_propuesta;
         }
+        //Obntencion de las facultades de la propuesta que se selecciona para ver los detalles
         public function acceder_facultades_propuesta($id_propuesta){
             $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta'");
             while($filas= $consulta->fetch_assoc()){
@@ -123,13 +129,14 @@
             }
             return $acceso_propuesta;
         }
+        //Metodo con el query para actualizar el estado de la propuesta a aprobado
         public function aprobar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '1' WHERE id_propuesta = '$id_propuesta';";
             $this->db->query($sql);
 
 
         }
-
+        //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2' WHERE id_propuesta = '$id_propuesta';";
             $this->db->query($sql);

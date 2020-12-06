@@ -155,7 +155,7 @@
     }
 
 
-
+    //Switch que controla que funcion se va a ejecutar dependiendo del controller que se obtenga
     switch ($controller) {
         case 'Propuesta':
             ingresar_propuesta();

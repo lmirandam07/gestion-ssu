@@ -40,64 +40,63 @@
                             <div class="columns">
                                 <div class="column columna1">
                                     <div class="field">
-                                        <label class="label has-text-left">Nombre</label>
+                                        <label for="nombre" class="label has-text-left">Nombre</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="nombre">
+                                            <input class="input input-is" type="text" id="nombre" name="nombre">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left">Correo Institucional</label>
+                                        <label for="email" class="label has-text-left">Correo Institucional</label>
                                         <div class="control">
-                                            <input class="input input-is" type="email" name="correo">
+                                            <input class="input input-is" type="email" id="email" name="correo">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left">Contraseña</label>
+                                        <label for="contraseña" class="label has-text-left">Contraseña</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="contra">
+                                            <input class="input input-is" id="contraseña" type="text" name="contra">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left">Validar Contraseña</label>
+                                        <label for="validar_contraseña" class="label has-text-left">Validar Contraseña</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="validarC">
+                                            <input class="input input-is" type="text" id="validar_contraseña" name="validarC">
                                         </div>
                                     </div>
-
 
 
 
                                 </div>
                                 <div class="column columna2">
                                     <div class="field">
-                                        <label class="label has-text-left">Apellido</label>
+                                        <label for="apellido" class="label has-text-left">Apellido</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="apellido">
+                                            <input class="input input-is" type="text" id="apellido" name="apellido">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left ">Cédula</label>
+                                        <label for="cedula" class="label has-text-left ">Cédula</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="cedula">
+                                            <input class="input input-is" type="text" id="cedula" name="cedula">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left">Número de Contacto</label>
+                                        <label for="numero_contacto" class="label has-text-left">Número de Contacto</label>
                                         <div class="control">
-                                            <input class="input input-is" type="text" name="numero_contacto">
+                                            <input class="input input-is" type="text" id="numero_contacto" name="numero_contacto">
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label has-text-left">Facultad</label>
+                                        <label for="facultad" class="label has-text-left">Facultad</label>
                                         <div class="control">
                                             <div class="select is-fullwidth input-is">
-                                                <select name="facultad">
+                                                <select id="facultad" name="facultad">
                                                     <option value="1">F. Ing. Civil</option>
                                                     <option value="3">F. Ing. Eléctrica</option>
                                                     <option value="5">F. Ing. Industrial</option>
@@ -112,7 +111,7 @@
                                 </div>
 
                             </div>
-                            <input class="button boton" type="submit" value="Registrarse">
+                            <input data-message="Este es el boton de registrarse" class="button boton" type="submit" value="Registrarse">
                         </form>
 
                         <p class="sent">¿Ya tienes una cuenta? <a class="link" href="/Views/General/iniciar_sesion.php"> Inicia Sesión</a></p>

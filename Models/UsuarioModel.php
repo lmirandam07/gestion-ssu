@@ -44,8 +44,13 @@ class UsuarioModel{
         }
         else{
             //se hace un query para insertar los datos en la base de datos
-        $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
-        VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+            try{
+                $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
+                VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+            }
+            catch(Exception $e) {
+                    echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             //condicional que, dependiendo de que si se realiza el query, muestra una pantalla de exito o de intento fallido
         if($this->db->query($sql) == True){
             $this->registro_exitoso = True;
@@ -170,8 +175,14 @@ class UsuarioModel{
     //funcion para conseguir las facultades que se necesitan en un proyecto
     public function facultad_proyecto($id_proyecto)
     {
-        $id = intval($id_proyecto);
-        $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        try{
+            $id = intval($id_proyecto);
+            $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+        
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }
@@ -187,8 +198,13 @@ class UsuarioModel{
     //funcion para conseguir los años de los estudiantes que se necesitan en un proyecto
     public function ano_proyecto($id_proyecto)
     {
-        $id = intval($id_proyecto);
+        try{
+            $id = intval($id_proyecto);
         $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }

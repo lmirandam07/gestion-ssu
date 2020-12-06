@@ -158,7 +158,7 @@
                             } elseif ($dato['participantes_pro'] <= 0) { //Si la cantidad de estudiantes requeridos ya llegó a 0, se mostrará el botón deshabilitado y dirá "Proyecto Lleno".
 
                         ?>
-                            <button class='button is-medium is-cancelado' disabled>Proyecto lleno</button>
+                            <button class='button is-medium is-cancelado' disabled>Proyecto Lleno</button>
                 <?php
 
                             }

@@ -1,3 +1,41 @@
+@media screen and (max-width:800px){
+    .encargado{
+        border-right-style: none;
+        border-right-color: #ffffff;
+    
+    }
+    .perfil{
+        border-right-style: none;
+        border-right-color: #ffffff;
+    
+    }
+    .objetivo{
+        margin-left: 0;
+    }
+    .informacion{
+        margin-left: 0;
+    
+    }
+}
+@media screen and (min-width:800px){
+    .encargado{
+        border-right-style: solid;
+        border-right-color: #6048A8;
+    }
+    .perfil{
+        border-right-style: solid;
+        border-right-color: #6048A8;
+    }
+    .objetivo{
+        margin-left: 4rem;
+    }
+    .informacion{
+        margin-left: 4rem;
+    
+    }
+
+}
+
 .proyecto{
     border-style: solid;
     border-color: #6048A8;
@@ -19,21 +57,8 @@ ul{
 .info1{
     margin-top: 2rem;
 }
-.objetivo{
-    margin-left: 4rem;
-}
-.informacion{
-    margin-left: 4rem;
 
-}
-.encargado{
-    border-right-style: solid;
-    border-right-color: #6048A8;
-}
-.perfil{
-    border-right-style: solid;
-    border-right-color: #6048A8;
-}
+
 .input{
     width: 150px;
 }

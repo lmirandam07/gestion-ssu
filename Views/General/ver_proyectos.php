@@ -124,9 +124,9 @@
                             ?>
                                 <li>
                                 <?php
-                                if ($i != $active) { //La página que se encuentra "activa" se muestra con un color diferente a las demás para dar feedback al usuario.
+                                if ($i != $active) { //Las demás páginas se muestran del mismo color.
                                     echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
-                                } elseif ($i == $active) { //Las demás páginas se muestran del mismo color.
+                                } elseif ($i == $active) { //La página que se encuentra "activa" se muestra con un color diferente a las demás para dar feedback al usuario.
                                     echo "<a href='../../route.php?controller=Ver_Proyectos&Page=" . $i . "' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
                                 }
                             }

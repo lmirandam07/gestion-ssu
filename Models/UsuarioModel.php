@@ -8,6 +8,9 @@ class UsuarioModel{
     private $registros;
     private $horas;
     private $proyectos;
+    private $info_proyecto;
+    private $facultad_proyecto;
+    private $ano_proyecto;
 
     
 
@@ -18,6 +21,9 @@ class UsuarioModel{
         $this->registros = array(); 
         $this->horas = array();
         $this->proyectos = array();
+        $this->info_proyecto = array();
+        $this->facultad_proyecto = array();
+        $this->ano_proyecto = array();
     }
 
     //funcion para registrar un usuario en la base de datos
@@ -100,7 +106,7 @@ class UsuarioModel{
     }
     //funcion para obtener todos los proyectos en donde se ha inscrito el usuario.
     public function obtenerProyectosUsuario($correo){
-        $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro
+        $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro, p.id_proyecto
         FROM proyecto pro
         INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
         INNER JOIN usuario u ON '$correo'=u.correo
@@ -135,6 +141,61 @@ class UsuarioModel{
         $horas = $consulta_horas->fetch_assoc()['diferencia'];
     //se hace un query para insertar los datos que hemos conseguido en la tabla de proyecto_usuario, finalizando la inscripcion del usuario en un proyecto
         $this->db->query("INSERT INTO proyecto_usuario(id_proyecto,id_usuario,horas_usuario) VALUES('$id_proyecto','$id_usuario','$horas');");
+    }
+
+    public function estudiante_inscrito($correo, $id_proyecto){
+        $id = intval($id_proyecto);
+        $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
+        $id_usuario = $consulta->fetch_assoc()['id_usuario'];
+        $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+        if(mysqli_num_rows($inscrito) == 0){
+            return False;
+        }
+        else{
+            return True;
+        }
+    }
+    
+    public function informacion_proyecto($id_proyecto)
+    {
+        $id = intval($id_proyecto);
+        $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
+        while ($filas = $consulta->fetch_assoc()) {
+            $info_proyecto[] = $filas;
+        }
+        return $info_proyecto;
+    }
+
+    public function facultad_proyecto($id_proyecto)
+    {
+        $id = intval($id_proyecto);
+        $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        if (mysqli_num_rows($id_propuesta) == 0) {
+            return False;
+        }
+        $id_propuesta =  $id_propuesta->fetch_assoc()['id_propuesta'];
+
+        $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta';");
+        while ($filas = $consulta->fetch_assoc()) {
+            $facultad_proyecto[] = $filas;
+        }
+        return $facultad_proyecto;
+    }
+
+    public function ano_proyecto($id_proyecto)
+    {
+        $id = intval($id_proyecto);
+        $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        if (mysqli_num_rows($id_propuesta) == 0) {
+            return False;
+        }
+        $id_propuesta =  $id_propuesta->fetch_assoc()['id_propuesta'];
+
+        $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta';");
+        while ($filas = $consulta->fetch_assoc()) {
+            $ano_proyecto[] = $filas;
+        }
+        return $ano_proyecto;
     }
 
     

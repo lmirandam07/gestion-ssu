@@ -40,6 +40,16 @@ class UsuarioController{
         $usuario->inscribirse($correo,$id_proyecto);
         require_once $_SERVER['/var/www/html'].'Views/Layouts/estudiante_inscrito.php';
     }
+
+    function proyecto($id_proyecto){
+        $proyecto = new UsuarioModel();
+        $datos = $proyecto->informacion_proyecto($id_proyecto);
+        $facultades = $proyecto->facultad_proyecto($id_proyecto);
+        $anios = $proyecto->ano_proyecto($id_proyecto);
+        $correo = $_SESSION['usuario_actual'];
+        $inscrito = $proyecto->estudiante_inscrito($correo, $id_proyecto);
+        require_once('./Views/General/proyecto.php');
+    }
     
 }
 

@@ -2,9 +2,8 @@
 session_start();
 
 require_once $_SERVER['/var/www/html'] .'db/db.php';
-
+    //se crea la clase modelo y se definen sus variables
 class UsuarioModel{
-    //se crean las variables que son retornadas en cada funcion
     private $db;
     private $registros;
     private $horas;
@@ -23,6 +22,7 @@ class UsuarioModel{
 
     //funcion para registrar un usuario en la base de datos
     public function registrarUsuarios($datos){
+        //se almacenan los datos que nos brinda el formulario
         $nombre=$datos['nombre_us'];
         $apellido=$datos['apellido_us'];
         $cedula=$datos['cedula_us'];
@@ -40,6 +40,7 @@ class UsuarioModel{
             //se hace un query para insertar los datos en la base de datos
         $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
         VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+            //condicional que, dependiendo de que si se realiza el query, muestra una pantalla de exito o de intento fallido
         if($this->db->query($sql) == True){
             $this->registro_exitoso = True;
             echo '<script>console.log("Exitoso")</script>';
@@ -53,7 +54,7 @@ class UsuarioModel{
 
 
     }
-    //una funcion que nos permite obtener los datos del perfil del usuario, como su nombre, apellido, cedula, etc.
+    //una funcion que nos permite obtener los datos del perfil del usuario, como su nombre, apellido, cedula
     public function obtenerPerfil($correo){
         $consulta=$this->db->query("SELECT us.nombre_us, us.apellido_us, us.cedula_us, fa.nombre_facultad, us.correo, us.telefono
         FROM usuario us

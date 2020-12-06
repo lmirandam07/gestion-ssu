@@ -75,7 +75,7 @@
                                         <div class="columns is-gapless is-fluid is-multiline is-centered">
                                             <div class="column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; /*echo './img/voluntario_rand_1_try.jpg';*/ ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="column is-8 is-gapless">
@@ -93,7 +93,7 @@
                                                 $proyecto = $dato['id_proyecto'];
                                                 //Se manda como argumentos tanto el nombre del controller correspondiente y el id del proyecto.
                                                 //Esto se hace para poder mostrar la información del proyecto correspondiente en la pantalla de proyecto.php
-                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto . "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
+                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto ."&Imagen=" .$random. "' class='button is-dark is-hovered' id='boton'>Ver más</a>";
                                                 ?>
                                             </div>
                                         </div>

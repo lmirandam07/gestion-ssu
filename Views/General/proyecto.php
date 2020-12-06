@@ -29,13 +29,15 @@
 
     ?>
     <?php
+    $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
+
     foreach ($datos as $dato) { //Arreglo resultante del query en la base de datos. Nos retorna la información del proyecto.
     ?>
         <div class="proyecto content">
             <!--Container que muestra la información del proyecto específico.-->
             <div class="titulo columns is-vcentered">
                 <div class="imagen column is-one-third">
-                    <img src="<?php echo './img/voluntario_rand_1_try.jpg'; ?>" alt="" width="350">
+                    <img src="<?php echo $imagenes[$num_img]; ?>" alt="" width="350">
                 </div>
                 <div class="descripcion column">
                     <h1 class="is-large is-purple"><?php echo $dato['nombre_pro'] ?></h1>

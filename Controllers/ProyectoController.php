@@ -3,6 +3,8 @@
     require_once $_SERVER['/var/www/html']. 'Models/ProyectoModel.php';
     //require_once('../Models/ProyectoModel.php');
 
+    session_start();
+
     class ProyectoController
     {
 
@@ -25,6 +27,8 @@
             $datos = $proyecto->informacion_proyecto($id_proyecto);
             $facultades = $proyecto->facultad_proyecto($id_proyecto);
             $anios = $proyecto->ano_proyecto($id_proyecto);
+            $correo = $_SESSION['usuario_actual'];
+            $inscrito = $proyecto->estudiante_inscrito($correo, $id_proyecto);
             require_once('./Views/General/proyecto.php');
         }
 

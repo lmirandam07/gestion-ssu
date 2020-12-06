@@ -70,7 +70,7 @@
                 </p>
                 
                 <div class="opc is-flex is-justify-content-space-evenly is-align-items-center has-text-centered">
-                    <a class="voluntario" href="./registrar.php">Voluntario</a>
+                    <a class="voluntario" href="./Views/General/registrar.php">Voluntario</a>
                     <a class="proponer" href="./Views/General/registrar_propuesta.php">Proponer</a>
                 </div>
             </div>

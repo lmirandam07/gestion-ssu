@@ -49,6 +49,19 @@ class ProyectoModel
         return $totalpages;
     }
 
+        public function estudiante_inscrito($correo, $id_proyecto){
+            $id = intval($id_proyecto);
+            $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
+            $id_usuario = $consulta->fetch_assoc()['id_usuario'];
+            $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+            if(mysqli_num_rows($inscrito) == 0){
+                return False;
+            }
+            else{
+                return True;
+            }
+        }
+
     public function informacion_proyecto($id_proyecto)
     {
         $id = intval($id_proyecto);

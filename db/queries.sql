@@ -84,7 +84,7 @@ CREATE TABLE usuario (
   total_horas INT DEFAULT NULL,
   id_tipo_us INT NOT NULL,
   telefono INT NOT NULL,
-  correo VARCHAR(50) NOT NULL,
+  correo VARCHAR(50) NOT NULL UNIQUE,
   contrasena VARCHAR(20) NOT NULL,
   facultad INT DEFAULT NULL,
   CONSTRAINT fk_facultad FOREIGN KEY(facultad) REFERENCES facultad(id_facultad),

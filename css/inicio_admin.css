@@ -2,7 +2,6 @@
     background: url(../img/voluntario.jpeg) center center;
     background-size:cover;
 }
-
 .has-bg-color{
     width: 100%;
     background-color: #1c1e1a77;
@@ -11,21 +10,17 @@
 .is-purple{
     color: #6048A8;
 }
-
 .container_morado{
     background-color: #6048A8;
     color: white;
 }
-
 .container_darkgray{
     background-color: #1C1E1A;
     color: white;
 }
-
 .has_text_link{
     color: white;
 }
-
 p a:hover {
     color: white;
 }

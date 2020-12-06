@@ -1,3 +1,4 @@
+#Trigger que guarda las propuestas aprobadas en la tabla de proyectos
 CREATE TRIGGER generar_proyecto
 AFTER
 UPDATE

@@ -26,7 +26,7 @@
             <div class="content has-text-centered"><i class="far fa-user-circle fa-8x has-text-centered"></i></div>
 
             <?php
-            //Arreglo resultante del query en la base de datos. Nos retorna la información del estudiante. 
+            //Arreglo resultante del query en la base de datos. Nos retorna la información del estudiante.
             foreach ($datos as $dato) { ?>
 
                 <h1 class="has-text-centered textoP"> <?php echo $dato['nombre_us'] . ' ' . $dato["apellido_us"]; ?> </h1>
@@ -76,7 +76,7 @@
             <?php } ?>
         </div>
         <?php
-        //Esta condicional sirve para saber si hay cero proyectos en lo cual el estudiante esta inscrito o si hay mas de uno 
+        //Esta condicional sirve para saber si hay cero proyectos en lo cual el estudiante esta inscrito o si hay mas de uno
         //dependiendo del resultado se muestra un container diferente, en este caso nos muestra cuando hay 1 o más proyectos.
         if ($cantidad) { ?>
             <div class="column is-half bod box">
@@ -126,7 +126,7 @@
     </div>
     <h2 class="pro-ins">Proyectos Inscritos</h2>
     <section class="container is-fluid" id="propuestas">
-        
+
 
             <?php
             foreach ($usuario as $proyectos) {
@@ -205,7 +205,7 @@
                 </div>
             </div>
         </section>
-    
+
 
 
 
@@ -243,9 +243,9 @@
 
     </div>
         </div>
-    
+
     <br>
-    
+
     <?php
     //Se incluye el footer
     include('./Views/Layouts/footer.html'); ?>

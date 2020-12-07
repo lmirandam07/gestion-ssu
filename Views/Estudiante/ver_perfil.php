@@ -112,7 +112,7 @@
                                     </th>
                                     <th></th>
                                     <th>
-                                        <h3 class="has-text-centered horas"><strong><?php echo $horas["total_horas"] ?></strong></h3>
+                                        <h3 class="has-text-centered horas"><?php echo $horas["total_horas"] ?></h3>
                                     </th>
                                 </tr>
 
@@ -131,7 +131,7 @@
             <?php
             foreach ($usuario as $proyectos) {
                 $imagenes = array();
-                $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
+                $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
                 $random = rand(0, 3);
             ?>
                 <div class="columns is-centered">
@@ -145,7 +145,7 @@
                                         <div class="columns is-gapless is-fluid is-multiline is-centered">
                                             <div class="column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; /*echo './img/voluntario_rand_1_try.jpg';*/ ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="column is-8 is-gapless">

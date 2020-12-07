@@ -33,8 +33,6 @@ class UsuarioController{
         $data=$cliente->obtenerHoras($correo);
         $usuario=$cliente->obtenerProyectosUsuario($correo,$page);
         $cantidad=$cliente->totalProyectos($correo);
-        
-        $dato = $cliente->obtener_propuestas($page);
         $active = intval($page);
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
@@ -50,17 +48,6 @@ class UsuarioController{
     }
 
    
-
-    function proyecto($id_proyecto,$img){
-        $proyecto = new UsuarioModel();
-        $datos = $proyecto->informacion_proyecto($id_proyecto);
-        $facultades = $proyecto->facultad_proyecto($id_proyecto);
-        $anios = $proyecto->ano_proyecto($id_proyecto);
-        $correo = $_SESSION['usuario_actual'];
-        $num_img = intval($img);
-        $inscrito = $proyecto->estudiante_inscrito($correo, $id_proyecto);
-        require_once('./Views/General/proyecto.php');
-    }
     
 }
 

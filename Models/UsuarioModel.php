@@ -30,17 +30,8 @@ class UsuarioModel{
 
 
 
-    public function obtener_proyecto($page)
-    {
-        $num_per_page = 04;
-        $start_from = (intval($page) - 1) * $num_per_page;
-        $consulta = $this->db->query("select id_proyecto, nombre_pro, descripcion_pro from proyecto limit $start_from,$num_per_page;");
-        while ($filas = $consulta->fetch_assoc()) {
-            $proyectos[] = $filas;
-        }
-        return $proyectos;
-    }
-
+   
+//funcion para hacer que solamente aparezcan 4 proyectos registrados por pagina
     public function total_paginas()
     {
         $num_per_page = 04;
@@ -49,10 +40,14 @@ class UsuarioModel{
 
         return $totalpages;
     }
-
+//funcion para encontrar todos los proyectos donde el estudiante este inscrito
     public function total_proyectos()
     {
-        $consulta = $this->db->query("select * from proyecto;");
+        $correo=$_SESSION['usuario_actual'];
+        $consulta = $this->db->query("select * FROM proyecto pro
+        INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
+        INNER JOIN usuario u ON '$correo'=u.correo
+        WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
         $i = 0;
         while ($filas = $consulta->fetch_assoc()) {
             $proyectos[] = $filas;
@@ -62,20 +57,7 @@ class UsuarioModel{
         return $total;
     }
 
-    public function obtener_propuestas($page){
-        $num_per_page = 04;
-        $start_from = (intval($page)-1)*$num_per_page;
-        try{
-            $consulta = $this->db->query("select id_propuesta, nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
-        }catch(Exception $e){
-            echo 'Error encontrado: ', $e->getMessage(), "\n";
-        }
-        while($filas = $consulta->fetch_assoc()){
-            $propuestas[] = $filas;
-        }
-        return $propuestas;
-    }
-    //Metodo para calcular el total de propuestas que se encuentran para la paginacion de la vista previa
+
 
     //funcion para registrar un usuario en la base de datos
     public function registrarUsuarios($datos){

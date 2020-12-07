@@ -49,7 +49,7 @@
                         <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $counthoras ?></p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil&Page=1">Ver Horas</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>
@@ -64,7 +64,7 @@
                         <p class="has-text-centered is-size-1 has-text-weight-light"><?php echo $countproyectoI ?></p>
                     </div class="has-text-centered">
                     <div class="column is-12 is-gapless  is-centered">
-                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil">Mis Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
+                        <p class="has-text-centered is-size-5 level-item has-text-weight-medium"><a href="../../route.php?controller=Ver_Perfil&Page=1">Mis Proyectos</a> <span class="icon"><i class="fas fa-chevron-right"></i></i></span></p>
                     </div class="has-text-centered">
                     <div class="column is-offset-12 is-gapless"></div>
                 </div>

@@ -57,7 +57,7 @@
             <?php
             foreach ($datos as $dato) {
                 $imagenes = array();
-                $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
+                $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
                 $random = rand(0, 3);
             ?>
 
@@ -72,7 +72,7 @@
                                         <div class="columns is-gapless is-fluid is-multiline is-centered">
                                             <div class="column is-gapless is-narrow">
                                                 <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; ?> " alt="Image">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
                                                 </figure>
                                             </div>
                                             <div class="column is-8 is-gapless">

@@ -81,7 +81,7 @@ CREATE TABLE usuario (
   nombre_us VARCHAR(50) NOT NULL,
   apellido_us VARCHAR(50) NOT NULL,
   cedula_us VARCHAR(20) NOT NULL,
-  total_horas INT DEFAULT NULL,
+  total_horas INT DEFAULT 0,
   id_tipo_us INT NOT NULL,
   telefono INT NOT NULL,
   correo VARCHAR(50) NOT NULL UNIQUE,
@@ -120,3 +120,72 @@ VALUES
   (3, 'Tercer año'),
   (4, 'Cuarto año o más');
 
+
+INSERT INTO
+  usuario(
+    nombre_us,
+    apellido_us,
+    cedula_us,
+    total_horas,
+    id_tipo_us,
+    telefono,
+    correo,
+    contrasena,
+    facultad
+  )
+VALUES
+  (
+    'Luis',
+    'Miranda',
+    '8-954-208',NULL
+    ,
+    2,
+    '6667777',
+    'lu@gmail.com',
+    '123',
+    NULL
+  ),
+  (
+    'Lionel',
+    'Henríquez',
+    '8-915-2155',NULL
+    ,
+    2,
+    '6667777',
+    'lio@gmail.com',
+    '123',
+    NULL
+  ),
+  (
+    'Kirsten',
+    'Chong',
+    '8-953-1207',
+    20,
+    1,
+    '6667777',
+    'kirs@gmail.com',
+    '123',
+    1
+  ),
+  (
+    'Alexander',
+    'Herrera',
+    '8-945-1151',
+    15,
+    1,
+    '6667777',
+    'alex@gmail.com',
+    '123',
+    4
+  ),
+  (
+    'Javier',
+    'Singh',
+    '8-965-2155',NULL
+    ,
+    2,
+    '6667777',
+    'javi@gmail.com',
+    '123',
+    NULL
+  );

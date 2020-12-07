@@ -23,7 +23,6 @@
 
     <div class="columns colprin">
         <div class="column is-two-fifths columna1 box ">
-            <div class="icono-edit is-pulled-top"><i class="far fa-edit is-pulled-right"></i></div>
             <div class="content has-text-centered"><i class="far fa-user-circle fa-8x has-text-centered"></i></div>
             
             <?php

@@ -26,6 +26,40 @@ class UsuarioModel{
         $this->ano_proyecto = array();
     }
 
+
+
+    public function obtener_proyecto($page)
+    {
+        $num_per_page = 04;
+        $start_from = (intval($page) - 1) * $num_per_page;
+        $consulta = $this->db->query("select id_proyecto, nombre_pro, descripcion_pro from proyecto limit $start_from,$num_per_page;");
+        while ($filas = $consulta->fetch_assoc()) {
+            $proyectos[] = $filas;
+        }
+        return $proyectos;
+    }
+
+    public function total_paginas()
+    {
+        $num_per_page = 04;
+        $totalrecord = $this->total_proyectos();
+        $totalpages = ceil($totalrecord / $num_per_page);
+
+        return $totalpages;
+    }
+
+    public function total_proyectos()
+    {
+        $consulta = $this->db->query("select * from proyecto;");
+        $i = 0;
+        while ($filas = $consulta->fetch_assoc()) {
+            $proyectos[] = $filas;
+            $i++;
+        }
+        $total = $i;
+        return $total;
+    }
+
     //funcion para registrar un usuario en la base de datos
     public function registrarUsuarios($datos){
         //se almacenan los datos que nos brinda el formulario
@@ -44,8 +78,13 @@ class UsuarioModel{
         }
         else{
             //se hace un query para insertar los datos en la base de datos
-        $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
-        VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+            try{
+                $sql="INSERT INTO usuario (nombre_us, apellido_us, cedula_us, id_tipo_us, telefono, correo, contrasena, total_horas,facultad) 
+                VALUES ('$nombre', '$apellido', '$cedula', 1, '$numero_contacto', '$correo', '$contra', 0, '$facultad')";
+            }
+            catch(Exception $e) {
+                    echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             //condicional que, dependiendo de que si se realiza el query, muestra una pantalla de exito o de intento fallido
         if($this->db->query($sql) == True){
             $this->registro_exitoso = True;
@@ -62,10 +101,16 @@ class UsuarioModel{
     }
     //una funcion que nos permite obtener los datos del perfil del usuario, como su nombre, apellido, cedula
     public function obtenerPerfil($correo){
-        $consulta=$this->db->query("SELECT us.nombre_us, us.apellido_us, us.cedula_us, fa.nombre_facultad, us.correo, us.telefono
+
+        try{
+            $consulta=$this->db->query("SELECT us.nombre_us, us.apellido_us, us.cedula_us, fa.nombre_facultad, us.correo, us.telefono
         FROM usuario us
         INNER JOIN facultad fa ON us.facultad=fa.id_facultad
         WHERE '$correo'=us.correo;");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
     //Se hace un recorrido while para guardar los datos en el arreglo registros y luego retornar estos valores.
         while($filas=$consulta->fetch_assoc()){
             $registros[]=$filas;
@@ -75,12 +120,16 @@ class UsuarioModel{
     
     //funcion para saber si el estudiante se ha inscrito en algun proyecto.
     public function totalProyectos($correo){
-        $n=0;    
-        $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro
+        try{
+            $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro
         FROM proyecto pro
         INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
         INNER JOIN usuario u ON '$correo'=u.correo
         WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }   
     //en caso tal de que no se encuentren proyectos retorna un falso.
         if (mysqli_num_rows($consulta) == 0){
             return false;
@@ -92,11 +141,17 @@ class UsuarioModel{
 
     //funcion para obtener las horas individuales por proyecto de un usuario.
     public function obtenerHoras($correo){
-    $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro, u.total_horas, p.horas_usuario
-    FROM proyecto pro
-    INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
-    INNER JOIN usuario u ON '$correo'=u.correo
-    WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
+        try{
+            $consulta=$this->db->query("SELECT pro.nombre_pro, pro.fecha_pro, pro.hora_inicio_pro, pro.hora_final_pro, u.total_horas, p.horas_usuario, p.id_proyecto
+            FROM proyecto pro
+            INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
+            INNER JOIN usuario u ON '$correo'=u.correo
+            WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+    
     //Se hace un recorrido while para guardar los datos en el arreglo horas y luego retornar estos valores.
             while($filas=$consulta->fetch_assoc()){
                 $horas[]=$filas;
@@ -106,11 +161,16 @@ class UsuarioModel{
     }
     //funcion para obtener todos los proyectos en donde se ha inscrito el usuario.
     public function obtenerProyectosUsuario($correo){
+        try{
         $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro, p.id_proyecto
         FROM proyecto pro
         INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
         INNER JOIN usuario u ON '$correo'=u.correo
         WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
         $n=0;
      //Se hace un recorrido while para guardar los datos en el arreglo proyectos y luego retornar estos valores.
         while($filas=$consulta->fetch_assoc()){
@@ -127,9 +187,15 @@ class UsuarioModel{
     //funcion para inscribir al usuario en un proyecto
     public function inscribirse($correo,$id_proyecto){
     //se hace un query conseguir el id de usuario y el id de proyecto
+    try{
         $consulta = $this->db->query("SELECT id_usuario FROM usuario WHERE correo = '$correo';");
         $consulta_horas = $this->db->query("SELECT FORMAT(TIME_TO_SEC(TIMEDIFF(hora_final_pro, hora_inicio_pro)) / 3600,0) AS diferencia FROM proyecto WHERE id_proyecto = '$id_proyecto'");
-        if(mysqli_num_rows($consulta)==0){
+        
+    }
+    catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+    }
+       if(mysqli_num_rows($consulta)==0){
             return 'Error';
 
         }
@@ -145,6 +211,14 @@ class UsuarioModel{
 
     //funcion para conseguir el id del usuario 
     public function estudiante_inscrito($correo, $id_proyecto){
+        try{
+        $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
+        $id_usuario = $consulta->fetch_assoc()['id_usuario'];
+        $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
         $id = intval($id_proyecto);
         $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
         $id_usuario = $consulta->fetch_assoc()['id_usuario'];
@@ -159,6 +233,13 @@ class UsuarioModel{
     //funcion para adquirir la informacion de un proyecto
     public function informacion_proyecto($id_proyecto)
     {
+        try{
+            $id = intval($id_proyecto);
+            $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
         $id = intval($id_proyecto);
         $consulta = $this->db->query("select * from proyecto where id_proyecto = $id;");
         while ($filas = $consulta->fetch_assoc()) {
@@ -170,8 +251,14 @@ class UsuarioModel{
     //funcion para conseguir las facultades que se necesitan en un proyecto
     public function facultad_proyecto($id_proyecto)
     {
-        $id = intval($id_proyecto);
-        $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        try{
+            $id = intval($id_proyecto);
+            $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+        
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }
@@ -187,8 +274,13 @@ class UsuarioModel{
     //funcion para conseguir los años de los estudiantes que se necesitan en un proyecto
     public function ano_proyecto($id_proyecto)
     {
-        $id = intval($id_proyecto);
+        try{
+            $id = intval($id_proyecto);
         $id_propuesta = $this->db->query("select id_propuesta from proyecto where id_proyecto ='$id';");
+        }
+        catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
         if (mysqli_num_rows($id_propuesta) == 0) {
             return False;
         }

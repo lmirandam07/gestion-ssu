@@ -32,9 +32,7 @@
 
             <h1 class="has-text-centered textoP"> <?php echo $dato['nombre_us']. ' ' . $dato["apellido_us"] ;?> </h1>
             <h3 class="has-text-centered texto">ESTUDIANTE</h3>
-            <div class="columns ">
-
-
+            <div class="columns is-half">
             <table class="table is-fullwidth">
                 <tbody>
                     <tr>
@@ -58,6 +56,7 @@
             </table>
 
             </div>
+            
             <?php }?>
         </div>
         <?php 
@@ -68,8 +67,8 @@
 
             <h1 class="has-text-centered reg">Registro de Horas</h1>
 
-            <div class="table-container">
-            <table class="table is-fullwidth is-scrollable">
+            <div class="columns is-half">
+            <table class="table is-fullwidth is-fullheight tabla">
             <thead>
                 <tr class="has-text-centered">
                     <th class="textcol2 ">PROYECTO</th>
@@ -78,10 +77,13 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($data as $horas){ ?>
+            <?php foreach ($data as $horas){
+                $id=$horas["id_proyecto"]; 
+                $nombre=$horas["nombre_pro"];?>
+                
                 <tr class="has-text-centered">
                     
-                    <th><?php echo $horas["nombre_pro"] ;?></th>
+                    <th class="at"><?php echo "<a class='at' href='../../route.php?controller=Proyecto&Proyecto=" .$id."&Imagen=3'>" .$nombre. "</a>"; ?></th>
                     <th><?php echo $horas["fecha_pro"] ;?></th>
                     <th><?php echo $horas["horas_usuario"] ;?></th>
 
@@ -89,78 +91,23 @@
                     
                 </tr>
                 <tr>
-                    <th><h3 class="has-text-centered horas">TOTAL</h3></th>
+                    <th><h3 class="has-text-centered horas "><strong>TOTAL</strong></h3></th>
                     <th></th>
-                <th><h3 class="has-text-centered horas"><?php echo $horas["total_horas"] ?></h3></th>
+                <th><h3 class="has-text-centered horas"><strong><?php echo $horas["total_horas"] ?></strong></h3></th>
                 </tr>
                 
             </tbody>
             </table>
-
-            </div>         
+                
+            </div>
+         
         </div>
 
     </div>
 
+ 
+   
 
-    <h1 class="pro-ins has-text-left">Proyectos Inscritos</h1>
-
-    <?php 
-    //Arreglo resultante del query en la base de datos. Nos retorna los proyectos en la cual el estudiante esta. 
-    foreach ($usuario as $total){ ?>
-    <section class="container is-fluid cont" id="proyectos">
-        <div class="columns is-centered">
-            
-            <!--Proyecto-->
-            <?php $imagenes = array();
-                //Arreglo de imagenes aleatorias para los proyectos.
-                $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
-                $random = rand(0, 3);?>
-
-            <div class="column is-11">
-                        <div class="box">
-                            <article class="media">
-                                <div class="media-left"></div>
-                                <div class="media-content" id="descrip">
-                                    <div class="content">
-                                        <div class="columns is-gapless is-fluid is-multiline is-centered">
-                                            <div class="column is-gapless is-narrow">
-                                                <figure class="image is-fluid">
-                                                    <img id="foto_proyecto" src=" <?php echo $imagenes[$random]; ?> " alt="Image">
-                                                </figure>
-                                            </div>
-                                            <div class="column is-8 is-gapless">
-                                                <h3 id="titulo"> <?php echo $total['nombre_pro'] //Se obtiene el nombre del proyecto del arreglo resultante del query 
-                                                                    ?> </h3>
-                                                <p name="inicio" value="<?php $inicio ?>">
-                                                    <?php echo $total['descripcion_pro'] //Se obtiene el nombre del proyecto del arreglo resultante del query
-                                                    ?><br>
-                                                </p>
-                                            </div>
-                                            <div class="column is-gapless"></div>
-                                            <div class="column is-11 is-gapless"></div>
-                                            <div class="column is-narrow is-gapless has-text-centered">
-                                                <?php
-                                                $proyecto = $total['id_proyecto'];
-                                                //Se manda como argumentos tanto el nombre del controller correspondiente y el id del proyecto.
-                                                //Esto se hace para poder mostrar la información del proyecto correspondiente en la pantalla de proyecto.php
-                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto ."&Imagen=" .$random. "' class='button is-dark is-hovered' id='boton'>Detalles</a>";
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-        <!--Final Proyecto-->
-    </section>
-    <?php }?>
-
-    <?php
-    //Se incluye el footer
-    include('./Views/Layouts/footer.html'); ?>
     <?php } 
     //se muestra la pantalla que no tiene proyectos
     else {
@@ -189,15 +136,15 @@
 </div>         
 
 
-
-
-<?php
-//Se incluye el footer
-include('./Views/Layouts/footer.html'); ?>
         <?php }?>
 
 
-
+        </div>
+        
+    </div>
+    <?php
+//Se incluye el footer
+include('./Views/Layouts/footer.html'); ?>
 </body>
 
 </html>

@@ -99,6 +99,7 @@ class ProyectoModel
             if ($horas_proyecto) {
                 // Actualizar cantidad de horas en cuenta del estudiante
                 $this->db->query("UPDATE usuario SET total_horas = (total + '$horas_proyecto') WHERE id_usuario = '$id_usuario';");
+                $this->db->query("UPDATE proyecto SET participantes_pro = (participantes_pro - 1) WHERE id_proyecto = '$id_proyecto';");
             }
 
         } catch(Exception $e) {

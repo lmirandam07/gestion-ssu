@@ -83,7 +83,7 @@
                                                 $propuesta = $dato['id_propuesta'];
                                                 //Se manda como argumentos tanto el nombre del controller correspondiente y el id de la propuesta.
                                                 //Esto se hace para poder mostrar la información de la propuesta correspondiente en la pantalla de propuesta_proyecto.php
-                                                echo "<a href='../../route.php?controller=Acceder&Propuesta=" . $propuesta . "' class='button is-dark is-hovered' id='boton'>Detalles</a>";
+                                                echo "<a href='../../route.php?controller=Acceder&Propuesta=" . $propuesta . "' class='button is-dark is-hovered' id='boton' aria-label='Botón para mostrar los detalles del proyecto" .$dato['nombre_pro']. "'>Detalles</a>";
                                                 ?>
                                             </div>
                                         </div>

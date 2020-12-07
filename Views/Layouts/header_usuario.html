@@ -1,26 +1,26 @@
 <header>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="../../img/logossas.png" width="75" height="75">
+          <a class="navbar-item" href="/Views/Estudiante/index.php">
+            <img src="../../img/logossas.png" alt="Logo de SSAS con link al inicio" width="75" height="75">
           </a>
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
-                <a href="../../route.php?controller=Ver_Perfil&Page=1" id="iniciar" class="navbar-item"><i class="far fa-user"></i></a>
-                <a href="../../route.php?controller=Cerrar_Sesion" id="iniciar" class="navbar-item"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="../../route.php?controller=Ver_Perfil&Page=1" id="iniciar" class="navbar-item"  aria-label="Ver Perfil" title="Ver Perfil"><i class="far fa-user"></i></a>
+                <a href="../../route.php?controller=Cerrar_Sesion" id="iniciar" class="navbar-item"  aria-label="Cerrar Sesión" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </div>
     </nav>
     <div class="is-flex is-justify-content-space-evenly is-align-items-center menu">
         <div>
-            <a href="/Views/Estudiante/index.php ">Inicio</a>
+            <a href="/Views/Estudiante/index.php " aria-label="Abrir página de Inicio de Estudiante">Inicio</a>
         </div>
         <div>
-            <a href="../../route.php?controller=Ver_Proyectos&Page=1">Proyectos</a>
+            <a href="../../route.php?controller=Ver_Proyectos&Page=1" aria-label="Abrir página de Listado de Proyectos de Servicio Social Univeristario">Proyectos</a>
         </div>
         <div>
-            <a href="/Views/General/contacto.php">Contacto</a>
+            <a href="/Views/General/contacto.php" aria-label="Abrir página Contacto de SSAS">Contacto</a>
         </div>
     </div>
 </header>

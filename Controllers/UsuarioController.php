@@ -26,11 +26,14 @@ class UsuarioController{
     }
     //funcion para obtener el perfil de un usuario de la base de datos
     function verPerfil($correo){
+        
         $cliente=new UsuarioModel();
         $datos=$cliente->obtenerPerfil($correo);
         $data=$cliente->obtenerHoras($correo);
         $usuario=$cliente->obtenerProyectosUsuario($correo);
         $cantidad=$cliente->totalProyectos($correo);
+        $paginas = $cliente->total_paginas();
+        $cantidad = $cliente->total_proyectos();
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
     }
@@ -40,6 +43,8 @@ class UsuarioController{
         $usuario->inscribirse($correo,$id_proyecto);
         require_once $_SERVER['/var/www/html'].'Views/Layouts/estudiante_inscrito.php';
     }
+
+   
 
     function proyecto($id_proyecto,$img){
         $proyecto = new UsuarioModel();

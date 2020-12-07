@@ -67,3 +67,17 @@ body {
 .textcol2{
     font-weight: bold;
 }
+
+.tabla{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+table tr th a{
+    text-decoration: none !important;
+    color: #6048A8 !important;
+
+}
+th .at{
+    color: #6048A8 !important;
+    text-decoration: none !important;
+}

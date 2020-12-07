@@ -25,17 +25,22 @@ class UsuarioController{
 
     }
     //funcion para obtener el perfil de un usuario de la base de datos
-    function verPerfil($correo){
+    function verPerfil($correo,$page){
         
         $cliente=new UsuarioModel();
+        $paginas = $cliente->total_paginas();
         $datos=$cliente->obtenerPerfil($correo);
         $data=$cliente->obtenerHoras($correo);
-        $usuario=$cliente->obtenerProyectosUsuario($correo);
+        $usuario=$cliente->obtenerProyectosUsuario($correo,$page);
         $cantidad=$cliente->totalProyectos($correo);
-        $paginas = $cliente->total_paginas();
+        
+        $dato = $cliente->obtener_propuestas($page);
+        $active = intval($page);
         require_once $_SERVER['/var/www/html'].'Views/Estudiante/ver_perfil.php';
         
     }
+
+
     //funcion para inscribir a un usuario en un proyecto
     function inscribirse($correo,$id_proyecto, $img){
         $usuario = new UsuarioModel();

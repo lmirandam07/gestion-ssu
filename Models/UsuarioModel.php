@@ -11,6 +11,7 @@ class UsuarioModel{
     private $info_proyecto;
     private $facultad_proyecto;
     private $ano_proyecto;
+    private $consulta;
 
     
 
@@ -24,6 +25,7 @@ class UsuarioModel{
         $this->info_proyecto = array();
         $this->facultad_proyecto = array();
         $this->ano_proyecto = array();
+        $this->consulta=array();
     }
 
 
@@ -59,6 +61,21 @@ class UsuarioModel{
         $total = $i;
         return $total;
     }
+
+    public function obtener_propuestas($page){
+        $num_per_page = 04;
+        $start_from = (intval($page)-1)*$num_per_page;
+        try{
+            $consulta = $this->db->query("select id_propuesta, nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
+        }catch(Exception $e){
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+        while($filas = $consulta->fetch_assoc()){
+            $propuestas[] = $filas;
+        }
+        return $propuestas;
+    }
+    //Metodo para calcular el total de propuestas que se encuentran para la paginacion de la vista previa
 
     //funcion para registrar un usuario en la base de datos
     public function registrarUsuarios($datos){
@@ -121,7 +138,7 @@ class UsuarioModel{
     //funcion para saber si el estudiante se ha inscrito en algun proyecto.
     public function totalProyectos($correo){
         try{
-            $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro
+            $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro, pro.id_proyecto
         FROM proyecto pro
         INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
         INNER JOIN usuario u ON '$correo'=u.correo
@@ -160,14 +177,16 @@ class UsuarioModel{
 
     }
     //funcion para obtener todos los proyectos en donde se ha inscrito el usuario.
-    public function obtenerProyectosUsuario($correo){
+    public function obtenerProyectosUsuario($correo,$page){
+        $num_per_page = 04;
+        $start_from = (intval($page) - 1) * $num_per_page;
         try{
         $consulta=$this->db->query("SELECT pro.nombre_pro, pro.descripcion_pro, p.id_proyecto
         FROM proyecto pro
         INNER JOIN proyecto_usuario p ON p.id_proyecto=pro.id_proyecto
         INNER JOIN usuario u ON '$correo'=u.correo
-        WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario;");
-        }
+        WHERE pro.id_proyecto = p.id_proyecto AND u.id_usuario = p.id_usuario limit $start_from,$num_per_page;");
+        } 
         catch(Exception $e) {
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
         }
@@ -182,6 +201,7 @@ class UsuarioModel{
 
 
     }
+    
 
     
     //funcion para inscribir al usuario en un proyecto

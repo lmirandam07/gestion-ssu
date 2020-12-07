@@ -99,7 +99,7 @@
 
                                 <tr class="has-text-centered">
 
-                                    <th class="at"><?php echo "<a class='at' href='../../route.php?controller=Proyecto&Proyecto=" . $id . "&Imagen=3'>" . $nombre . "</a>"; ?></th>
+                                    <th class="at"><?php echo $horas["nombre_pro"]; ?></th>
                                     <th><?php echo $horas["fecha_pro"]; ?></th>
                                     <th><?php echo $horas["horas_usuario"]; ?></th>
 
@@ -124,6 +124,88 @@
             </div>
 
     </div>
+    <h2 class="pro-ins">Proyectos Inscritos</h2>
+    <section class="container is-fluid" id="propuestas">
+        
+
+            <?php
+            foreach ($usuario as $proyectos) {
+                $imagenes = array();
+                $imagenes = ['./img/voluntario_rand_1.jpg', './img/voluntario_rand_2.jpg', './img/voluntario_rand_3.jpg', './img/voluntario_rand_4.jpg'];
+                $random = rand(0, 3);
+            ?>
+                <div class="columns is-centered">
+                    <!--Proyecto-->
+                    <div class="column is-11">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left"></div>
+                                <div class="media-content" id="descrip">
+                                    <div class="content">
+                                        <div class="columns is-gapless is-fluid is-multiline is-centered">
+                                            <div class="column is-gapless is-narrow">
+                                                <figure class="image is-fluid">
+                                                    <img id="foto_proyecto" src=" <?php /*echo $imagenes[$random];*/ echo './img/voluntario_rand_1_try.jpg'; ?> " alt="Image">
+                                                </figure>
+                                            </div>
+                                            <div class="column is-8 is-gapless">
+                                                <h3 id="titulo"> <?php echo $proyectos['nombre_pro'] ?> </h3>
+                                                <p name="inicio" value="<?php $inicio ?>">
+                                                    <?php echo $proyectos['descripcion_pro'] ?><br>
+                                                </p>
+                                            </div>
+                                            <div class="column is-gapless"></div>
+                                            <div class="column is-11 is-gapless"></div>
+                                            <div class="column is-narrow is-gapless has-text-centered">
+                                                <?php
+                                                $proyecto = $proyectos['id_proyecto'];
+                                                echo "<a href='../../route.php?controller=Proyecto&Proyecto=" . $proyecto."&Imagen=" .$random. "' class='button is-dark is-hovered' id='boton' aria-label='Botón para mostrar los detalles del proyecto" .$proyectos['nombre_pro']. "'>Detalles</a>";
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!--Final Proyecto-->
+
+            <?php
+            }
+            ?>
+
+        </section>
+
+        <section class="container is-fluid">
+            <div class="columns is-centered">
+                <div class="column is-11">
+                    <nav class="pagination">
+                        <ul class="pagination-list">
+                            <?php
+
+                            for ($i = 1; $i <= $paginas; $i++) {
+
+
+                            ?>
+                                <li>
+                                <?php
+                                if ($i != $active) {
+                                    echo "<a href='../../route.php?controller=Ver_Perfil&Page=" . $i . "' class='pagination-link has-background-oscuro' id='paginas'>$i</a>";
+                                } elseif ($i == $active) {
+                                    echo "<a href='../../route.php?controller=Ver_Perfil&Page=" . $i . "' class='pagination-link has-background-purpura' id='paginas'>$i</a>";
+                                }
+                            }
+                                ?>
+                                </li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    
 
 
 
@@ -160,6 +242,7 @@
 
 
     </div>
+        </div>
     
     <br>
     

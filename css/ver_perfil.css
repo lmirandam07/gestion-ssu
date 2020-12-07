@@ -81,3 +81,20 @@ th .at{
     color: #6048A8 !important;
     text-decoration: none !important;
 }
+#descrip{
+    overflow: hidden;
+}
+
+.has-background-purpura{
+    background-color: #6048A8 !important; 
+    color: white !important;
+}
+
+.has-background-oscuro{
+    background-color: #2f2f2f !important; 
+    color: white !important;
+}
+
+.has-text-purpura{
+    color: #6048A8 !important;
+}

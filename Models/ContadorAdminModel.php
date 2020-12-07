@@ -16,10 +16,17 @@
         //Funcion contadorPropuesta encargada de contar la cantidad de propuestas pendientes en el sistema
         public function contadorPropuesta(){
             //Se seleccionan todas las propuestas con el id_estado=3 que equivale a las propuestas pendientes
-            $sql_propuesta="SELECT COUNT(*) AS total
-                        FROM propuesta_proyecto
-                        WHERE id_estado = 3";
-            $contador_propuesta=$this->db->query($sql_propuesta);
+
+            try {
+                $sql_propuesta="SELECT COUNT(*) AS total
+                FROM propuesta_proyecto
+                WHERE id_estado = 3";
+                $contador_propuesta=$this->db->query($sql_propuesta);
+    
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+
             while($row = mysqli_fetch_assoc($contador_propuesta))[
                 $total_propuesta=$row['total']
             ];
@@ -30,9 +37,16 @@
         //Funcion contadorProyecto encargada de contar la cantidad de proyectos registrados en el sistema
         public function contadorProyecto(){
             //Se cuentan la cantidad de filas que hay que tabla proyectos
-            $sql_proyecto="SELECT COUNT(*) AS total
+
+            try {
+                $sql_proyecto="SELECT COUNT(*) AS total
                         FROM proyecto ";
-            $contador_proyecto=$this->db->query($sql_proyecto);
+                $contador_proyecto=$this->db->query($sql_proyecto);
+    
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+
             while($row = mysqli_fetch_assoc($contador_proyecto))[
                 $total_proyecto=$row['total']
             ];

@@ -27,6 +27,8 @@
             echo 'Error encontrado: ', $e->getMessage(), "\n";
         }
 
+        $imagenes = ['./img/foto_rand_1.svg', './img/foto_rand_2.svg', './img/foto_rand_3.svg', './img/foto_rand_4.svg'];
+
     ?>
 
     <div class="modal is-active">
@@ -53,7 +55,7 @@
         <div class="proyecto content">
             <div class="titulo columns is-vcentered">
                 <div class="imagen column is-one-third">
-                    <img src="../../img/playa.png" alt="" width="350">
+                    <img src="<?php echo $imagenes[$num_img]; ?>" alt="" width="350">
                 </div>
                 <div class="descripcion column">
                     <h1 class="is-large is-purple"></h1>

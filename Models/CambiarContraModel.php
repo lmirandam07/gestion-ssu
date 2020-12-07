@@ -28,16 +28,22 @@
             }
             //En caso tal que las contraseñas coincidan, se procede a verificar que el correo exista en el sistema
             else{
-            $sql_correo="SELECT correo
-                        FROM usuario
-                            WHERE
-                            correo = '$correo';";
-            $sql_contra="UPDATE usuario
-                    SET
-                        contrasena = '$nueva_contra'
+
+            try {
+                $sql_correo="SELECT correo
+                FROM usuario
                     WHERE
-                        correo = '$correo'";
-            $result_correo=$this->db->query($sql_correo);
+                    correo = '$correo';";
+                $sql_contra="UPDATE usuario
+                        SET
+                            contrasena = '$nueva_contra'
+                        WHERE
+                            correo = '$correo'";
+                $result_correo=$this->db->query($sql_correo);
+
+            } catch(Exception $e) {
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             //Si el correo no existe en la base de datos, cambiarContra_existoso se quedara en falso
                 if(mysqli_num_rows($result_correo)==0){
                     $this -> cambiarContra_exitoso = FALSE;

@@ -43,13 +43,14 @@
             $perfil_estu_pro = $datos['perfil_estu_pro'];
             $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro) 
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
-            if($this->db->query($sql) == True){
+            try{
+                $this->db->query($sql);
                 $this->registro_exitoso = True;
                 echo '<script>console.log("Exitoso")</script>';
             }
-            else{
+            catch(Exception $e){
                 $this->registro_exitoso = False;
-                echo '<script>console.log("No Exitoso")</script>';
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
         }
         //Metodo donde se realiza el query para insertar los datos en la tabla facultad_propuesta y anio_proyecto
@@ -75,7 +76,11 @@
         public function obtener_propuestas($page){
             $num_per_page = 04;
             $start_from = (intval($page)-1)*$num_per_page;
-            $consulta = $this->db->query("select id_propuesta, nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
+            try{
+                $consulta = $this->db->query("select id_propuesta, nombre_pro, descripcion_pro from propuesta_proyecto where id_estado = '3' limit $start_from,$num_per_page;");
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
             }
@@ -83,7 +88,11 @@
         }
         //Metodo para calcular el total de propuestas que se encuentran para la paginacion de la vista previa
         public function total_propuestas(){
-            $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
+            try{
+                $consulta = $this->db->query("select * from propuesta_proyecto where id_estado = '3';");
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             $i = 0;
             while($filas = $consulta->fetch_assoc()){
                 $propuestas[] = $filas;
@@ -102,7 +111,11 @@
         }
         //Metodo para la obtencion de todos los datos de la tabla propuesta para mostarla a los usuarios
         public function acceder_propuesta($id_propuesta){
-            $consulta= $this->db->query("select * from propuesta_proyecto where id_propuesta ='$id_propuesta';");
+            try{
+                $consulta= $this->db->query("select * from propuesta_proyecto where id_propuesta ='$id_propuesta';");
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             while($filas= $consulta->fetch_assoc()){
                 $acceso_propuesta[] = $filas; 
 
@@ -111,18 +124,27 @@
 
 
         }
-        //Obntencion de los años de la propuesta que se selecciona para ver los detalles
+        //Obtencion de los años de la propuesta que se selecciona para ver los detalles
         public function acceder_anios_propuesta($id_propuesta){
-            $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta'");
+            try{
+                $consulta = $this->db->query("select id_ano from ano_proyecto where id_propuesta ='$id_propuesta'");
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
             while($filas= $consulta->fetch_assoc()){
                 $acceso_propuesta[] = $filas; 
 
             }
             return $acceso_propuesta;
         }
-        //Obntencion de las facultades de la propuesta que se selecciona para ver los detalles
+        //Obtencion de las facultades de la propuesta que se selecciona para ver los detalles
         public function acceder_facultades_propuesta($id_propuesta){
-            $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta'");
+            try{
+                $consulta = $this->db->query("select id_facultad from facultad_propuesta where id_propuesta ='$id_propuesta'");
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+            
             while($filas= $consulta->fetch_assoc()){
                 $acceso_propuesta[] = $filas; 
 
@@ -132,15 +154,25 @@
         //Metodo con el query para actualizar el estado de la propuesta a aprobado
         public function aprobar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '1' WHERE id_propuesta = '$id_propuesta';";
-            $this->db->query($sql);
+            try{
+                $this->db->query($sql);
+
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
+            
 
 
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2' WHERE id_propuesta = '$id_propuesta';";
-            $this->db->query($sql);
+            try{
+                $this->db->query($sql);
 
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            }
 
         }
         

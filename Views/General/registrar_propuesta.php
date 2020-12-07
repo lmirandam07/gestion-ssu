@@ -111,9 +111,9 @@
                                 <fieldset id="datos_estudiante">
                                         <h2>Estudiantes</h2>
                                         <ul>
-                                            <li><label><strong>Perfil de Estudiante: </strong></label></li>
+                                            <li><label for="perfil"><strong>Perfil de Estudiante: </strong></label></li>
                                             <br>
-                                            <textarea class="textarea is-small" name="perfil" required></textarea>
+                                            <textarea class="textarea is-small" name="perfil" id="perfil" required></textarea>
                                             <br>
                                             <br>
                                             <li><label for=""><strong>Año de Estudio:</strong></label></li>
@@ -182,7 +182,7 @@
 
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label is-small">Nombre:</label></li>
+                                            <li><label class="label is-small" for="nombre_proyecto">Nombre:</label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -196,7 +196,7 @@
 
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label is-small">Lugar:</label></li>
+                                            <li><label for="lugar" class="label is-small">Lugar:</label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -210,7 +210,7 @@
 
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label is-small">Fecha:</label></li>
+                                            <li><label for="fecha" class="label is-small">Fecha:</label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -224,7 +224,7 @@
 
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label is">Hora Inicio:</label></li>
+                                            <li><label for="hora_inicio" class="label is">Hora Inicio:</label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -237,7 +237,7 @@
                                     
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label is-small">Hora Final:</label></li>
+                                            <li><label for="hora_final" class="label is-small">Hora Final:</label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -251,7 +251,7 @@
 
                                     <div class="field is-horizontal">
                                         <div class="field-label">
-                                            <li><label class="label">Cantidad de Estudiantes: </label></li>
+                                            <li><label for="cantidad" class="label">Cantidad de Estudiantes: </label></li>
                                         </div>
                                         <div class="field-body">
                                             <div class="field">
@@ -263,16 +263,16 @@
                                     </div>                      
 
                                     <br>
-                                    <li><label class="label">Descripción</label></li>
-                                    <textarea class="textarea is-small" name="descripcion" required></textarea>
+                                    <li><label for="descripcion" class="label">Descripción</label></li>
+                                    <textarea class="textarea is-small" name="descripcion" id="descripcion" required></textarea>
                                     <br>
                                     <br>
-                                    <li><label class="label">Objetivo</label></li>
-                                    <textarea class="textarea is-small" name="objetivo"  required></textarea>
+                                    <li><label for="objetivo" class="label">Objetivo</label></li>
+                                    <textarea class="textarea is-small" name="objetivo" id="objetivo" required></textarea>
                                     <br>
                                     <br>
-                                    <li><label class="label">Materiales</label></li>
-                                    <textarea class="textarea is-small" name="materiales" required></textarea>
+                                    <li><label for="materiales" class="label">Materiales</label></li>
+                                    <textarea class="textarea is-small" name="materiales" id="materiales" required></textarea>
                                     
 
                                 </ul>

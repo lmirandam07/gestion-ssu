@@ -148,9 +148,10 @@
     function inscribirse(){
         $id_proyecto = $_GET['Proyecto'];
         $correo = $_SESSION['usuario_actual'];
+        $imagen = $_GET['Imagen'];
         require_once('./Controllers/UsuarioController.php');
         $usuario = new UsuarioController();
-        $usuario->inscribirse($correo,$id_proyecto);
+        $usuario->inscribirse($correo,$id_proyecto,$imagen);
 
     }
 

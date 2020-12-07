@@ -34,6 +34,7 @@
             <h3 class="has-text-centered texto">ESTUDIANTE</h3>
             <div class="columns is-half">
             <table class="table is-fullwidth">
+
                 <tbody>
                     <tr>
                     <td><H3 class="texto">CÉDULA</H3></td>
@@ -71,9 +72,9 @@
             <table class="table is-fullwidth is-fullheight tabla">
             <thead>
                 <tr class="has-text-centered">
-                    <th class="textcol2 ">PROYECTO</th>
-                    <th class="textcol2">FECHA </th>
-                    <th class="textcol2">HORAS ACUMULADAS</th>
+                    <th scope="row" class="textcol2 ">PROYECTO</th>
+                    <th scope="row" class="textcol2">FECHA </th>
+                    <th scope="row" class="textcol2">HORAS ACUMULADAS</th>
                 </tr>
             </thead>
             <tbody>

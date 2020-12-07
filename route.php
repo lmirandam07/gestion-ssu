@@ -94,9 +94,10 @@
 
     function ver_perfil(){
         $correo=$_SESSION['usuario_actual'];
+        $page = $_GET['Page'];
         require_once('./Controllers/UsuarioController.php');
         $controller = new UsuarioController();
-        $controller->verPerfil($correo);
+        $controller->verPerfil($correo,$page);
 
     }
 

@@ -62,32 +62,49 @@ class ProyectoModel
         return $totalpages;
     }
 
-        public function estudiante_inscrito($correo, $id_proyecto){
-            $id = intval($id_proyecto);
+    public function estudiante_inscrito($correo, $id_proyecto){
+        $id = intval($id_proyecto);
 
-            try {
-                $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
-    
-            } catch(Exception $e) {
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
-            }
+        try {
+            $consulta = $this->db->query("select id_usuario from usuario where correo = '$correo';");
 
-            $id_usuario = $consulta->fetch_assoc()['id_usuario'];
-
-            try {
-                $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
-    
-            } catch(Exception $e) {
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
-            }
-
-            if(mysqli_num_rows($inscrito) == 0){
-                return False;
-            }
-            else{
-                return True;
-            }
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
         }
+
+        $id_usuario = $consulta->fetch_assoc()['id_usuario'];
+
+        try {
+            $inscrito = $this->db->query("select * from proyecto_usuario where id_usuario = '$id_usuario' AND id_proyecto='$id_proyecto';");
+            $this->actualizar_horas_estudiante($id_usuario, $id_proyecto);
+
+        } catch(Exception $e) {
+            echo 'Error encontrado: ', $e->getMessage(), "\n";
+        }
+
+        if(mysqli_num_rows($inscrito) == 0){
+            return False;
+        }
+        else{
+            return True;
+        }
+    }
+
+    public function actualizar_horas_estudiante($id_usuario, $id_proyecto) {
+        // Seleccionar la cantidad de horas que dura un proyecto
+        try {
+            $horas_proyecto = $this->db->query("SELECT FORMAT(TIME_TO_SEC(TIMEDIFF(hora_final_pro, hora_inicio_pro)) / 3600, 0) AS diferencia FROM proyecto WHERE id_proyecto = '$id_proyecto';");
+            $horas_proyecto = (int)$horas_proyecto->fetch_assoc()['diferencia'];
+
+            if ($horas_proyecto) {
+                // Actualizar cantidad de horas en cuenta del estudiante
+                $this->db->query("UPDATE usuario SET total_horas = (total + '$horas_proyecto') WHERE id_usuario = '$id_usuario';");
+            }
+
+        } catch(Exception $e) {
+            echo 'Error encontrado', $e->getMessage(), "\n";
+        }
+    }
 
     public function informacion_proyecto($id_proyecto)
     {

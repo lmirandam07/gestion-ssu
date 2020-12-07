@@ -297,6 +297,7 @@ class UsuarioModel{
 
 
 
+
 }
 
 

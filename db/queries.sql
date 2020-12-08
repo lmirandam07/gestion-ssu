@@ -1,5 +1,5 @@
 USE ssu_db;
-# Creacion de tablas para la base de datos 
+# Creacion de tablas para la base de datos
 CREATE TABLE estado_proyecto (
   id_estado_pro INT NOT NULL,
   estado_pro VARCHAR(50) NOT NULL,
@@ -135,57 +135,35 @@ INSERT INTO
   )
 VALUES
   (
-    'Luis',
-    'Miranda',
-    '8-954-208',NULL
+    'Usuario',
+    'Estudiante',
+    '8-888-888',0
+    ,
+    2,
+    '6668888',
+    'estu@utp.ac.pa',
+    '123',
+    3
+  ),
+  (
+    'Usuario',
+    'Admin',
+    '7-777-777',NULL
     ,
     2,
     '6667777',
-    'lu@gmail.com',
-    '123',
-    NULL
-  ),
-  (
-    'Lionel',
-    'Henríquez',
-    '8-915-2155',NULL
-    ,
-    2,
-    '6667777',
-    'lio@gmail.com',
-    '123',
-    NULL
-  ),
-  (
-    'Kirsten',
-    'Chong',
-    '8-953-1207',
-    20,
-    1,
-    '6667777',
-    'kirs@gmail.com',
-    '123',
-    1
-  ),
-  (
-    'Alexander',
-    'Herrera',
-    '8-945-1151',
-    15,
-    1,
-    '6667777',
-    'alex@gmail.com',
-    '123',
-    4
-  ),
-  (
-    'Javier',
-    'Singh',
-    '8-965-2155',NULL
-    ,
-    2,
-    '6667777',
-    'javi@gmail.com',
+    'admin@utp.ac.pa',
     '123',
     NULL
   );
+
+DROP TABLE ano;
+DROP TABLE ano_proyecto;
+DROP TABLE usuario;
+DROP TABLE facultad;
+DROP TABLE tipo_usuario;
+DROP TABLE proyecto;
+DROP TABLE propuesta_proyecto;
+DROP TABLE estado_proyecto;
+DROP TABLE facultad_propuesta;
+DROP TABLE proyecto_usuario;

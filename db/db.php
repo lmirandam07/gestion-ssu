@@ -4,10 +4,10 @@ class Db {
     //
     public static function conexion() {
         // Atributos para conectar a la base de datos
-        $servername = "mysql";
-        $username = "root";
-        $password = "ssu12345";
-        $dbname = "ssu_db";
+        $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "b2586d3340223e";
+        $password = "1ab5dbbb";
+        $dbname = "heroku_c4384219465490e";
 
         // Crear conexión
         $conexion = new mysqli($servername, $username, $password, $dbname);

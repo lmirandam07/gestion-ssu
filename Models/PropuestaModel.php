@@ -172,13 +172,22 @@
             }
             
             while($filas= $consulta->fetch_assoc()){
+                echo'Hola';
                 $nuevo_proyecto[] = $filas; 
 
             }
-            try{
-                $insert = $this->db->query("INSERT nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro
-                VALUES ('$nuevo_proyecto[nombre_pro], '$id_propuesta', $nuevo_proyecto[lugar_pro], $nuevo_proyecto[fecha_pro], $nuevo_proyecto[hora_inicio_pro], $nuevo_proyecto[hora_final_pro], $nuevo_proyecto[participantes_pro], $nuevo_proyecto[descripcion_pro], $nuevo_proyecto[objetivo_pro], $nuevo_proyecto[materiales_pro], $nuevo_proyecto[nombre_encarg], $nuevo_proyecto[cedula_encarg], $nuevo_proyecto[telefono_encarg], $nuevo_proyecto[correo_encarg], $nuevo_proyecto[perfil_estu_pro]);");
             
+            try{
+                /*$insert = $this->db->query("INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro)
+                                                VALUES('$nuevo_proyecto[nombre_pro]', '$id_propuesta', '$nuevo_proyecto[lugar_pro]', '$nuevo_proyecto[fecha_pro]', '$nuevo_proyecto[hora_inicio_pro]', '$nuevo_proyecto[hora_final_pro]', '$nuevo_proyecto[participantes_pro]', '$nuevo_proyecto[descripcion_pro]', '$nuevo_proyecto[objetivo_pro]', '$nuevo_proyecto[materiales_pro]', '$nuevo_proyecto[nombre_encarg]', '$nuevo_proyecto[cedula_encarg]', '$nuevo_proyecto[telefono_encarg]', '$nuevo_proyecto[correo_encarg]', '$nuevo_proyecto[perfil_estu_pro]');");
+            */
+
+
+            $a = array();
+            $a = $nuevo_proyecto[0];
+            $insert = $this->db->query("INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro)
+                                                VALUES('$a[nombre_pro]', '$id_propuesta', '$a[lugar_pro]', '$a[fecha_pro]', '$a[hora_inicio_pro]', '$a[hora_final_pro]', '$a[participantes_pro]', '$a[descripcion_pro]', '$a[objetivo_pro]', '$a[materiales_pro]', '$a[nombre_encarg]', '$a[cedula_encarg]', '$a[telefono_encarg]', '$a[correo_encarg]', '$a[perfil_estu_pro]');");
+
             }catch(Exception $e){
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }

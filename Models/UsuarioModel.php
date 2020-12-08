@@ -207,8 +207,29 @@ class UsuarioModel{
         }
         $id_usuario = $consulta->fetch_assoc()['id_usuario'];
         $horas = $consulta_horas->fetch_assoc()['diferencia'];
-    //se hace un query para insertar los datos que hemos conseguido en la tabla de proyecto_usuario, finalizando la inscripcion del usuario en un proyecto
+
+        $this->actualizar_horas_estudiante($id_usuario, $id_proyecto);
+
+        //se hace un query para insertar los datos que hemos conseguido en la tabla de proyecto_usuario, finalizando la inscripcion del usuario en un proyecto
         $this->db->query("INSERT INTO proyecto_usuario(id_proyecto,id_usuario,horas_usuario) VALUES('$id_proyecto','$id_usuario','$horas');");
+    }
+
+    public function actualizar_horas_estudiante($id_usuario, $id_proyecto) {
+        // Seleccionar la cantidad de horas que dura un proyecto
+        try {
+            $horas_proyecto = $this->db->query("SELECT FORMAT(TIME_TO_SEC(TIMEDIFF(hora_final_pro, hora_inicio_pro)) / 3600, 0) AS diferencia FROM proyecto WHERE id_proyecto = '$id_proyecto';");
+            $horas_proyecto = (int)$horas_proyecto->fetch_assoc()['diferencia'];
+
+            if ($horas_proyecto) {
+                // Actualizar cantidad de horas en cuenta del estudiante
+                $this->db->query("UPDATE usuario SET total_horas = (total_horas + '$horas_proyecto') WHERE id_usuario = '$id_usuario';");
+                //Disminuir cantidad de particpantes por proyecto
+                $this->db->query("UPDATE proyecto SET participantes_pro = (participantes_pro - 1) WHERE id_proyecto = '$id_proyecto';");
+            }
+
+        } catch(Exception $e) {
+            echo 'Error encontrado', $e->getMessage(), "\n";
+        }
     }
 
     //funcion para conseguir el id del usuario

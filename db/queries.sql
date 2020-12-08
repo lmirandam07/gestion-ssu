@@ -139,7 +139,7 @@ VALUES
     'Estudiante',
     '8-888-888',0
     ,
-    2,
+    1,
     '6668888',
     'estu@utp.ac.pa',
     '123',
@@ -167,3 +167,4 @@ DROP TABLE propuesta_proyecto;
 DROP TABLE estado_proyecto;
 DROP TABLE facultad_propuesta;
 DROP TABLE proyecto_usuario;
+

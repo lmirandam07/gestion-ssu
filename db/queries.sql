@@ -189,3 +189,6 @@ VALUES
     '123',
     NULL
   );
+
+ALTER TABLE vendors
+ADD COLUMN vendor_group VARCHAR(250) DEFAULT NULL;

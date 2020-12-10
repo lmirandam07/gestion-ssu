@@ -80,7 +80,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="number" name="telefono" minlength="7" maxlength="8" placeholder="68794320" id="telefono" required>
+                                                        <input class="input is-small" type="number" name="telefono" min="1000000" max="99999999" placeholder="68794320" id="telefono" required>
                                                     </div>
                                                 </div>
                                             </div>

@@ -372,8 +372,25 @@
             <div class="column"></div>
         </div>
     </section>
+    <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Motivo de rechazo</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <textarea name="motivo-rechazo" id="" cols="30" rows="10"></textarea>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button boton"><a class="boton" href="./iniciar_sesion.php">Regresar</a></button>
+                </footer>
+            </div>
+        </div>
 
     <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
+<script>
 
+</script>
 </html>

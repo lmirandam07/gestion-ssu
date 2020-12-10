@@ -69,10 +69,10 @@ class PropuestaController
         require_once $_SERVER['/var/www/html'] . 'Views/Layouts/aprobar_propuesta.php';
     }
     /*Metodo que pasa el id de la propuesta que se quiere rechazar al Model para realizar el query de Update*/
-    function rechazar_propuesta($id_propuesta)
+    function rechazar_propuesta($id_propuesta, $motivo)
     {
         $propuesta = new PropuestaModel();
-        $propuesta->rechazar_propuesta($id_propuesta);
+        $propuesta->rechazar_propuesta($id_propuesta, $motivo);
         require_once $_SERVER['/var/www/html'] . 'Views/Layouts/rechazar_propuesta.php';
     }
 }

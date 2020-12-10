@@ -195,8 +195,8 @@
             
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
-        public function rechazar_propuesta($id_propuesta){
-            $sql = "UPDATE propuesta_proyecto SET id_estado = '2' WHERE id_propuesta = '$id_propuesta';";
+        public function rechazar_propuesta($id_propuesta, $motivo){
+            $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
             try{
                 $this->db->query($sql);
 

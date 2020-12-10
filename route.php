@@ -142,9 +142,10 @@
     }
     function rechazar_propuesta(){
         $id_propuesta = $_GET['Propuesta'];
+        $motivo = $_POST['motivo-rechazo'];
         require_once('./Controllers/PropuestaController.php');
         $controller = new PropuestaController();
-        $controller->rechazar_propuesta($id_propuesta);
+        $controller->rechazar_propuesta($id_propuesta, $motivo);
     }
     function inscribirse(){
         $id_proyecto = $_GET['Proyecto'];

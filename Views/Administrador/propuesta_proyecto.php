@@ -358,7 +358,8 @@
                     ?>
                         <div class="field is-grouped is-grouped-centered">
                             <p class="control">
-                                <?php echo"<a href='?controller=Rechazar&Propuesta=".$id_propuesta."' class='button is-second is-normal'>RECHAZAR</a>";?>
+                                <button class="button is-second is-normal" id="rechazar">RECHAZAR</button>
+                                
                             </p>
                             <p class="control">
                                 <?php echo"<a href='?controller=Aprobar&Propuesta=".$id_propuesta."' class='button is-principal is-normal'>APROBAR</a>";?>                               
@@ -372,25 +373,28 @@
             <div class="column"></div>
         </div>
     </section>
-    <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Motivo de rechazo</p>
-                    <button class="delete" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body">
-                    <textarea name="motivo-rechazo" id="" cols="30" rows="10"></textarea>
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button boton"><a class="boton" href="./iniciar_sesion.php">Regresar</a></button>
-                </footer>
-            </div>
-        </div>
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <?php echo"<form class='modal-card' action='?controller=Rechazar&Propuesta=".$id_propuesta."' method='POST'>"?>
+            <header class="modal-card-head">
+                <p class="modal-card-title">Motivo de rechazo</p>
+            </header>
+            <section class="modal-card-body">
+                <textarea class="textarea" name="motivo-rechazo" minlength="5" maxlength="250" required></textarea>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button boton" type="submit">Enviar</button>
+            </footer>
+        </form>
+    </div>
 
     <?php include('./Views/Layouts/footer_admin.html'); ?>
 </body>
 <script>
-
+        const rechazar = document.getElementById("rechazar");
+        const modal = document.getElementById("modal");
+        rechazar.addEventListener('click', e => {
+            modal.classList.add('is-active');
+        });
 </script>
 </html>

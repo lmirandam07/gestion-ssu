@@ -190,5 +190,5 @@ VALUES
     NULL
   );
 
-ALTER TABLE vendors
-ADD COLUMN vendor_group VARCHAR(250) DEFAULT NULL;
+ALTER TABLE propuesta_proyecto
+ADD COLUMN motivo_rechazo VARCHAR(250) DEFAULT NULL;

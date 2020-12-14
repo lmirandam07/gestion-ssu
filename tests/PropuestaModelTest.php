@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__.'../Models/PropuestaModel');
+require_once (__DIR__ . '../Models/PropuestaModel.php');
 use \PHPUnit\Framework\TestCase; 
 
 class PropuestaModelTest extends TestCase {

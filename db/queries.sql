@@ -23,15 +23,15 @@ CREATE TABLE propuesta_proyecto (
   hora_inicio_pro TIME NOT NULL,
   hora_final_pro TIME NOT NULL,
   participantes_pro INT NOT NULL,
-  descripcion_pro VARCHAR(300) NOT NULL,
-  objetivo_pro VARCHAR(300) NOT NULL,
-  materiales_pro VARCHAR(300) NOT NULL,
-  nombre_encarg VARCHAR(50) NOT NULL,
+  descripcion_pro VARCHAR(250) NOT NULL,
+  objetivo_pro VARCHAR(250) NOT NULL,
+  materiales_pro VARCHAR(250) NOT NULL,
+  nombre_encarg VARCHAR(80) NOT NULL,
   cedula_encarg VARCHAR(20) NOT NULL,
   telefono_encarg INT NOT NULL,
   correo_encarg VARCHAR(50) NOT NULL,
   id_estado INT DEFAULT 3,
-  perfil_estu_pro VARCHAR(300) NOT NULL,
+  perfil_estu_pro VARCHAR(250) NOT NULL,
   motivo_rechazo VARCHAR(250) DEFAULT NULL,
   CONSTRAINT pk_id_propuesta PRIMARY KEY (id_propuesta),
   CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES estado_proyecto (id_estado_pro)
@@ -190,6 +190,3 @@ VALUES
     '123',
     NULL
   );
-
-ALTER TABLE propuesta_proyecto
-ADD COLUMN motivo_rechazo VARCHAR(250) DEFAULT NULL;

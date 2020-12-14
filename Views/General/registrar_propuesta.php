@@ -52,7 +52,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="text" placeholder="" name="nombre_encargado" id="nombre_encargado" required>
+                                                        <input class="input is-small" type="text" placeholder="Juan Pérez" minlength="6" maxlength="80" name="nombre_encargado" id="nombre_encargado" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="text" placeholder="" name="cedula" id="cedula" required>
+                                                        <input class="input is-small" type="text" placeholder="8-203-1490" minlength="6" maxlength="20" name="cedula" id="cedula" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,12 +75,12 @@
 
                                         <div class="field is-horizontal">
                                             <div class="field-label">
-                                                <li><label class="label is-small">Teléfono celular: </label></li>
+                                                <li><label class="label is-small">Teléfono Celular: </label></li>
                                             </div>
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="number" placeholder="" name="telefono" id="telefono" required>
+                                                        <input class="input is-small" type="number" name="telefono" min="1000000" max="99999999" placeholder="68794320" id="telefono" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,7 +94,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="email" placeholder="" name="correo" id="correo" required>
+                                                        <input class="input is-small" type="email" placeholder="correo@utp.ac.pa" minlength="11" maxlength="50" name="correo" id="correo" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +113,7 @@
                                         <ul>
                                             <li><label for="perfil"><strong>Perfil de Estudiante: </strong></label></li>
                                             <br>
-                                            <textarea class="textarea is-small" name="perfil" id="perfil" required></textarea>
+                                            <textarea class="textarea is-small" name="perfil" id="perfil" minlength="5" maxlength="250" required></textarea>
                                             <br>
                                             <br>
                                             <li><label for=""><strong>Año de Estudio:</strong></label></li>
@@ -187,7 +187,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="nombre_proyecto" id="nombre_proyecto" required>
+                                                    <input class="input is-small" type="text" placeholder="Limpieza de Playa" minlength="5" maxlength="50" name="nombre_proyecto" id="nombre_proyecto" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="text" placeholder="" name="lugar" id="lugar" required>
+                                                    <input class="input is-small" type="text" placeholder="Cinta Costera" minlength="5" maxlength="50" name="lugar" id="lugar" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +229,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time" placeholder="" name="hora_inicio" id="hora_inicio" required>
+                                                    <input class="input is-small" type="time"  min="04:00" max="21:00" name="hora_inicio" id="hora_inicio" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time" placeholder="" name="hora_final" id="hora_final" required>
+                                                    <input class="input is-small" type="time" min="05:00" max="22:00" name="hora_final" id="hora_final" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +256,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="number" placeholder="" name="cantidad" id="cantidad" required>
+                                                    <input class="input is-small" type="number" placeholder="20" min="1" max="200" name="cantidad" id="cantidad" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,15 +264,15 @@
 
                                     <br>
                                     <li><label for="descripcion" class="label">Descripción</label></li>
-                                    <textarea class="textarea is-small" name="descripcion" id="descripcion" required></textarea>
+                                    <textarea class="textarea is-small" name="descripcion" id="descripcion" minlength="5" maxlength="250" required></textarea>
                                     <br>
                                     <br>
                                     <li><label for="objetivo" class="label">Objetivo</label></li>
-                                    <textarea class="textarea is-small" name="objetivo" id="objetivo" required></textarea>
+                                    <textarea class="textarea is-small" name="objetivo" id="objetivo" minlength="5" maxlength="250" required></textarea>
                                     <br>
                                     <br>
                                     <li><label for="materiales" class="label">Materiales</label></li>
-                                    <textarea class="textarea is-small" name="materiales" id="materiales" required></textarea>
+                                    <textarea class="textarea is-small" name="materiales" id="materiales" minlength="5" maxlength="250" required></textarea>
                                     
 
                                 </ul>
@@ -299,4 +299,5 @@
     
      <?php include('../Layouts/footer.html'); ?>
 </body>
+
 </html>

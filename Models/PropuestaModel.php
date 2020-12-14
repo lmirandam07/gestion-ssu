@@ -48,7 +48,6 @@
             try{
                 $this->db->query($sql);
                 $this->registro_exitoso = True;
-                echo '<script>console.log("Exitoso")</script>';
             }
             catch(Exception $e){
                 $this->registro_exitoso = False;
@@ -208,5 +207,3 @@
         
         
     }
-
-?>

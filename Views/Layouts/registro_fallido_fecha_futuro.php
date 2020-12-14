@@ -23,7 +23,7 @@
 
             </header>
             <section class="modal-card-body">
-                <p class="medium"><?php echo $_SESSION['mensaje_error'];?></p>
+                <p class="medium">El límite máximo para una propuesta es hasta un año de la fecha actual. Vuelva a intentarlo</p>
             </section>
             <footer class="modal-card-foot columns">
                 <div class="column"></div>

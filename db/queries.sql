@@ -32,6 +32,7 @@ CREATE TABLE propuesta_proyecto (
   correo_encarg VARCHAR(50) NOT NULL,
   id_estado INT DEFAULT 3,
   perfil_estu_pro VARCHAR(300) NOT NULL,
+  motivo_rechazo VARCHAR(250) DEFAULT NULL,
   CONSTRAINT pk_id_propuesta PRIMARY KEY (id_propuesta),
   CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES estado_proyecto (id_estado_pro)
 );

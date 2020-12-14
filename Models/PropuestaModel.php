@@ -45,14 +45,20 @@
             $perfil_estu_pro = $datos['perfil_estu_pro'];
             $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro) 
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
+
             try{
                 $this->db->query($sql);
-                $this->registro_exitoso = True;
+
+                return True;
+                
+
             }
             catch(Exception $e){
+
                 $this->registro_exitoso = False;
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
+            
         }
         //Metodo donde se realiza el query para insertar los datos en la tabla facultad_propuesta y anio_proyecto
         public function insertar_facultad_anio_propuesta($facultades,$anios){
@@ -171,7 +177,7 @@
             }
             
             while($filas= $consulta->fetch_assoc()){
-                echo'Hola';
+                
                 $nuevo_proyecto[] = $filas; 
 
             }

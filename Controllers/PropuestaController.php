@@ -33,22 +33,47 @@ class PropuestaController
         $hora_final = new DateTime($hora_final_pro);
         $hora_final = $hora_final->format('H:i');
 
-        if ($hora_final > $hora_inicio) {
+        $fecha_pro = $datos['fecha_pro'];
+        $fecha = new DateTime($fecha_pro);
+        $fecha = $fecha->format('Ymd');
 
-            $propuesta = new PropuestaModel();
-            $propuesta->insertar_propuesta($datos);
-            $propuesta->insertar_facultad_anio_propuesta($facultades, $anios);
-            /*Condicional para mostrar si la propuesta se realizo de manera exitoso o no  
-                dependiendo si en el Model el query se compilo exitosamente*/
-            if ($propuesta->registro_exitoso == True) {
-                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_exitoso.php';
-            } else {
-                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+        $fecha_hoy = date('Ymd');
+
+        $fecha_final = date('Ymd', strtotime('+1 years'));
+
+
+        if ($fecha_hoy > $fecha) {
+
+            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_fecha.php'; //Crear un modal que diga que la hora final debe ser mayor
+        }
+          else {
+
+            if($fecha>$fecha_final){
+                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_fecha_futuro.php';
             }
+            else{
+                if ($hora_final > $hora_inicio) {
+
+                    $propuesta = new PropuestaModel();
+                    $propuesta->insertar_propuesta($datos);
+                    $propuesta->insertar_facultad_anio_propuesta($facultades, $anios);
+                    /*Condicional para mostrar si la propuesta se realizo de manera exitoso o no  
+                        dependiendo si en el Model el query se compilo exitosamente*/
+                    if ($propuesta->registro_exitoso == True) {
+                        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_exitoso.php';
+                    } else {
+                        $mensaje = "La propuesta no se ha registrado correctamente. Vuelva a intentarlo";
+                        $_SESSION['mensaje_error'] = $mensaje;
+                        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                    }
+                } else {
+                    require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_hora.php'; //Crear un modal que diga que la hora final debe ser mayor
+                }
+            }
+        
         }
-        else{
-            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_hora.php'; //Crear un modal que diga que la hora final debe ser mayor
-        }
+
+        
     }
 
     /*Metodo que pasa el id de la propuesta al Model para que obtenga los detalles de la propuesta que 

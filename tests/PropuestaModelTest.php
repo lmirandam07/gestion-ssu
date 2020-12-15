@@ -24,43 +24,21 @@ class PropuestaModelTest extends TestCase {
 
     public function proveedorIngresarAnioFacultad() {
         return [
-            'CP-001' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-002' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-003' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-004' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-005' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-006' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-007' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-008' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-009' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-010' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-011' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-012' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-013' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-014' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-015' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-016' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-017' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-018' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-019' => ["facultad"=>["1","3","4"], "anio"=>[]],
-            'CP-020' => ["facultad"=>[], "anio"=>["1","2"]],
-            'CP-021' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-022' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-023' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-024' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-025' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-026' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-027' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-            'CP-028' => ["facultad"=>["1","3","4"], "anio"=>["1","2"]],
-
+            'CP-001' => ["facultad"=>["1","3","4"], "anio"=>["1","2"],[3,2]],
+            'CP-019' => ["facultad"=>["1","3","4"], "anio"=>[],[3,0]],
+            'CP-020' => ["facultad"=>[], "anio"=>["1","2"],[0,2]]
         ];
     }
 
     /**
      * @dataProvider proveedorIngresarAnioFacultad
      */
-    public function testIngresarAnioFacultad() {
+    public function testIngresarAnioFacultad($datos1,$datos2,$resultado_esperado){
         $propuestaModel = new PropuestaModel();
+        foreach($resultado_esperado as $resultado){
+            $this->assertContains($resultado,$propuestaModel->insertar_facultad_anio_propuesta($datos1,$datos2));
+        }
+
     }
 
 

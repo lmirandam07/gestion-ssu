@@ -79,6 +79,12 @@
                 $this->db->query("INSERT INTO ano_proyecto(id_propuesta,id_ano)VALUES('$id_propuesta','$anio');");
 
             }
+            $tamano_anios=count((array)$anios);
+            $tamano_facultad=count((array)$facultades);
+            $arr_tamanos = array();
+            $arr_tamanos[0] = $tamano_anios;
+            $arr_tamanos[1] = $tamano_facultad;
+            return $arr_tamanos; 
         }
         //Metodo para el query que retorna el nombre y descripcion de las propuestas para una vista previa
         public function obtener_propuestas($page){
@@ -229,12 +235,6 @@
             }
 
         }
-<<<<<<< HEAD
-        
-        
-    }
-=======
 
 
     }
->>>>>>> 6f9727cc1c13ab4969881b029d7d2bbeedccd7be

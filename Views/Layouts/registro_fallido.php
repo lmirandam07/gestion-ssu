@@ -23,7 +23,11 @@
 
             </header>
             <section class="modal-card-body">
-                <p class="medium"><?php echo $_SESSION['mensaje_error'];?></p>
+                <?php if( empty($_SESSION['mensaje_error']) ){?>
+                    <p class="medium"> La información ingresada excede los límites de algunos campos. Vuelva a intentarlo. </p>
+                <?php }
+                      else{?>
+                <p class="medium"><?php echo $_SESSION['mensaje_error']; }?></p>
             </section>
             <footer class="modal-card-foot columns">
                 <div class="column"></div>

@@ -38,7 +38,82 @@
                 $anios[$i] =$_POST['anio'][$i];
             }
         }
-        if(empty($facultades) and !empty($anios)){
+
+        //Nombre completo
+        if( intval(strlen($datos['nombre_encarg'])) == 0 ){
+            $mensaje = "Debe ingresar un nombre de encargado. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['nombre_encarg'])) < 5 ){
+            $mensaje = "El nombre del encargado debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+        }
+
+        //Cedula
+        elseif( intval(strlen($datos['cedula_encarg'])) == 0 ){
+            $mensaje = "Debe ingresar una cédula. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['cedula_encarg'])) < 9 ){
+            $mensaje = "La cédula debe contener como mínimo 6 caracteres. Vuelva a intentarlo";
+        }
+
+        //Teléfono celular
+        elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){
+            $mensaje = "Debe ingresar un teléfono celular. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['telefono_encarg'])) < 7 ){
+            $mensaje = "El teléfono celular debe contener como mínimo 7 números. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['telefono_encarg'])) > 8 ){
+            $mensaje = "La cédula debe contener como máximo 8 números. Vuelva a intentarlo";
+        }
+
+        //Correo electrónico
+        elseif( intval(strlen($datos['correo'])) == 0 ){
+            $mensaje = "Debe ingresar un correo electrónico. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['correo'])) < 11 ){
+            $mensaje = "El correo electrónico debe contener como mínimo 11 caracteres. Vuelva a intentarlo";
+        }
+
+        //Perfil de Estudiante
+        elseif( intval(strlen($datos['perfil_estu_pro'])) == 0 ){
+            $mensaje = "Debe ingresar un perfil de estudiante. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['perfil_estu_pro'])) < 5 ){
+            $mensaje = "El perfil de estudiante debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+        }
+
+        //Nombre
+        elseif( intval(strlen($datos['nombre_pro'])) == 0 ){
+            $mensaje = "Debe ingresar un nombre de proyecto. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['nombre_pro'])) < 5 ){
+            $mensaje = "El nombre del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+        }
+
+        //Lugar
+        elseif( intval(strlen($datos['lugar_pro'])) == 0 ){
+            $mensaje = "Debe ingresar un lugar de proyecto. Vuelva a intentarlo";
+        }
+        elseif( intval(strlen($datos['lugar_pro'])) < 5 ){
+            $mensaje = "El lugar de proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+        }
+
+        //Cantidad de Estudiantes
+        elseif( intval($datos['participantes_pro']) == 0 ){
+            $mensaje = "Debe ingresar como mínimo un participante de proyecto. Vuelva a intentarlo";
+        }
+        elseif( intval($datos['participantes_pro']) < 0 ){
+            $mensaje = "Debe ingresar una cantidad de participantes positiva. Vuelva a intentarlo";
+        }
+        elseif( intval($datos['participantes_pro']) > 200 ){
+            $mensaje = "La cantidad de participantes debe ser como máximo 200. Vuelva a intentarlo";
+        }
+        elseif(empty($datos['participantes_pro'])){
+            $mensaje = "Debe ingresar una cantidad de participantes. Vuelva a intentarlo";
+        }
+
+
+        elseif(empty($facultades) and !empty($anios)){
             $mensaje = "Debe seleccionar mínimo una facultad. Vuelva a intentarlo";
         }
         elseif(!empty($facultades) and empty($anios)){
@@ -47,7 +122,17 @@
         elseif(empty($facultades) and empty($anios)){
             $mensaje = "Se debe seleccionar mínimo un año de estudio y una año de facultad. Vuelva a intentarlo";
         }
-        if(!empty($facultades) and !empty($anios)){
+        if( intval(strlen($datos['nombre_encarg'])) >= 5 and intval(strlen($datos['nombre_encarg'])) <= 80 and
+            intval(strlen($datos['cedula'])) >= 9 and intval(strlen($datos['cedula'])) <= 20 and 
+            intval(strlen($datos['telefono'])) >= 7 and intval(strlen($datos['telefono'])) <= 8 and
+            intval(strlen($datos['correo'])) >= 11 and intval(strlen($datos['correo'])) >=30 and
+            intval(strlen($datos['perfil_estu_pro'])) >= 5 and intval(strlen($datos['perfil_estu_pro'])) <= 250 and
+            !empty($facultades) and !empty($anios) and
+            intval(strlen($datos['nombre_pro'])) >= 5 and intval(strlen($datos['nombre_pro'])) <= 50 and
+            intval(strlen($datos['lugar_pro'])) >= 5 and intval(strlen($datos['lugar_pro'])) <= 50
+
+
+           /*AÑADIR LAS DEMÁS CONDICIONALES*/ ){
             $ingresar_datos = new  PropuestaController();
             $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
 

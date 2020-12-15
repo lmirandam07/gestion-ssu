@@ -47,15 +47,16 @@
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
 
             try{
-                $this->db->query($sql);
+
+                if (!$this->db->query($sql)){
+                    return False;
+                }
 
                 return True;
 
 
             }
             catch(Exception $e){
-
-                $this->registro_exitoso = False;
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
 

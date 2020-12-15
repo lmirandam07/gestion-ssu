@@ -47,10 +47,15 @@
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
 
             try{
+<<<<<<< HEAD
 
                 if (!$this->db->query($sql)){
                     return False;
                 }
+=======
+                $this->db->query($sql);
+                $this->registro_exitoso = True;
+>>>>>>> 7c2dea0583af364457c093aca51d3e491c3f4dbf
 
                 return True;
 
@@ -203,14 +208,38 @@
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
+            
+            /*
             try{
                 $this->db->query($sql);
+                return True;
 
             }catch(Exception $e){
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
+                return False;
+            }
+            */
+            
+            $tamano = intval(strlen($motivo));
+            
+
+            if($tamano < 5){
+                return False;
+            }
+            elseif ($this->db->query($sql) == True){
+                return True;
+            }
+            else{
+                return False;
             }
 
         }
+<<<<<<< HEAD
+        
+        
+    }
+=======
 
 
     }
+>>>>>>> 6f9727cc1c13ab4969881b029d7d2bbeedccd7be

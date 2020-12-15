@@ -44,7 +44,7 @@ class PropuestaController
 
         if ($fecha_hoy > $fecha) {
 
-            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_fecha.php'; //Crear un modal que diga que la hora final debe ser mayor
+            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_fecha.php';
         }
           else {
 

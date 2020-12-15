@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__ . '../Models/PropuestaModel.php');
+require_once (__DIR__ . '/../Models/PropuestaModel.php');
 use \PHPUnit\Framework\TestCase; 
 
 class PropuestaModelTest extends TestCase {
@@ -65,10 +65,10 @@ class PropuestaModelTest extends TestCase {
     
     public function proveedorRechazarPropuesta(){
        return [
-           'CP-050' => ["id_propuesta"=>["1"], "motivo"=>["información Insuficiente"]],
-           'CP-051' => ["id_propuesta"=>["1"], "motivo"=>["Poco"]],
-           'CP-052' => ["id_propuesta"=>["1"], "motivo"=>["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi turpis, pretium quis dictum id, eleifend at justo. Cras dignissim tortor nec molestie mollis. Quisque dignissim blandit sapien, quis accumsan enim elementum ut. Donec venenatis velit erat, a vestibulum justo scelerisque et. Aliquam erat volutpat."]],
-           'CP-053' => ["id_propuesta"=>["1"], "motivo"=>[""]]
+           'CP-050' => [1, "Información Insuficiente", True],
+           'CP-051' => [1, "Poco", False],
+           'CP-052' => [1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi turpis, pretium quis dictum id, eleifend at justo. Cras dignissim tortor nec molestie mollis. Quisque dignissim blandit sapien, quis accumsan enim elementum ut. Donec venenatis velit erat, a vestibulum justo scelerisque et. Aliquam erat volutpat.", False],
+           'CP-053' => [1, "", False]
        ];
 
     }

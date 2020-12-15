@@ -48,6 +48,7 @@
 
             try{
                 $this->db->query($sql);
+                $this->registro_exitoso = True;
 
                 return True;
                 
@@ -202,11 +203,29 @@
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
+            
+            /*
             try{
                 $this->db->query($sql);
+                return True;
 
             }catch(Exception $e){
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
+                return False;
+            }
+            */
+            
+            $tamano = intval(strlen($motivo));
+            
+
+            if($tamano < 5){
+                return False;
+            }
+            elseif ($this->db->query($sql) == True){
+                return True;
+            }
+            else{
+                return False;
             }
 
         }

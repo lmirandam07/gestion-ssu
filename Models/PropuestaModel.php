@@ -20,44 +20,160 @@
         //Metodo donde se realiza el query para insertar los datos en la tabla propuesta_proyecto
         public function insertar_propuesta($datos){
 
-            $nombre_pro = $datos['nombre_pro'];
-            $lugar_pro = $datos['lugar_pro'];
-            $fecha_pro = $datos['fecha_pro'];
-            $fecha_pro = str_replace('/','-',$fecha_pro);
-            $fecha = new DateTime($fecha_pro);
-            $fecha = $fecha->format('Ymd');
-            $hora_inicio_pro = $datos['hora_inicio_pro'];
-            $hora_inicio = new DateTime($hora_inicio_pro);
-            $hora_inicio = $hora_inicio->format('H:i');
-            $hora_final_pro = $datos['hora_final_pro'];
-            $hora_final = new DateTime($hora_final_pro);
-            $hora_final = $hora_final->format('H:i');
-            $participantes_pro = (int)$datos['participantes_pro'];
-            $descrip_pro = $datos['describ_pro'];
-            $objetivo_pro = $datos['objetivo_pro'];
-            $materiales_pro = $datos['materiales_pro'];
+            //Nombre completo
+            if( intval(strlen($datos['nombre_encarg'])) == 0 ){
+                $mensaje = "Debe ingresar un nombre de encargado. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['nombre_encarg'])) < 5 ){
+                $mensaje = "El nombre del encargado debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
 
-            $nombre_encarg = $datos['nombre_encarg'];
+            //Cédula
+            elseif( intval(strlen($datos['cedula_encarg'])) == 0 ){
+                $mensaje = "Debe ingresar una cédula. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['cedula_encarg'])) < 9 ){
+                $mensaje = "La cédula debe contener como mínimo 9 caracteres. Vuelva a intentarlo";
+            }
 
-            $cedula_encarg = $datos['cedula_encarg'];
-            $telefono_encarg = (int)$datos['telefono_encarg'];
-            $correo_encarg = $datos['correo'];
-            $perfil_estu_pro = $datos['perfil_estu_pro'];
-            $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
-                        VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
+            //Teléfono celular
+            elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){
+                $mensaje = "Debe ingresar un teléfono celular. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['telefono_encarg'])) < 7 ){
+                $mensaje = "El teléfono celular debe contener como mínimo 7 números. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['telefono_encarg'])) > 8 ){
+                $mensaje = "La cédula debe contener como máximo 8 números. Vuelva a intentarlo";
+            }
 
-            try{
+            //Correo electrónico
+            elseif( intval(strlen($datos['correo'])) == 0 ){
+                $mensaje = "Debe ingresar un correo electrónico. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['correo'])) < 12 ){
+                $mensaje = "El correo electrónico debe contener como mínimo 12 caracteres. Vuelva a intentarlo";
+            }
 
-                if (!$this->db->query($sql)){
-                    return False;
+            //Perfil de Estudiante
+            elseif( intval(strlen($datos['perfil_estu_pro'])) == 0 ){
+                $mensaje = "Debe ingresar un perfil de estudiante. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['perfil_estu_pro'])) < 5 ){
+                $mensaje = "El perfil de estudiante debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            //Nombre
+            elseif( intval(strlen($datos['nombre_pro'])) == 0 ){
+                $mensaje = "Debe ingresar un nombre de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['nombre_pro'])) < 5 ){
+                $mensaje = "El nombre del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            //Lugar
+            elseif( intval(strlen($datos['lugar_pro'])) == 0 ){
+                $mensaje = "Debe ingresar un lugar de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['lugar_pro'])) < 5 ){
+                $mensaje = "El lugar de proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            //Cantidad de Estudiantes
+            elseif( empty($datos['participantes_pro']) ){
+                $mensaje = "Debe ingresar como mínimo un participante de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval($datos['participantes_pro']) < 0 ){
+                $mensaje = "Debe ingresar una cantidad de participantes positiva. Vuelva a intentarlo";
+            }
+            elseif( intval($datos['participantes_pro']) > 200 ){
+                $mensaje = "La cantidad de participantes debe ser como máximo 200. Vuelva a intentarlo";
+            }
+            elseif(empty($datos['participantes_pro'])){
+                $mensaje = "Debe ingresar una cantidad de participantes. Vuelva a intentarlo";
+            }
+
+            //Descripción
+            elseif( intval(strlen($datos['describ_pro'])) == 0 ){
+                $mensaje = "Debe ingresar una descripción de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['describ_pro'])) < 5 ){
+                $mensaje = "La descripción del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            //Objetivo
+            elseif( intval(strlen($datos['objetivo_pro'])) == 0 ){
+                $mensaje = "Debe ingresar un objetivo de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['objetivo_pro'])) < 5 ){
+                $mensaje = "El objetivo del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            //Materiales
+            elseif( intval(strlen($datos['materiales_pro'])) == 0 ){
+                $mensaje = "Debe ingresar un material de proyecto. Vuelva a intentarlo";
+            }
+            elseif( intval(strlen($datos['materiales_pro'])) < 5 ){
+                $mensaje = "Los materiales del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
+            }
+
+            if( intval(strlen($datos['nombre_encarg'])) >= 5 and intval(strlen($datos['nombre_encarg'])) <= 80 and
+                intval(strlen($datos['cedula_encarg'])) >= 9 and intval(strlen($datos['cedula_encarg'])) <= 20 and 
+                intval(strlen($datos['telefono_encarg'])) >= 7 and intval(strlen($datos['telefono_encarg'])) <= 8 and
+                intval(strlen($datos['correo'])) >= 12 and intval(strlen($datos['correo'])) <=30 and
+                intval(strlen($datos['perfil_estu_pro'])) >= 5 and intval(strlen($datos['perfil_estu_pro'])) <= 250 and
+                intval(strlen($datos['nombre_pro'])) >= 5 and intval(strlen($datos['nombre_pro'])) <= 50 and
+                intval(strlen($datos['lugar_pro'])) >= 5 and intval(strlen($datos['lugar_pro'])) <= 50 and
+                intval($datos['participantes_pro']) >= 1 and intval($datos['participantes_pro']) <= 200 and
+                intval(strlen($datos['describ_pro'])) >= 5 and intval(strlen($datos['describ_pro'])) <=250 and
+                intval(strlen($datos['objetivo_pro'])) >= 5 and intval(strlen($datos['objetivo_pro'])) <=250 and
+                intval(strlen($datos['materiales_pro'])) >= 5 and intval(strlen($datos['materiales_pro'])) <=250
+            ){
+
+                $nombre_pro = $datos['nombre_pro'];
+                $lugar_pro = $datos['lugar_pro'];
+                $fecha_pro = $datos['fecha_pro'];
+                $fecha_pro = str_replace('/','-',$fecha_pro);
+                $fecha = new DateTime($fecha_pro);
+                $fecha = $fecha->format('Ymd');
+                $hora_inicio_pro = $datos['hora_inicio_pro'];
+                $hora_inicio = new DateTime($hora_inicio_pro);
+                $hora_inicio = $hora_inicio->format('H:i');
+                $hora_final_pro = $datos['hora_final_pro'];
+                $hora_final = new DateTime($hora_final_pro);
+                $hora_final = $hora_final->format('H:i');
+                $participantes_pro = (int)$datos['participantes_pro'];
+                $descrip_pro = $datos['describ_pro'];
+                $objetivo_pro = $datos['objetivo_pro'];
+                $materiales_pro = $datos['materiales_pro'];
+    
+                $nombre_encarg = $datos['nombre_encarg'];
+    
+                $cedula_encarg = $datos['cedula_encarg'];
+                $telefono_encarg = (int)$datos['telefono_encarg'];
+                $correo_encarg = $datos['correo'];
+                $perfil_estu_pro = $datos['perfil_estu_pro'];
+                $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
+                            VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
+    
+                try{
+    
+                    if (!$this->db->query($sql)){
+                        return False;
+                    }
+                    $this->registro_exitoso = True;
+                    return True;
+    
+    
+                }
+                catch(Exception $e){
+                    echo 'Error encontrado: ', $e->getMessage(), "\n";
                 }
 
-                return True;
-
-
             }
-            catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            else{
+                $_SESSION['mensaje_error'] = $mensaje;
+                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
             }
 
         }

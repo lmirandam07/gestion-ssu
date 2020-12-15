@@ -51,23 +51,57 @@ class PropuestaController
             if($fecha>$fecha_final){
                 require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_fecha_futuro.php';
             }
+            elseif($fecha == $fecha_hoy){
+                $mensaje = "Debe ingresar una fecha diferente a la de hoy. Vuelva a intentarlo";
+                $_SESSION['mensaje_error'] = $mensaje;
+                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+            }
             else{
-                if ($hora_final > $hora_inicio) {
+                if(empty($datos['hora_final_pro'])){
+                    $mensaje = 'Debe ingresar una hora de final. Vuelva a intentarlo.';
+                    $_SESSION['mensaje_error'] = $mensaje;
+                    require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                }
+                elseif(empty($datos['hora_inicio_pro'])){
+                    $mensaje = 'Debe ingresar una hora de inicio. Vuelva a intentarlo.';
+                    $_SESSION['mensaje_error'] = $mensaje;
+                    require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                }
+                elseif ($hora_final > $hora_inicio) {
 
-                    $propuesta = new PropuestaModel();
-                    $propuesta->insertar_propuesta($datos);
-                    $propuesta->insertar_facultad_anio_propuesta($facultades, $anios);
-                    /*Condicional para mostrar si la propuesta se realizo de manera exitoso o no  
-                        dependiendo si en el Model el query se compilo exitosamente*/
-                    if ($propuesta->registro_exitoso == True) {
-                        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_exitoso.php';
-                    } else {
-                        $mensaje = "La propuesta no se ha registrado correctamente. Vuelva a intentarlo";
+                    if($hora_inicio < '04:00'){
+                        $mensaje = 'La hora de inicio debe ser como mínimo a las 4:00 AM. Vuelva a intentarlo.';
                         $_SESSION['mensaje_error'] = $mensaje;
                         require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
                     }
-                } else {
-                    require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_hora.php'; //Crear un modal que diga que la hora final debe ser mayor
+                    elseif($hora_inicio > '21:00'){
+                        $mensaje = 'La hora de inicio debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
+                        $_SESSION['mensaje_error'] = $mensaje;
+                        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                    }
+                    elseif($hora_final > '21:00'){
+                        $mensaje = 'La hora de final debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
+                        $_SESSION['mensaje_error'] = $mensaje;
+                        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                    }
+                    else{
+                        $propuesta = new PropuestaModel();
+                        $propuesta->insertar_propuesta($datos);
+                        $propuesta->insertar_facultad_anio_propuesta($facultades, $anios);
+                        /*Condicional para mostrar si la propuesta se realizo de manera exitoso o no  
+                            dependiendo si en el Model el query se compilo exitosamente*/
+                        if ($propuesta->registro_exitoso == True) {
+                            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_exitoso.php';
+                        } else {
+                            $mensaje = "La propuesta no se ha registrado correctamente. Vuelva a intentarlo";
+                            $_SESSION['mensaje_error'] = $mensaje;
+                            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                        }
+                    }
+
+                } 
+                else {
+                    require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido_hora.php';
                 }
             }
         

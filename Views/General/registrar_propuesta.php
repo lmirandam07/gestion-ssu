@@ -94,7 +94,7 @@
                                             <div class="field-body">
                                                 <div class="field">
                                                     <div class="control">
-                                                        <input class="input is-small" type="email" placeholder="correo@utp.ac.pa" minlength="11" maxlength="50" name="correo" id="correo">
+                                                        <input class="input is-small" type="email" placeholder="correo@utp.ac.pa" minlength="12" maxlength="50" name="correo" id="correo">
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +229,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time"  min="04:00" max="21:00" name="hora_inicio" id="hora_inicio">
+                                                    <input class="input is-small" type="time"  name="hora_inicio" id="hora_inicio">
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="time" min="05:00" max="22:00" name="hora_final" id="hora_final">
+                                                    <input class="input is-small" type="time" name="hora_final" id="hora_final">
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +256,7 @@
                                         <div class="field-body">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-small" type="number" placeholder="20" min="1" max="200" name="cantidad" id="cantidad">
+                                                    <input class="input is-small" type="number" placeholder="20" name="cantidad" id="cantidad">
                                                 </div>
                                             </div>
                                         </div>

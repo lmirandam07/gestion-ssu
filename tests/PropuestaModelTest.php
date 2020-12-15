@@ -1,12 +1,13 @@
 <?php
 
+
 require_once (__DIR__ . '/../Models/PropuestaModel.php');
 use \PHPUnit\Framework\TestCase; 
 
 class PropuestaModelTest extends TestCase {
     public function proveedorIngresarPropuesta() {
         return [
-            'CP-001' => [True, ["nombre_pro" => "Limpieza de Playa", "lugar_pro" => "Cinta Costera", "fecha_pro" =>  "12/25/2020", "hora_inicio_pro" => "7:00", "hora_final_pro" => "21:00", "participantes_pro" => "50", "describ_pro" => "Limpiar cinta costera para contribuir con el ambiente", "objetivo_pro" => "Recoger toda la basura", "materiales_pro" => "Bolsas de basura y guantes", "nombe_encarg" => "Javier Singh", "cedula_encarg" => "3-567-123", "telefono_encarg" => "66761889", "correo" => "javier.singh@utp.ac.pa", "perfil_estu_pro" => "Estudiantes guapos"]]
+            'CP-001' => [True, ["nombre_pro" => "Limpieza de Playa", "lugar_pro" => "Cinta Costera", "fecha_pro" =>  "2020-12-25", "hora_inicio_pro" => "7:00", "hora_final_pro" => "21:00", "participantes_pro" => "50", "describ_pro" => "Limpiar cinta costera para contribuir con el ambiente", "objetivo_pro" => "Recoger toda la basura", "materiales_pro" => "Bolsas de basura y guantes", "nombe_encarg" => "Javier Singh", "cedula_encarg" => "3-567-123", "telefono_encarg" => "66761889", "correo" => "javier.singh@utp.ac.pa", "perfil_estu_pro" => "Estudiantes guapos"]]
         ];
     }
 
@@ -17,7 +18,7 @@ class PropuestaModelTest extends TestCase {
     public function testIngresarPropuesta($resultado_esperado, $datos) {
         $propuestaModel = new PropuestaModel();
 
-        $this->assertEquals($resultado_esperado, $propuestaModel->insertar_propuesta($datos));        
+        $this->assertEquals($resultado_esperado, $propuestaModel->insertar_propuesta($datos));
 
     }
 
@@ -62,7 +63,7 @@ class PropuestaModelTest extends TestCase {
         $propuestaModel = new PropuestaModel();
     }
 
-    
+
     public function proveedorRechazarPropuesta(){
        return [
            'CP-050' => [1, "Información Insuficiente", True],
@@ -72,14 +73,14 @@ class PropuestaModelTest extends TestCase {
        ];
 
     }
-    
+
     /**
      * @dataProvider proveedorRechazarPropuesta
      */
-    
+
      public function testRechazarPropuesta($id_propuesta, $motivo, $resultado_esperado){
         $propuestaModel =new PropuestaModel();
-        $this->assertEquals($resultado_esperado, $propuestaModel->rechazar_propuesta($id_propuesta, $motivo)); 
-         
+        $this->assertEquals($resultado_esperado, $propuestaModel->rechazar_propuesta($id_propuesta, $motivo));
+
      }
 }

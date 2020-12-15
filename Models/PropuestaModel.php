@@ -8,7 +8,7 @@
         private $acceso_propuesta;
         public $registro_exitoso;
         private $nuevo_proyecto;
-        
+
 
         public function __construct(){
             $this->db = Db::conexion();
@@ -28,7 +28,7 @@
             $fecha = $fecha->format('Ymd');
             $hora_inicio_pro = $datos['hora_inicio_pro'];
             $hora_inicio = new DateTime($hora_inicio_pro);
-            $hora_inicio = $hora_inicio->format('H:i'); 
+            $hora_inicio = $hora_inicio->format('H:i');
             $hora_final_pro = $datos['hora_final_pro'];
             $hora_final = new DateTime($hora_final_pro);
             $hora_final = $hora_final->format('H:i');
@@ -38,19 +38,19 @@
             $materiales_pro = $datos['materiales_pro'];
 
             $nombre_encarg = $datos['nombre_encarg'];
- 
+
             $cedula_encarg = $datos['cedula_encarg'];
             $telefono_encarg = (int)$datos['telefono_encarg'];
             $correo_encarg = $datos['correo'];
             $perfil_estu_pro = $datos['perfil_estu_pro'];
-            $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro) 
+            $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
 
             try{
                 $this->db->query($sql);
 
                 return True;
-                
+
 
             }
             catch(Exception $e){
@@ -58,7 +58,7 @@
                 $this->registro_exitoso = False;
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
-            
+
         }
         //Metodo donde se realiza el query para insertar los datos en la tabla facultad_propuesta y anio_proyecto
         public function insertar_facultad_anio_propuesta($facultades,$anios){
@@ -113,7 +113,7 @@
             $num_per_page = 04;
             $totalrecord = $this->total_propuestas();
             $totalpages = ceil($totalrecord/$num_per_page);
-            
+
             return $totalpages;
         }
         //Metodo para la obtencion de todos los datos de la tabla propuesta para mostarla a los usuarios
@@ -124,7 +124,7 @@
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
             while($filas= $consulta->fetch_assoc()){
-                $acceso_propuesta[] = $filas; 
+                $acceso_propuesta[] = $filas;
 
             }
             return $acceso_propuesta;
@@ -139,7 +139,7 @@
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
             while($filas= $consulta->fetch_assoc()){
-                $acceso_propuesta[] = $filas; 
+                $acceso_propuesta[] = $filas;
 
             }
             return $acceso_propuesta;
@@ -151,9 +151,9 @@
             }catch(Exception $e){
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
-            
+
             while($filas= $consulta->fetch_assoc()){
-                $acceso_propuesta[] = $filas; 
+                $acceso_propuesta[] = $filas;
 
             }
             return $acceso_propuesta;
@@ -175,13 +175,13 @@
             }catch(Exception $e){
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
-            
+
             while($filas= $consulta->fetch_assoc()){
-                
-                $nuevo_proyecto[] = $filas; 
+
+                $nuevo_proyecto[] = $filas;
 
             }
-            
+
             try{
                 /*$insert = $this->db->query("INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro)
                                                 VALUES('$nuevo_proyecto[nombre_pro]', '$id_propuesta', '$nuevo_proyecto[lugar_pro]', '$nuevo_proyecto[fecha_pro]', '$nuevo_proyecto[hora_inicio_pro]', '$nuevo_proyecto[hora_final_pro]', '$nuevo_proyecto[participantes_pro]', '$nuevo_proyecto[descripcion_pro]', '$nuevo_proyecto[objetivo_pro]', '$nuevo_proyecto[materiales_pro]', '$nuevo_proyecto[nombre_encarg]', '$nuevo_proyecto[cedula_encarg]', '$nuevo_proyecto[telefono_encarg]', '$nuevo_proyecto[correo_encarg]', '$nuevo_proyecto[perfil_estu_pro]');");
@@ -197,7 +197,7 @@
                 echo 'Error encontrado: ', $e->getMessage(), "\n";
             }
 
-            
+
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
@@ -210,6 +210,6 @@
             }
 
         }
-        
-        
+
+
     }

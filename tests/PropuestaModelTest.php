@@ -1,7 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 require_once (__DIR__.'/../Models/PropuestaModel.php');
 use \PHPUnit\Framework\TestCase;
+=======
+require_once (__DIR__ . '../Models/PropuestaModel.php');
+use \PHPUnit\Framework\TestCase; 
+>>>>>>> 15bf5c8dc93a310b12a4b446f8155a0fe656805b
 
 class PropuestaModelTest extends TestCase {
     public function proveedorIngresarPropuesta() {

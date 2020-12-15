@@ -47,15 +47,10 @@
                         VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
 
             try{
-<<<<<<< HEAD
 
                 if (!$this->db->query($sql)){
                     return False;
                 }
-=======
-                $this->db->query($sql);
-                $this->registro_exitoso = True;
->>>>>>> 7c2dea0583af364457c093aca51d3e491c3f4dbf
 
                 return True;
 

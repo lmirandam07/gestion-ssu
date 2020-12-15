@@ -1,12 +1,12 @@
 <?php
 
-require_once (__DIR__.'../Models/PropuestaModel');
-use \PHPUnit\Framework\TestCase; 
+require_once (__DIR__.'/../Models/PropuestaModel.php');
+use \PHPUnit\Framework\TestCase;
 
 class PropuestaModelTest extends TestCase {
     public function proveedorIngresarPropuesta() {
         return [
-            'CP-001' => [True, ["nombre_pro" => "Limpieza de Playa", "lugar_pro" => "Cinta Costera", "fecha_pro" =>  "12/25/2020", "hora_inicio_pro" => "7:00", "hora_final_pro" => "21:00", "participantes_pro" => "50", "describ_pro" => "Limpiar cinta costera para contribuir con el ambiente", "objetivo_pro" => "Recoger toda la basura", "materiales_pro" => "Bolsas de basura y guantes", "nombe_encarg" => "Javier Singh", "cedula_encarg" => "3-567-123", "telefono_encarg" => "66761889", "correo" => "javier.singh@utp.ac.pa", "perfil_estu_pro" => "Estudiantes guapos"]]
+            'CP-001' => [True, ["nombre_pro" => "Limpieza de Playa", "lugar_pro" => "Cinta Costera", "fecha_pro" =>  "2020-12-25", "hora_inicio_pro" => "7:00", "hora_final_pro" => "21:00", "participantes_pro" => "50", "describ_pro" => "Limpiar cinta costera para contribuir con el ambiente", "objetivo_pro" => "Recoger toda la basura", "materiales_pro" => "Bolsas de basura y guantes", "nombe_encarg" => "Javier Singh", "cedula_encarg" => "3-567-123", "telefono_encarg" => "66761889", "correo" => "javier.singh@utp.ac.pa", "perfil_estu_pro" => "Estudiantes guapos"]]
         ];
     }
 
@@ -17,7 +17,7 @@ class PropuestaModelTest extends TestCase {
     public function testIngresarPropuesta($resultado_esperado, $datos) {
         $propuestaModel = new PropuestaModel();
 
-        $this->assertEquals($resultado_esperado, $propuestaModel->insertar_propuesta($datos));        
+        $this->assertEquals($resultado_esperado, $propuestaModel->insertar_propuesta($datos));
 
     }
 
@@ -62,24 +62,24 @@ class PropuestaModelTest extends TestCase {
         $propuestaModel = new PropuestaModel();
     }
 
-    
+
     public function proveedorRechazarPropuesta(){
        return [
-           'CP-050' => ["id_propuesta"=>["1"], "motivo"=>["información Insuficiente"]],
-           'CP-051' => ["id_propuesta"=>["1"], "motivo"=>["Poco"]],
-           'CP-052' => ["id_propuesta"=>["1"], "motivo"=>["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi turpis, pretium quis dictum id, eleifend at justo. Cras dignissim tortor nec molestie mollis. Quisque dignissim blandit sapien, quis accumsan enim elementum ut. Donec venenatis velit erat, a vestibulum justo scelerisque et. Aliquam erat volutpat."]],
-           'CP-053' => ["id_propuesta"=>["1"], "motivo"=>[""]]
+           'CP-050' => [1,"Información Insuficiente","Información Insuficiente"],
+           'CP-051' => [1,"Poco","Información Insuficiente"],
+           'CP-052' => [1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi turpis, pretium quis dictum id, eleifend at justo. Cras dignissim tortor nec molestie mollis. Quisque dignissim blandit sapien, quis accumsan enim elementum ut. Donec venenatis velit erat, a vestibulum justo scelerisque et. Aliquam erat volutpat.","Información Insuficiente"],
+           'CP-053' => [1,"","Información Insuficiente"],
        ];
 
     }
-    
+
     /**
      * @dataProvider proveedorRechazarPropuesta
      */
-    
+
      public function testRechazarPropuesta($id_propuesta, $motivo, $resultado_esperado){
         $propuestaModel =new PropuestaModel();
-        $this->assertEquals($resultado_esperado, $propuestaModel->rechazar_propuesta($id_propuesta, $motivo)); 
-         
+        $this->assertEquals($resultado_esperado, $propuestaModel->rechazar_propuesta($id_propuesta, $motivo));
+
      }
 }

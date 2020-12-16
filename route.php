@@ -38,10 +38,25 @@
                 $anios[$i] =$_POST['anio'][$i];
             }
         }
+        if(empty($facultades) and !empty($anios)){
+            $mensaje = "Debe seleccionar mínimo una facultad. Vuelva a intentarlo";
+        }
+        elseif(!empty($facultades) and empty($anios)){
+            $mensaje = "Debe seleccionar mínimo un año de estudio. Vuelva a intentarlo";
+        }
+        elseif(empty($facultades) and empty($anios)){
+            $mensaje = "Se debe seleccionar mínimo un año de estudio y una año de facultad. Vuelva a intentarlo";
+        }
+        if(!empty($facultades) and !empty($anios)){
+            $ingresar_datos = new  PropuestaController();
+            $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
 
-        $ingresar_datos = new  PropuestaController();
-        $ingresar_datos->registrar_propuesta($datos,$facultades,$anios);
-
+        }
+        else{
+            $_SESSION['mensaje_error'] = $mensaje;
+            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+        }
+        
     }
 
     function registrar_usuario(){
@@ -142,9 +157,10 @@
     }
     function rechazar_propuesta(){
         $id_propuesta = $_GET['Propuesta'];
+        $motivo = $_POST['motivo-rechazo'];
         require_once('./Controllers/PropuestaController.php');
         $controller = new PropuestaController();
-        $controller->rechazar_propuesta($id_propuesta);
+        $controller->rechazar_propuesta($id_propuesta, $motivo);
     }
     function inscribirse(){
         $id_proyecto = $_GET['Proyecto'];

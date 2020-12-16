@@ -20,6 +20,22 @@
         //Metodo donde se realiza el query para insertar los datos en la tabla propuesta_proyecto
         public function insertar_propuesta($datos){
 
+            $hora_inicio_pro = $datos['hora_inicio_pro'];
+            $hora_inicio = new DateTime($hora_inicio_pro);
+            $hora_inicio = $hora_inicio->format('H:i');
+
+            $hora_final_pro = $datos['hora_final_pro'];
+            $hora_final = new DateTime($hora_final_pro);
+            $hora_final = $hora_final->format('H:i');
+
+            $fecha_pro = $datos['fecha_pro'];
+            $fecha = new DateTime($fecha_pro);
+            $fecha = $fecha->format('Ymd');
+
+            $fecha_hoy = date('Ymd');
+
+            $fecha_final = date('Ymd', strtotime('+1 years'));
+
             //Nombre completo
             if( intval(strlen($datos['nombre_encarg'])) == 0 ){
                 $mensaje = "Debe ingresar un nombre de encargado. Vuelva a intentarlo";
@@ -117,6 +133,37 @@
                 $mensaje = "Los materiales del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
+            //Fecha
+            elseif ($fecha_hoy > $fecha) {
+                $mensaje = 'Se debe seleccionar una fecha futura. Vuelva a intentarlo';
+            }
+            elseif ($fecha>$fecha_final){
+                $mensaje = 'El límite máximo para una propuesta es hasta un año de la fecha actual. Vuelva a intentarlo';
+            }
+            elseif($fecha == $fecha_hoy){
+                $mensaje = "Debe ingresar una fecha diferente a la de hoy. Vuelva a intentarlo";
+            }
+
+            //Hora Inicio
+            elseif(empty($datos['hora_inicio_pro'])){
+                $mensaje = 'Debe ingresar una hora de inicio. Vuelva a intentarlo.';
+            }
+            elseif($hora_inicio < '04:00'){
+                $mensaje = 'La hora de inicio debe ser como mínimo a las 4:00 AM. Vuelva a intentarlo.';
+            }
+            elseif($hora_inicio > '21:00'){
+                $mensaje = 'La hora de inicio debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
+            }
+
+            //Hora Final
+            elseif(empty($datos['hora_final_pro'])){
+                $mensaje = 'Debe ingresar una hora de final. Vuelva a intentarlo.';
+            }
+            elseif($hora_final > '21:00'){
+                $mensaje = 'La hora de final debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
+            }
+
+
             if( intval(strlen($datos['nombre_encarg'])) >= 5 and intval(strlen($datos['nombre_encarg'])) <= 80 and
                 intval(strlen($datos['cedula_encarg'])) >= 9 and intval(strlen($datos['cedula_encarg'])) <= 20 and 
                 intval(strlen($datos['telefono_encarg'])) >= 7 and intval(strlen($datos['telefono_encarg'])) <= 8 and
@@ -127,7 +174,11 @@
                 intval($datos['participantes_pro']) >= 1 and intval($datos['participantes_pro']) <= 200 and
                 intval(strlen($datos['describ_pro'])) >= 5 and intval(strlen($datos['describ_pro'])) <=250 and
                 intval(strlen($datos['objetivo_pro'])) >= 5 and intval(strlen($datos['objetivo_pro'])) <=250 and
-                intval(strlen($datos['materiales_pro'])) >= 5 and intval(strlen($datos['materiales_pro'])) <=250
+                intval(strlen($datos['materiales_pro'])) >= 5 and intval(strlen($datos['materiales_pro'])) <=250 and
+                $fecha > $fecha_hoy and $fecha < $fecha_final and
+                !empty($datos['hora_inicio_pro']) and $hora_inicio >= '04:00' and $hora_inicio <= '21:00' and
+                !empty($datos['hora_final_pro']) and $hora_final <= '21:00' and
+                $hora_final > $hora_inicio
             ){
 
                 $nombre_pro = $datos['nombre_pro'];
@@ -161,7 +212,7 @@
                     if (!$this->db->query($sql)){
                         return False;
                     }
-                    $this->registro_exitoso = True;
+                    //$this->registro_exitoso = True;
                     return True;
     
     
@@ -173,7 +224,8 @@
             }
             else{
                 $_SESSION['mensaje_error'] = $mensaje;
-                require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
+                return False;
+                //require_once $_SERVER['/var/www/html'] . 'Views/Layouts/registro_fallido.php';
             }
 
         }

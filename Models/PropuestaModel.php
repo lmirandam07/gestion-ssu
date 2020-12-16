@@ -37,26 +37,26 @@
             $fecha_final = date('Ymd', strtotime('+1 years'));
 
             //Nombre completo
-            if( intval(strlen($datos['nombre_encarg'])) == 0 ){
+            if( intval(strlen($datos['nombre_encarg'])) == 0 ){ //CP-003
                 $mensaje = "Debe ingresar un nombre de encargado. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['nombre_encarg'])) < 5 ){
+            elseif( intval(strlen($datos['nombre_encarg'])) < 5 ){ //CP-002
                 $mensaje = "El nombre del encargado debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Cédula
-            elseif( intval(strlen($datos['cedula_encarg'])) == 0 ){
+            elseif( intval(strlen($datos['cedula_encarg'])) == 0 ){ //CP-007
                 $mensaje = "Debe ingresar una cédula. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['cedula_encarg'])) < 9 ){
+            elseif( intval(strlen($datos['cedula_encarg'])) < 9 ){ //CP-005
                 $mensaje = "La cédula debe contener como mínimo 9 caracteres. Vuelva a intentarlo";
             }
 
             //Teléfono celular
-            elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){
+            elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){ //CP-008
                 $mensaje = "Debe ingresar un teléfono celular. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['telefono_encarg'])) < 7 ){
+            elseif( intval(strlen($datos['telefono_encarg'])) < 7 ){ //CP-009
                 $mensaje = "El teléfono celular debe contener como mínimo 7 números. Vuelva a intentarlo";
             }
             elseif( intval(strlen($datos['telefono_encarg'])) > 8 ){

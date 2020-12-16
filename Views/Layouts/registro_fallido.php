@@ -24,7 +24,7 @@
             </header>
             <section class="modal-card-body">
                 <?php if( empty($_SESSION['mensaje_error']) ){?>
-                    <p class="medium"> La información ingresada excede los límites de algunos campos. Vuelva a intentarlo. </p>
+                    <p class="medium"> La información ingresada excede los límites de algunos campos. Vuelva a intentarlo. </p> <!-- CP-003, CP-007 -->
                 <?php }
                       else{?>
                 <p class="medium"><?php echo $_SESSION['mensaje_error']; }?></p>

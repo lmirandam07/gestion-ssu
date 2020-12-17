@@ -165,7 +165,7 @@
 
 
             if( intval(strlen($datos['nombre_encarg'])) >= 5 and intval(strlen($datos['nombre_encarg'])) <= 80 and
-                intval(strlen($datos['cedula_encarg'])) >= 9 and intval(strlen($datos['cedula_encarg'])) <= 20 and 
+                intval(strlen($datos['cedula_encarg'])) >= 9 and intval(strlen($datos['cedula_encarg'])) <= 20 and
                 intval(strlen($datos['telefono_encarg'])) >= 7 and intval(strlen($datos['telefono_encarg'])) <= 8 and
                 intval(strlen($datos['correo'])) >= 12 and intval(strlen($datos['correo'])) <=30 and
                 intval(strlen($datos['perfil_estu_pro'])) >= 5 and intval(strlen($datos['perfil_estu_pro'])) <= 250 and
@@ -197,25 +197,25 @@
                 $descrip_pro = $datos['describ_pro'];
                 $objetivo_pro = $datos['objetivo_pro'];
                 $materiales_pro = $datos['materiales_pro'];
-    
+
                 $nombre_encarg = $datos['nombre_encarg'];
-    
+
                 $cedula_encarg = $datos['cedula_encarg'];
                 $telefono_encarg = (int)$datos['telefono_encarg'];
                 $correo_encarg = $datos['correo'];
                 $perfil_estu_pro = $datos['perfil_estu_pro'];
                 $sql = "INSERT INTO propuesta_proyecto(nombre_pro,lugar_pro,fecha_pro,hora_inicio_pro,hora_final_pro,participantes_pro,descripcion_pro,objetivo_pro,materiales_pro,nombre_encarg,cedula_encarg,telefono_encarg,correo_encarg,perfil_estu_pro)
                             VALUES('$nombre_pro','$lugar_pro','$fecha','$hora_inicio','$hora_final','$participantes_pro','$descrip_pro','$objetivo_pro','$materiales_pro','$nombre_encarg','$cedula_encarg','$telefono_encarg','$correo_encarg','$perfil_estu_pro');";
-    
+
                 try{
-    
+
                     if (!$this->db->query($sql)){
                         return False;
                     }
                     //$this->registro_exitoso = True;
                     return True;
-    
-    
+
+
                 }
                 catch(Exception $e){
                     echo 'Error encontrado: ', $e->getMessage(), "\n";
@@ -252,7 +252,7 @@
             $arr_tamanos = array();
             $arr_tamanos[0] = $tamano_anios;
             $arr_tamanos[1] = $tamano_facultad;
-            return $arr_tamanos; 
+            return $arr_tamanos;
         }
         //Metodo para el query que retorna el nombre y descripcion de las propuestas para una vista previa
         public function obtener_propuestas($page){
@@ -336,20 +336,13 @@
         //Metodo con el query para actualizar el estado de la propuesta a aprobado
         public function aprobar_propuesta($id_propuesta){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '1' WHERE id_propuesta = '$id_propuesta';";
-            try{
-                $this->db->query($sql);
 
-            }catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            if(!$this->db->query($sql)) {
+                return False;
             }
 
 
-            try{
-                $consulta = $this->db->query("SELECT * FROM propuesta_proyecto WHERE id_propuesta = '$id_propuesta';");
-
-            }catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
-            }
+            $consulta = $this->db->query("SELECT * FROM propuesta_proyecto WHERE id_propuesta = '$id_propuesta';");
 
             while($filas= $consulta->fetch_assoc()){
 
@@ -357,40 +350,24 @@
 
             }
 
-            try{
-                /*$insert = $this->db->query("INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro)
-                                                VALUES('$nuevo_proyecto[nombre_pro]', '$id_propuesta', '$nuevo_proyecto[lugar_pro]', '$nuevo_proyecto[fecha_pro]', '$nuevo_proyecto[hora_inicio_pro]', '$nuevo_proyecto[hora_final_pro]', '$nuevo_proyecto[participantes_pro]', '$nuevo_proyecto[descripcion_pro]', '$nuevo_proyecto[objetivo_pro]', '$nuevo_proyecto[materiales_pro]', '$nuevo_proyecto[nombre_encarg]', '$nuevo_proyecto[cedula_encarg]', '$nuevo_proyecto[telefono_encarg]', '$nuevo_proyecto[correo_encarg]', '$nuevo_proyecto[perfil_estu_pro]');");
-            */
-
-
             $a = array();
             $a = $nuevo_proyecto[0];
-            $insert = $this->db->query("INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro)
-                                                VALUES('$a[nombre_pro]', '$id_propuesta', '$a[lugar_pro]', '$a[fecha_pro]', '$a[hora_inicio_pro]', '$a[hora_final_pro]', '$a[participantes_pro]', '$a[descripcion_pro]', '$a[objetivo_pro]', '$a[materiales_pro]', '$a[nombre_encarg]', '$a[cedula_encarg]', '$a[telefono_encarg]', '$a[correo_encarg]', '$a[perfil_estu_pro]');");
 
-            }catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
+            $insert = "INSERT INTO proyecto(nombre_pro, id_propuesta, lugar_pro, fecha_pro, hora_inicio_pro, hora_final_pro, participantes_pro, descripcion_pro, objetivo_pro, materiales_pro, nombre_encarg, cedula_encarg, telefono_encarg, correo_encarg, perfil_estu_pro) VALUES('$a[nombre_pro]', '$id_propuesta', '$a[lugar_pro]', '$a[fecha_pro]', '$a[hora_inicio_pro]', '$a[hora_final_pro]', '$a[participantes_pro]', '$a[descripcion_pro]', '$a[objetivo_pro]', '$a[materiales_pro]', '$a[nombre_encarg]', '$a[cedula_encarg]', '$a[telefono_encarg]', '$a[correo_encarg]', '$a[perfil_estu_pro]');";
+
+            if(!$this->db->query($insert)) {
+                return False;
             }
 
+            return True;
 
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
-            
-            /*
-            try{
-                $this->db->query($sql);
-                return True;
 
-            }catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
-                return False;
-            }
-            */
-            
             $tamano = intval(strlen($motivo));
-            
+
 
             if($tamano < 5){
                 return False;

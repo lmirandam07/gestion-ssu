@@ -364,7 +364,11 @@
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> cfa19d832258c4bc39d518f6a1dba2b62a849f49
             if(intval(strlen($motivo)) == 0){
                 $mensaje = 'Debe ingresar un motivo de rechazo. Vuelva a intentarlo.';
             }
@@ -390,6 +394,12 @@
                 $_SESSION['mensaje_error'] = $mensaje;
                 return False;
             }
+<<<<<<< HEAD
+=======
+            
+            $tamano = intval(strlen($motivo));
+
+>>>>>>> cfa19d832258c4bc39d518f6a1dba2b62a849f49
 
 
         }

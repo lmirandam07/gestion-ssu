@@ -378,9 +378,10 @@
         <?php echo"<form class='modal-card' action='?controller=Rechazar&Propuesta=".$id_propuesta."' method='POST'>"?>
             <header class="modal-card-head">
                 <p class="modal-card-title">Motivo de rechazo</p>
+                <a class="button" href="../../route.php?controller=Ver_Propuestas&Page=1" ><i class="fas fa-times"></i></a>
             </header>
             <section class="modal-card-body">
-                <textarea class="textarea" name="motivo-rechazo" minlength="5" maxlength="250" required></textarea>
+                <textarea class="textarea" name="motivo-rechazo"></textarea>
             </section>
             <footer class="modal-card-foot">
                 <button class="button boton" type="submit">Enviar</button>

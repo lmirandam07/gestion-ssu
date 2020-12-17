@@ -53,114 +53,114 @@
             }
 
             //Teléfono celular
-            elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){ //CP-008
+            elseif( intval(strlen($datos['telefono_encarg'])) == 0 ){ //CP-008, CP-011
                 $mensaje = "Debe ingresar un teléfono celular. Vuelva a intentarlo";
             }
             elseif( intval(strlen($datos['telefono_encarg'])) < 7 ){ //CP-009
                 $mensaje = "El teléfono celular debe contener como mínimo 7 números. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['telefono_encarg'])) > 8 ){
+            elseif( intval(strlen($datos['telefono_encarg'])) > 8 ){ //CP-010
                 $mensaje = "La cédula debe contener como máximo 8 números. Vuelva a intentarlo";
             }
 
             //Correo electrónico
-            elseif( intval(strlen($datos['correo'])) == 0 ){
+            elseif( intval(strlen($datos['correo'])) == 0 ){ //CP-014
                 $mensaje = "Debe ingresar un correo electrónico. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['correo'])) < 12 ){
+            elseif( intval(strlen($datos['correo'])) < 12 ){ //CP-012
                 $mensaje = "El correo electrónico debe contener como mínimo 12 caracteres. Vuelva a intentarlo";
             }
 
             //Perfil de Estudiante
-            elseif( intval(strlen($datos['perfil_estu_pro'])) == 0 ){
+            elseif( intval(strlen($datos['perfil_estu_pro'])) == 0 ){ //CP-017
                 $mensaje = "Debe ingresar un perfil de estudiante. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['perfil_estu_pro'])) < 5 ){
+            elseif( intval(strlen($datos['perfil_estu_pro'])) < 5 ){ //CP-015
                 $mensaje = "El perfil de estudiante debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Nombre
-            elseif( intval(strlen($datos['nombre_pro'])) == 0 ){
+            elseif( intval(strlen($datos['nombre_pro'])) == 0 ){ //CP-022
                 $mensaje = "Debe ingresar un nombre de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['nombre_pro'])) < 5 ){
+            elseif( intval(strlen($datos['nombre_pro'])) < 5 ){ //CP-020
                 $mensaje = "El nombre del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Lugar
-            elseif( intval(strlen($datos['lugar_pro'])) == 0 ){
+            elseif( intval(strlen($datos['lugar_pro'])) == 0 ){ //CP-025
                 $mensaje = "Debe ingresar un lugar de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['lugar_pro'])) < 5 ){
+            elseif( intval(strlen($datos['lugar_pro'])) < 5 ){ //CP-023
                 $mensaje = "El lugar de proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Cantidad de Estudiantes
-            elseif( empty($datos['participantes_pro']) ){
+            elseif( empty($datos['participantes_pro']) ){ //CP-036, CP-039
                 $mensaje = "Debe ingresar como mínimo un participante de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval($datos['participantes_pro']) < 0 ){
+            elseif( intval($datos['participantes_pro']) < 0 ){ //CP-037
                 $mensaje = "Debe ingresar una cantidad de participantes positiva. Vuelva a intentarlo";
             }
-            elseif( intval($datos['participantes_pro']) > 200 ){
+            elseif( intval($datos['participantes_pro']) > 200 ){ //CP-038
                 $mensaje = "La cantidad de participantes debe ser como máximo 200. Vuelva a intentarlo";
-            }
-            elseif(empty($datos['participantes_pro'])){
-                $mensaje = "Debe ingresar una cantidad de participantes. Vuelva a intentarlo";
             }
 
             //Descripción
-            elseif( intval(strlen($datos['describ_pro'])) == 0 ){
+            elseif( intval(strlen($datos['describ_pro'])) == 0 ){ //CP-042
                 $mensaje = "Debe ingresar una descripción de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['describ_pro'])) < 5 ){
+            elseif( intval(strlen($datos['describ_pro'])) < 5 ){ //CP-040
                 $mensaje = "La descripción del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Objetivo
-            elseif( intval(strlen($datos['objetivo_pro'])) == 0 ){
+            elseif( intval(strlen($datos['objetivo_pro'])) == 0 ){ //CP-045
                 $mensaje = "Debe ingresar un objetivo de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['objetivo_pro'])) < 5 ){
+            elseif( intval(strlen($datos['objetivo_pro'])) < 5 ){ //CP-043
                 $mensaje = "El objetivo del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Materiales
-            elseif( intval(strlen($datos['materiales_pro'])) == 0 ){
+            elseif( intval(strlen($datos['materiales_pro'])) == 0 ){ //CP-048
                 $mensaje = "Debe ingresar un material de proyecto. Vuelva a intentarlo";
             }
-            elseif( intval(strlen($datos['materiales_pro'])) < 5 ){
+            elseif( intval(strlen($datos['materiales_pro'])) < 5 ){ //CP-046
                 $mensaje = "Los materiales del proyecto debe contener como mínimo 5 caracteres. Vuelva a intentarlo";
             }
 
             //Fecha
-            elseif ($fecha_hoy > $fecha) {
+            elseif ($fecha_hoy > $fecha) { //CP-026
                 $mensaje = 'Se debe seleccionar una fecha futura. Vuelva a intentarlo';
             }
-            elseif ($fecha>$fecha_final){
+            elseif ($fecha>$fecha_final){ //CP-027
                 $mensaje = 'El límite máximo para una propuesta es hasta un año de la fecha actual. Vuelva a intentarlo';
             }
-            elseif($fecha == $fecha_hoy){
+            elseif($fecha == $fecha_hoy){ //CP-028
                 $mensaje = "Debe ingresar una fecha diferente a la de hoy. Vuelva a intentarlo";
             }
 
             //Hora Inicio
-            elseif(empty($datos['hora_inicio_pro'])){
+            elseif(empty($datos['hora_inicio_pro'])){ //CP-032
                 $mensaje = 'Debe ingresar una hora de inicio. Vuelva a intentarlo.';
             }
-            elseif($hora_inicio < '04:00'){
+            elseif($hora_inicio < '04:00'){ //CP-029
                 $mensaje = 'La hora de inicio debe ser como mínimo a las 4:00 AM. Vuelva a intentarlo.';
             }
-            elseif($hora_inicio > '21:00'){
+            elseif($hora_inicio > '21:00'){ //CP-030
                 $mensaje = 'La hora de inicio debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
             }
 
             //Hora Final
-            elseif(empty($datos['hora_final_pro'])){
+            elseif(empty($datos['hora_final_pro'])){ //CP-035
                 $mensaje = 'Debe ingresar una hora de final. Vuelva a intentarlo.';
             }
-            elseif($hora_final > '21:00'){
+            elseif($hora_final > '21:00'){ //CP-033
                 $mensaje = 'La hora de final debe ser como máximo a las 9:00 PM. Vuelva a intentarlo.';
+            }
+            elseif($hora_inicio > $hora_final){ //CP-031, CP-034
+                $mensaje = 'La hora de inicio debe ser menor que la hora final. Vuelva a intentarlo.';
             }
 
 
@@ -364,8 +364,51 @@
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
+<<<<<<< HEAD
             $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
 
+=======
+            
+            if(intval(strlen($motivo)) == 0){
+                $mensaje = 'Debe ingresar un motivo de rechazo. Vuelva a intentarlo.';
+            }
+            elseif(intval(strlen($motivo)) < 5){
+                $mensaje = 'El motivo de rechazo debe tener como mínimo 5 caracteres. Vuelva a intentarlo.';
+            }
+            elseif(intval(strlen($motivo)) > 250){
+                $mensaje = 'El motivo de rechazo debe tener como máximo 250 caracteres. Vuelva a intentarlo.';
+            }
+
+            if( intval(strlen($motivo)) >= 5 and intval(strlen($motivo)) <= 250){
+                $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
+                
+                if ($this->db->query($sql) == True){
+                    return True;
+                }
+                else{
+                    return False;
+                }
+
+            }
+            else{
+                $_SESSION['mensaje_error'] = $mensaje;
+                return False; 
+            }
+            
+            /*
+            $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
+            
+            
+            try{
+                $this->db->query($sql);
+                return True;
+
+            }catch(Exception $e){
+                echo 'Error encontrado: ', $e->getMessage(), "\n";
+                return False;
+            }
+            
+>>>>>>> 9d990fa7038b77c90318a637f90d7a727a391d7c
             $tamano = intval(strlen($motivo));
 
 
@@ -378,6 +421,7 @@
             else{
                 return False;
             }
+            */
 
         }
 

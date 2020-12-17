@@ -58,7 +58,11 @@ class PropuestaController
     function rechazar_propuesta($id_propuesta, $motivo)
     {
         $propuesta = new PropuestaModel();
-        $propuesta->rechazar_propuesta($id_propuesta, $motivo);
-        require_once $_SERVER['/var/www/html'] . 'Views/Layouts/rechazar_propuesta.php';
+        $resultado = $propuesta->rechazar_propuesta($id_propuesta, $motivo);
+        if ($resultado == True) {
+            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/rechazar_propuesta_exitoso.php';
+        } else {
+            require_once $_SERVER['/var/www/html'] . 'Views/Layouts/rechazar_propuesta_fallido.php';
+        }
     }
 }

@@ -364,11 +364,7 @@
         }
         //Metodo con el query para actualizar el estado de la propuesta a rechazada
         public function rechazar_propuesta($id_propuesta, $motivo){
-<<<<<<< HEAD
-            $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
 
-=======
-            
             if(intval(strlen($motivo)) == 0){
                 $mensaje = 'Debe ingresar un motivo de rechazo. Vuelva a intentarlo.';
             }
@@ -381,7 +377,7 @@
 
             if( intval(strlen($motivo)) >= 5 and intval(strlen($motivo)) <= 250){
                 $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
-                
+
                 if ($this->db->query($sql) == True){
                     return True;
                 }
@@ -392,36 +388,9 @@
             }
             else{
                 $_SESSION['mensaje_error'] = $mensaje;
-                return False; 
-            }
-            
-            /*
-            $sql = "UPDATE propuesta_proyecto SET id_estado = '2', motivo_rechazo = '$motivo' WHERE id_propuesta = '$id_propuesta';";
-            
-            
-            try{
-                $this->db->query($sql);
-                return True;
-
-            }catch(Exception $e){
-                echo 'Error encontrado: ', $e->getMessage(), "\n";
                 return False;
             }
-            
->>>>>>> 9d990fa7038b77c90318a637f90d7a727a391d7c
-            $tamano = intval(strlen($motivo));
 
-
-            if($tamano < 5){
-                return False;
-            }
-            elseif ($this->db->query($sql) == True){
-                return True;
-            }
-            else{
-                return False;
-            }
-            */
 
         }
 
